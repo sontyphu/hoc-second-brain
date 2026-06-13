@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lớp Wiki AI — Xây dựng Bộ Não Thứ 2 | Lê Thanh Sơn</title>
+<meta name="description" content="Cohort beta MIỄN PHÍ: tự tay xây bộ não thứ 2 — kho kiến thức cá nhân được AI quản lý. Cầm tay 1-1 cùng Lê Thanh Sơn. Chỉ 2–3 suất, hạn 15/06." />
+<meta property="og:title" content="Lớp Wiki AI — Xây dựng Bộ Não Thứ 2" />
+<meta property="og:description" content="Cohort beta MIỄN PHÍ — cầm tay 1-1 xây kho kiến thức cá nhân được AI quản lý. Chỉ 2–3 suất." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0f172a; --muted:#475569; --line:#e2e8f0;
+    --primary:#4f46e5; --primary-d:#3730a3; --violet:#7c3aed;
+    --accent:#f59e0b; --accent-d:#d97706;
+    --bg:#ffffff; --soft:#f8fafc; --soft2:#f1f5f9;
+    --ok:#16a34a; --radius:16px;
+    --shadow:0 10px 30px -12px rgba(15,23,42,.18);
+    --shadow-lg:0 24px 60px -20px rgba(49,46,129,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Be Vietnam Pro',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{width:100%;max-width:920px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{line-height:1.25;font-weight:800;letter-spacing:-.01em}
+  h2{font-size:clamp(24px,4.5vw,34px);margin-bottom:14px}
+  h3{font-size:19px;font-weight:700}
+  p{color:var(--muted)}
+  section{padding:54px 0}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);background:#eef2ff;padding:6px 12px;border-radius:999px;margin-bottom:16px}
+
+  /* HERO */
+  .hero{position:relative;color:#fff;overflow:hidden;
+    background:radial-gradient(1200px 600px at 80% -10%,#7c3aed 0%,transparent 55%),linear-gradient(135deg,#312e81 0%,#4f46e5 60%,#6d28d9 100%)}
+  .hero:before{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.18) 1px,transparent 0);background-size:26px 26px;opacity:.35}
+  .hero .wrap{position:relative;padding-top:56px;padding-bottom:60px}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#231300;font-weight:800;font-size:14px;padding:8px 16px;border-radius:999px;box-shadow:0 6px 20px -6px rgba(245,158,11,.7)}
+  .hero h1{font-size:clamp(30px,6.2vw,52px);color:#fff;margin:18px 0 14px}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,#fde68a,#fbbf24);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:clamp(17px,2.4vw,21px);color:#e0e7ff;max-width:640px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:14px;font-weight:600;padding:8px 14px;border-radius:10px;backdrop-filter:blur(6px)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:17px;padding:15px 28px;border-radius:12px;cursor:pointer;border:none;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease}
+  .btn-primary{background:var(--accent);color:#231300;box-shadow:0 10px 26px -8px rgba(245,158,11,.65)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -8px rgba(245,158,11,.7)}
+  .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+  .btn-ghost:hover{background:rgba(255,255,255,.18)}
+  .btn-block{width:100%;font-size:18px;padding:17px}
+
+  /* PROBLEM */
+  .grid{display:grid;gap:18px}
+  .cards-3{grid-template-columns:repeat(3,1fr)}
+  .cards-2{grid-template-columns:repeat(2,1fr)}
+  .card{background:var(--soft);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .card .ic{font-size:26px;margin-bottom:10px;display:block}
+  .card h3{margin-bottom:6px}
+  .card p{font-size:15px}
+
+  .soft{background:var(--soft)}
+  .center{text-align:center}
+  .center p{max-width:640px;margin-left:auto;margin-right:auto}
+
+  /* BENEFITS list */
+  .benefits{display:grid;gap:14px;margin-top:8px}
+  .brow{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+  .brow .num{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--primary),var(--violet))}
+  .brow b{color:var(--ink)}
+  .brow span{font-size:15px;color:var(--muted)}
+
+  /* DEAL box */
+  .deal{background:linear-gradient(135deg,#fffbeb,#fff7ed);border:2px solid #fcd34d;border-radius:20px;padding:30px}
+  .deal .tag{color:var(--accent-d);font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+  .deal ul{list-style:none;margin-top:14px;display:grid;gap:11px}
+  .deal li{position:relative;padding-left:26px;font-weight:600;color:var(--ink);font-size:16px;line-height:1.5}
+  .deal li:before{content:"✦";position:absolute;left:0;top:0;color:var(--accent-d);font-weight:800}
+
+  /* conditions / fit */
+  .check li,.cross li{position:relative;padding-left:36px;margin-bottom:11px;font-size:15.5px;color:var(--ink);line-height:1.5}
+  ul.check,ul.cross{list-style:none}
+  .check li:before{content:"✓";position:absolute;left:0;top:1px;color:#fff;background:var(--ok);width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:14px}
+  .cross li:before{content:"✕";position:absolute;left:0;top:1px;color:#fff;background:#94a3b8;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:13px}
+
+  /* instructor */
+  .host{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+  .host .ava{flex:none;width:92px;height:92px;border-radius:20px;background:linear-gradient(135deg,var(--primary),var(--violet));display:grid;place-items:center;color:#fff;font-size:36px;font-weight:800;box-shadow:var(--shadow)}
+  .host .info{flex:1;min-width:240px}
+
+  /* FORM */
+  #dangky{background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff}
+  #dangky h2{color:#fff}
+  #dangky .center p{color:#c7d2fe}
+  .formcard{background:#fff;color:var(--ink);border-radius:22px;padding:30px;max-width:640px;margin:26px auto 0;box-shadow:var(--shadow-lg)}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-weight:700;font-size:14.5px;margin-bottom:7px}
+  .field label .req{color:#dc2626}
+  .field input,.field select,.field textarea{width:100%;font-family:inherit;font-size:16px;padding:13px 15px;border:1.6px solid var(--line);border-radius:11px;background:var(--soft);transition:border-color .15s,box-shadow .15s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px #e0e7ff;background:#fff}
+  .field textarea{resize:vertical;min-height:80px}
+  .consent{display:flex;gap:11px;align-items:flex-start;background:#fffbeb;border:1.5px solid #fcd34d;border-radius:12px;padding:14px;margin:6px 0 18px}
+  .consent input{margin-top:4px;width:18px;height:18px;flex:none;accent-color:var(--accent-d)}
+  .consent label{font-size:14px;color:#451a03;font-weight:500;line-height:1.5}
+  .hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+  .formnote{text-align:center;font-size:13px;color:var(--muted);margin-top:12px}
+  .success{display:none;text-align:center;padding:18px}
+  .success .big{font-size:46px}
+  .success h3{font-size:22px;margin:8px 0}
+  .err{display:none;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;border-radius:10px;padding:11px 14px;font-size:14px;font-weight:600;margin-bottom:14px}
+
+  /* FAQ */
+  details{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:0;margin-bottom:12px;overflow:hidden}
+  details summary{cursor:pointer;font-weight:700;padding:17px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:16px}
+  details summary::-webkit-details-marker{display:none}
+  details summary:after{content:"+";font-size:24px;color:var(--primary);font-weight:400;transition:transform .2s}
+  details[open] summary:after{transform:rotate(45deg)}
+  details .ans{padding:0 20px 18px;font-size:15px;color:var(--muted)}
+
+  footer{background:#0b1020;color:#94a3b8;text-align:center;padding:34px 20px;font-size:14px}
+  footer b{color:#e2e8f0}
+
+  /* sticky mobile CTA */
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;padding:11px 16px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line);box-shadow:0 -8px 24px -12px rgba(0,0,0,.2)}
+
+  @media(max-width:760px){
+    body{font-size:16px}
+    section{padding:42px 0}
+    .cards-3,.cards-2{grid-template-columns:1fr}
+    .hero .wrap{padding-top:40px}
+    .btn{width:100%}
+    .sticky-cta{display:block}
+    .sticky-cta .btn{margin:0}
+    #dangky{padding-bottom:90px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">🎁 Cohort beta · Học MIỄN PHÍ · chỉ 2–3 suất</span>
+    <h1>Tự tay xây <em>Bộ Não Thứ 2</em> — kho kiến thức được AI tự quản lý</h1>
+    <p class="lede">Bạn thả tài liệu vào, AI đọc, viết lại thành kho tri thức gọn gàng, liên kết và tra cứu được — thay vì để mọi thứ trôi nổi trong đầu và 47 tab đang mở.</p>
+    <div class="hero-meta">
+      <span class="chip">🧠 Lớp Wiki AI — Cấp nền tảng</span>
+      <span class="chip">👐 Cầm tay 1-1 cùng Lê Thanh Sơn</span>
+      <span class="chip">⏳ Hạn đăng ký: 15/06</span>
+    </div>
+    <div class="cta-row">
+      <a href="#dangky" class="btn btn-primary">Đăng ký giữ suất miễn phí →</a>
+      <a href="#deal" class="btn btn-ghost">Vì sao miễn phí?</a>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section>
+  <div class="wrap">
+    <div class="center"><h2>Kiến thức bạn tích cóp đang… bốc hơi mỗi ngày</h2>
+    <p>Đọc nhiều, lưu nhiều, nhưng đến lúc cần thì không tìm lại được. Quen thuộc chứ?</p></div>
+    <div class="grid cards-3" style="margin-top:30px">
+      <div class="card"><span class="ic">🗂️</span><h3>Lưu mà không dùng lại</h3><p>Ghi chú nằm rải rác ở Notion, Zalo, ảnh chụp màn hình, file Word… cần thì chịu, không biết nó ở đâu.</p></div>
+      <div class="card"><span class="ic">🌀</span><h3>Tự sắp xếp thì bỏ cuộc</h3><p>App nào cũng bắt bạn tự tổ chức, tự gắn thẻ, tự dọn. Được vài tuần là loạn rồi bỏ.</p></div>
+      <div class="card"><span class="ic">🤖</span><h3>Có AI mà chưa biết xài vào việc thật</h3><p>Nghe AI khắp nơi nhưng vẫn copy-paste thủ công từng đoạn, chưa biến nó thành trợ lý quản lý kiến thức.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION / BENEFITS -->
+<section class="soft">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Giải pháp</span><h2>Một bộ não thứ 2 — và AI là người vận hành nó</h2>
+    <p>Sau lớp này, bạn có một hệ thống chạy theo đúng một nguyên tắc: <b>AI viết, bạn duyệt</b>.</p></div>
+    <div class="benefits">
+      <div class="brow"><span class="num">1</span><span><b>Kho kiến thức "Brain" riêng của bạn</b> — AI đọc tài liệu một lần, viết thành trang wiki có cấu trúc và tự liên kết. Không phải đọc lại từ đầu mỗi khi cần.</span></div>
+      <div class="brow"><span class="num">2</span><span><b>Tra cứu bằng cách hỏi</b> — “Tổng hợp giúp tôi mọi thứ đã ghi về X”. AI trả lời kèm nguồn, thay vì bạn lục từng file.</span></div>
+      <div class="brow"><span class="num">3</span><span><b>AI tự lo phần lộn xộn</b> — gắn liên kết, dọn trùng lặp, giữ kho sạch. Bạn chỉ ra quyết định và duyệt.</span></div>
+      <div class="brow"><span class="num">4</span><span><b>Nền tảng để tiến xa hơn</b> — khi kho đã chạy, đây là bệ phóng để sau này cho AI <i>tự thực thi</i> công việc (Agent), không chỉ trả lời.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEAL: why free -->
+<section id="deal">
+  <div class="wrap">
+    <div class="deal">
+      <span class="tag">Minh bạch chuyện "miễn phí"</span>
+      <h2 style="margin-top:8px">Vì sao tôi mở lớp này miễn phí?</h2>
+      <p style="color:#7c2d12">Thẳng thắn: đây là <b>cohort beta đầu tiên</b>. Tôi đang hoàn thiện lớp và cần người học thật để biết chỗ nào còn vướng. Bạn học không mất học phí — đổi lại, bạn cam kết giúp tôi 3 việc:</p>
+      <ul>
+        <li>Cho <b>feedback thẳng thắn</b>: chỗ nào dễ, chỗ nào tắc, chỗ nào cần sửa.</li>
+        <li>Viết một <b>nhận xét (testimonial)</b> sau khi xây xong bộ não của mình.</li>
+        <li>Cho phép tôi dùng <b>hình ảnh / đánh giá của bạn cho truyền thông</b> lớp.</li>
+      </ul>
+      <p style="margin-top:14px;color:#7c2d12"><b>Đây là trao đổi sòng phẳng</b> — không phải học chùa. Vì cầm tay 1-1 nên tôi chỉ nhận <b>2–3 người</b> nghiêm túc cho đợt này. Giá niêm yết chính thức của lớp sau beta là <b>500.000đ</b>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS + FIT -->
+<section class="soft">
+  <div class="wrap">
+    <h2 class="center">Điều kiện tham gia</h2>
+    <div class="grid cards-2" style="margin-top:26px">
+      <div class="card">
+        <h3 style="margin-bottom:14px">✅ Bạn cần có sẵn</h3>
+        <ul class="check">
+          <li><b>Tài khoản Claude Pro</b> (~500k/tháng) — đây là công cụ AI để vận hành kho. <i>Phí công cụ riêng, không phải học phí lớp.</i></li>
+          <li>Một <b>máy tính</b> (Windows / macOS đều được).</li>
+          <li><b>2–3 giờ tuần đầu</b> để cài đặt và xây kho đầu tiên.</li>
+          <li>Tinh thần <b>chịu làm thật</b> — đây là lớp thực hành, không phải nghe rồi để đó.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:14px">🎯 Lớp này hợp / không hợp với ai</h3>
+        <ul class="check">
+          <li>Chủ doanh nghiệp, chuyên gia, người làm nội dung muốn quản lý kiến thức có hệ thống.</li>
+          <li>Người muốn dùng AI làm "trợ lý quản lý kiến thức", không chỉ chat dạo.</li>
+        </ul>
+        <ul class="cross" style="margin-top:8px">
+          <li>Người tìm "mẹo AI nhanh", ngại làm thực hành.</li>
+          <li>Người chưa sẵn sàng đầu tư tài khoản Claude Pro.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="center" style="margin-top:18px;font-size:14.5px">Không cần biết lập trình. Không cần biết kỹ thuật. Mọi bước cài đặt và dòng lệnh sẽ được hướng dẫn cầm tay.</p>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section>
+  <div class="wrap">
+    <div class="host">
+      <div class="ava">S</div>
+      <div class="info">
+        <span class="eyebrow">Người hướng dẫn</span>
+        <h2 style="margin-bottom:8px">Lê Thanh Sơn</h2>
+        <p>Chuyên gia &amp; diễn giả đào tạo doanh nghiệp ứng dụng AI để tăng trưởng. Tôi giúp chủ doanh nghiệp và người đi làm <b>dùng AI thật vào việc thật</b> — không lý thuyết suông, làm được ngay. Bộ não thứ 2 là hệ thống chính tôi đang dùng mỗi ngày để vận hành công việc, và đây là lớp tôi cầm tay bạn dựng lại nó cho riêng mình.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section id="dangky">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow" style="background:rgba(255,255,255,.12);color:#fde68a">Đăng ký</span>
+      <h2>Giữ 1 trong 2–3 suất miễn phí</h2>
+      <p>Điền thông tin bên dưới. Tôi sẽ liên hệ trực tiếp để xác nhận và xếp lịch buổi đầu. Hạn chót: <b>15/06</b>.</p>
+    </div>
+
+    <div class="formcard">
+      <form id="regForm" novalidate>
+        <div class="err" id="formErr">Vui lòng điền đủ các ô bắt buộc (*) và tick cam kết tham gia.</div>
+
+        <div class="field">
+          <label>Họ và tên <span class="req">*</span></label>
+          <input type="text" name="hoten" required placeholder="Nguyễn Văn A" />
+        </div>
+        <div class="field">
+          <label>Số điện thoại / Zalo <span class="req">*</span></label>
+          <input type="tel" name="sdt" required placeholder="09xx xxx xxx" />
+        </div>
+        <div class="field">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" name="email" required placeholder="email@cua-ban.com" />
+        </div>
+        <div class="field">
+          <label>Bạn đã có tài khoản Claude Pro chưa? <span class="req">*</span></label>
+          <select name="claude_pro" required>
+            <option value="">— Chọn —</option>
+            <option>Đã có Claude Pro</option>
+            <option>Chưa có, nhưng sẵn sàng đăng ký</option>
+            <option>Chưa rõ, cần tư vấn thêm</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Công việc / lĩnh vực của bạn</label>
+          <input type="text" name="nghe" placeholder="VD: chủ shop, marketer, luật sư, coach…" />
+        </div>
+        <div class="field">
+          <label>Vì sao bạn muốn xây bộ não thứ 2? (1–2 câu)</label>
+          <textarea name="lydo" placeholder="Giúp tôi hiểu bạn đang cần gì để xếp đúng người."></textarea>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" name="camket" id="camket" required />
+          <label for="camket">Tôi hiểu đây là <b>cohort beta đổi chác</b>: học miễn phí và đồng ý cho feedback, viết nhận xét, cùng cho phép dùng hình ảnh/đánh giá của tôi cho truyền thông lớp.</label>
+        </div>
+
+        <!-- honeypot chống spam -->
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Đăng ký giữ suất ngay →</button>
+        <p class="formnote">🔒 Thông tin chỉ dùng để liên hệ về lớp học. Không spam, không chia sẻ cho bên thứ ba.</p>
+      </form>
+
+      <div class="success" id="successBox">
+        <div class="big">🎉</div>
+        <h3>Đã nhận đăng ký của bạn!</h3>
+        <p>Tôi sẽ liên hệ qua điện thoại/Zalo trong thời gian sớm nhất để xác nhận suất và xếp lịch buổi đầu. Nếu cần gấp, cứ nhắn trực tiếp cho tôi nhé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="soft">
+  <div class="wrap">
+    <h2 class="center" style="margin-bottom:26px">Câu hỏi thường gặp</h2>
+    <details><summary>Tôi không biết lập trình, học được không?</summary><div class="ans">Được. Bạn chỉ cần biết copy-paste và gõ vài lệnh cơ bản — mọi bước được hướng dẫn cầm tay. Không cần kiến thức lập trình.</div></details>
+    <details><summary>Tôi dùng máy Windows thì sao?</summary><div class="ans">Hoàn toàn ổn. Mọi công cụ (Obsidian, Claude) đều chạy trên Windows và macOS. Lớp cầm tay nên sẽ hỗ trợ đúng theo máy của bạn.</div></details>
+    <details><summary>Vì sao bắt buộc có Claude Pro?</summary><div class="ans">Đây là công cụ AI trực tiếp đọc/ghi file để vận hành kho của bạn. Bản miễn phí không đủ sức làm việc với file lớn lâu dài. Phí ~500k/tháng là chi phí công cụ riêng, tách khỏi lớp học.</div></details>
+    <details><summary>Mất bao lâu để chạy được?</summary><div class="ans">Sau buổi xây kho đầu tiên (vài giờ) là bộ não đã dùng được. Toàn bộ lộ trình khoảng 15–20 giờ, trải dài 1–2 tuần, làm tới đâu dùng được tới đó.</div></details>
+    <details><summary>"Miễn phí" có ràng buộc gì không?</summary><div class="ans">Có — và tôi nói thẳng: bạn học miễn phí, đổi lại cam kết cho feedback, viết một nhận xét và cho phép dùng hình ảnh/đánh giá cho truyền thông. Đây là trao đổi sòng phẳng giúp tôi hoàn thiện lớp.</div></details>
+  </div>
+</section>
+
+<footer>
+  <p><b>Lớp Wiki AI — Xây dựng Bộ Não Thứ 2</b></p>
+  <p style="margin-top:6px">Hướng dẫn bởi Lê Thanh Sơn · Cohort beta · Chỉ 2–3 suất · Hạn 15/06</p>
+</footer>
+
+<!-- sticky mobile CTA -->
+<div class="sticky-cta"><a href="#dangky" class="btn btn-primary btn-block">Đăng ký giữ suất miễn phí →</a></div>
+
+<script>
+  // ====== CẤU HÌNH ======
+  // Dán URL webhook Make vào đây sau khi tạo scenario (bước 6).
+  var WEBHOOK_URL = "https://hook.eu2.make.com/ingb63slmy0uvus4ark9leqn23pnic8m";
+  // ======================
+
+  var form = document.getElementById('regForm');
+  var errBox = document.getElementById('formErr');
+  var successBox = document.getElementById('successBox');
+  var submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errBox.style.display = 'none';
+
+    // honeypot: bot điền -> bỏ qua im lặng
+    if (form.website.value.trim() !== '') { return; }
+
+    if (!form.checkValidity() || !form.camket.checked){
+      errBox.style.display = 'block';
+      errBox.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+
+    var data = {
+      hoten: form.hoten.value.trim(),
+      sdt: form.sdt.value.trim(),
+      email: form.email.value.trim(),
+      claude_pro: form.claude_pro.value,
+      nghe: form.nghe.value.trim(),
+      lydo: form.lydo.value.trim(),
+      lop: "Wiki AI - Bo nao thu 2 (beta B1 free)",
+      nguon: location.href,
+      thoi_gian: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', hour12: false })
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Đang gửi…';
+
+    var done = function(){
+      form.style.display = 'none';
+      successBox.style.display = 'block';
+      successBox.scrollIntoView({behavior:'smooth', block:'center'});
+    };
+
+    if (!WEBHOOK_URL || WEBHOOK_URL.indexOf('__MAKE') === 0){
+      // chưa nối webhook (đang xem thử) -> vẫn hiện thành công để kiểm tra giao diện
+      setTimeout(done, 600);
+      return;
+    }
+
+    // Gửi dạng form-urlencoded với 1 trường "value" chứa JSON
+    // → khớp mẫu Make: ParseJSON({{1.value}}). no-cors tránh lỗi CORS từ trang tĩnh.
+    fetch(WEBHOOK_URL, {
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body: 'value=' + encodeURIComponent(JSON.stringify(data))
+    }).then(done).catch(done);
+  });
+</script>
+</body>
+</html>
