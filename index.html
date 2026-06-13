@@ -80,10 +80,12 @@
   .deal li:before{content:"✦";position:absolute;left:0;top:0;color:var(--accent-d);font-weight:800}
 
   /* conditions / fit */
-  .check li,.cross li{position:relative;padding-left:36px;margin-bottom:11px;font-size:15.5px;color:var(--ink);line-height:1.5}
+  .check li,.cross li{position:relative;padding-left:30px;margin-bottom:10px;font-size:15.5px;color:var(--ink);line-height:1.55}
   ul.check,ul.cross{list-style:none}
-  .check li:before{content:"✓";position:absolute;left:0;top:1px;color:#fff;background:var(--ok);width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:14px}
-  .cross li:before{content:"✕";position:absolute;left:0;top:1px;color:#fff;background:#94a3b8;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:13px}
+  .check li:before{content:"✓";position:absolute;left:0;top:2px;color:var(--primary);background:#eef2ff;width:21px;height:21px;border-radius:6px;display:grid;place-items:center;font-weight:800;font-size:12px}
+  .cross li:before{content:"✕";position:absolute;left:0;top:2px;color:#94a3b8;background:#f1f5f9;width:21px;height:21px;border-radius:6px;display:grid;place-items:center;font-weight:700;font-size:11px}
+  .fit-label{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .fit-label.no{margin-top:18px}
 
   /* instructor */
   .host{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
@@ -190,11 +192,10 @@
     <div class="deal">
       <span class="tag">Minh bạch chuyện "miễn phí"</span>
       <h2 style="margin-top:8px">Vì sao tôi mở lớp này miễn phí?</h2>
-      <p style="color:#7c2d12">Nói thật với bạn: đây là <b>cohort beta đầu tiên</b>. Tôi đang hoàn thiện lớp và cần những người học thật để biết chỗ nào còn vướng. Bạn được học miễn phí; điều tôi mong từ bạn là cùng góp sức 3 việc nhỏ:</p>
+      <p style="color:#7c2d12">Nói thật với bạn: đây là <b>cohort beta đầu tiên</b>. Tôi đang hoàn thiện lớp và cần những người học thật để biết chỗ nào còn vướng. Bạn được học miễn phí; điều tôi mong từ bạn là cùng góp sức 2 việc nhỏ:</p>
       <ul>
         <li>Cho <b>feedback thẳng thắn</b>: chỗ nào dễ, chỗ nào tắc, chỗ nào cần sửa.</li>
-        <li>Viết một <b>nhận xét (testimonial)</b> sau khi xây xong bộ não của mình.</li>
-        <li>Cho phép lớp dùng <b>hình ảnh / cảm nhận của bạn cho truyền thông</b>.</li>
+        <li>Viết một <b>nhận xét ngắn</b> sau khi xây xong bộ não của mình.</li>
       </ul>
       <p style="margin-top:14px;color:#7c2d12"><b>Đây là sự đồng hành hai bên cùng có lợi</b>: bạn có một bộ não thứ 2 cho riêng mình, tôi có những góp ý quý giá để hoàn thiện lớp. Vì cầm tay 1-1 nên tôi chỉ nhận <b>2-3 người</b> thật sự nghiêm túc cho đợt này. Giá chính thức của lớp sau beta là <b>500.000đ</b>.</p>
     </div>
@@ -207,7 +208,7 @@
     <h2 class="center">Điều kiện tham gia</h2>
     <div class="grid cards-2" style="margin-top:26px">
       <div class="card">
-        <h3 style="margin-bottom:14px">✅ Bạn cần có sẵn</h3>
+        <h3 style="margin-bottom:16px">Bạn cần có sẵn</h3>
         <ul class="check">
           <li><b>Một công cụ AI dòng lệnh</b> - chỉ cần 1 trong 3: Claude Code · Codex · Gemini CLI (để AI đọc/ghi file trong kho). <i>Phí công cụ riêng tuỳ lựa chọn, không tính vào học phí lớp.</i></li>
           <li>Một <b>máy tính</b> (Windows / macOS đều được).</li>
@@ -216,14 +217,16 @@
         </ul>
       </div>
       <div class="card">
-        <h3 style="margin-bottom:14px">🎯 Lớp này hợp / không hợp với ai</h3>
+        <h3 style="margin-bottom:16px">Lớp này dành cho ai?</h3>
+        <p class="fit-label">Phù hợp nếu bạn</p>
         <ul class="check">
           <li>Chủ doanh nghiệp, chuyên gia, người làm nội dung muốn quản lý kiến thức có hệ thống.</li>
-          <li>Người muốn dùng AI làm "trợ lý quản lý kiến thức", không chỉ chat dạo.</li>
+          <li>Muốn dùng AI làm "trợ lý quản lý kiến thức", không chỉ chat dạo.</li>
         </ul>
-        <ul class="cross" style="margin-top:8px">
-          <li>Người tìm "mẹo AI nhanh", ngại làm thực hành.</li>
-          <li>Người chưa sẵn sàng cài đặt một công cụ AI dòng lệnh.</li>
+        <p class="fit-label no">Chưa hợp nếu bạn</p>
+        <ul class="cross">
+          <li>Chỉ tìm "mẹo AI nhanh", ngại làm thực hành.</li>
+          <li>Chưa sẵn sàng cài đặt một công cụ AI dòng lệnh.</li>
         </ul>
       </div>
     </div>
@@ -317,7 +320,7 @@
     <details><summary>Tôi dùng máy Windows thì sao?</summary><div class="ans">Hoàn toàn ổn. Mọi công cụ (Obsidian, Claude) đều chạy trên Windows và macOS. Lớp cầm tay nên sẽ hỗ trợ đúng theo máy của bạn.</div></details>
     <details><summary>Vì sao cần một công cụ AI dòng lệnh?</summary><div class="ans">Đây là phần AI trực tiếp đọc/ghi file để vận hành kho của bạn. Bạn chỉ cần 1 trong 3: Claude Code, Codex hoặc Gemini CLI. Tuỳ công cụ sẽ có bản miễn phí hoặc trả phí - đây là chi phí công cụ riêng, tách khỏi học phí lớp.</div></details>
     <details><summary>Mất bao lâu để chạy được?</summary><div class="ans">Sau buổi xây kho đầu tiên (vài giờ) là bộ não đã dùng được. Toàn bộ lộ trình khoảng 15-20 giờ, trải dài 1-2 tuần, làm tới đâu dùng được tới đó.</div></details>
-    <details><summary>"Miễn phí" có điều kiện gì không?</summary><div class="ans">Có một chút: bạn học miễn phí, và tôi mong bạn cùng góp ý, chia sẻ một cảm nhận sau khoá, cùng cho phép dùng hình ảnh/cảm nhận cho truyền thông. Đây là sự đồng hành hai bên cùng có lợi, giúp lớp ngày càng hoàn thiện.</div></details>
+    <details><summary>"Miễn phí" có điều kiện gì không?</summary><div class="ans">Có một chút: bạn học miễn phí, và tôi mong bạn góp ý thẳng thắn cùng chia sẻ một cảm nhận ngắn sau khoá để lớp ngày càng tốt hơn. Đây là sự đồng hành hai bên cùng có lợi.</div></details>
   </div>
 </section>
 
