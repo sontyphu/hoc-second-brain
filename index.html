@@ -209,7 +209,7 @@
       <div class="card">
         <h3 style="margin-bottom:14px">✅ Bạn cần có sẵn</h3>
         <ul class="check">
-          <li><b>Tài khoản Claude Pro</b> (~500k/tháng) — đây là công cụ AI để vận hành kho. <i>Phí công cụ riêng, không phải học phí lớp.</i></li>
+          <li><b>Một công cụ AI dòng lệnh</b> — chỉ cần 1 trong 3: Claude Code · Codex · Gemini CLI (để AI đọc/ghi file trong kho). <i>Phí công cụ riêng tuỳ lựa chọn, không tính vào học phí lớp.</i></li>
           <li>Một <b>máy tính</b> (Windows / macOS đều được).</li>
           <li><b>2–3 giờ tuần đầu</b> để cài đặt và xây kho đầu tiên.</li>
           <li>Tinh thần <b>chịu làm thật</b> — đây là lớp thực hành, không phải nghe rồi để đó.</li>
@@ -223,7 +223,7 @@
         </ul>
         <ul class="cross" style="margin-top:8px">
           <li>Người tìm "mẹo AI nhanh", ngại làm thực hành.</li>
-          <li>Người chưa sẵn sàng đầu tư tài khoản Claude Pro.</li>
+          <li>Người chưa sẵn sàng cài đặt một công cụ AI dòng lệnh.</li>
         </ul>
       </div>
     </div>
@@ -271,11 +271,11 @@
           <input type="email" name="email" required placeholder="email@cua-ban.com" />
         </div>
         <div class="field">
-          <label>Bạn đã có tài khoản Claude Pro chưa? <span class="req">*</span></label>
-          <select name="claude_pro" required>
+          <label>Bạn đã có 1 trong 3 công cụ: Claude Code, Codex, Gemini CLI chưa? <span class="req">*</span></label>
+          <select name="cong_cu" required>
             <option value="">— Chọn —</option>
-            <option>Đã có Claude Pro</option>
-            <option>Chưa có, nhưng sẵn sàng đăng ký</option>
+            <option>Đã có (ít nhất 1 trong 3)</option>
+            <option>Chưa có, nhưng sẵn sàng cài đặt</option>
             <option>Chưa rõ, cần tư vấn thêm</option>
           </select>
         </div>
@@ -315,7 +315,7 @@
     <h2 class="center" style="margin-bottom:26px">Câu hỏi thường gặp</h2>
     <details><summary>Tôi không biết lập trình, học được không?</summary><div class="ans">Được. Bạn chỉ cần biết copy-paste và gõ vài lệnh cơ bản — mọi bước được hướng dẫn cầm tay. Không cần kiến thức lập trình.</div></details>
     <details><summary>Tôi dùng máy Windows thì sao?</summary><div class="ans">Hoàn toàn ổn. Mọi công cụ (Obsidian, Claude) đều chạy trên Windows và macOS. Lớp cầm tay nên sẽ hỗ trợ đúng theo máy của bạn.</div></details>
-    <details><summary>Vì sao bắt buộc có Claude Pro?</summary><div class="ans">Đây là công cụ AI trực tiếp đọc/ghi file để vận hành kho của bạn. Bản miễn phí không đủ sức làm việc với file lớn lâu dài. Phí ~500k/tháng là chi phí công cụ riêng, tách khỏi lớp học.</div></details>
+    <details><summary>Vì sao cần một công cụ AI dòng lệnh?</summary><div class="ans">Đây là phần AI trực tiếp đọc/ghi file để vận hành kho của bạn. Bạn chỉ cần 1 trong 3: Claude Code, Codex hoặc Gemini CLI. Tuỳ công cụ sẽ có bản miễn phí hoặc trả phí — đây là chi phí công cụ riêng, tách khỏi học phí lớp.</div></details>
     <details><summary>Mất bao lâu để chạy được?</summary><div class="ans">Sau buổi xây kho đầu tiên (vài giờ) là bộ não đã dùng được. Toàn bộ lộ trình khoảng 15–20 giờ, trải dài 1–2 tuần, làm tới đâu dùng được tới đó.</div></details>
     <details><summary>"Miễn phí" có ràng buộc gì không?</summary><div class="ans">Có — và tôi nói thẳng: bạn học miễn phí, đổi lại cam kết cho feedback, viết một nhận xét và cho phép dùng hình ảnh/đánh giá cho truyền thông. Đây là trao đổi sòng phẳng giúp tôi hoàn thiện lớp.</div></details>
   </div>
@@ -357,7 +357,7 @@
       hoten: form.hoten.value.trim(),
       sdt: form.sdt.value.trim(),
       email: form.email.value.trim(),
-      claude_pro: form.claude_pro.value,
+      cong_cu: form.cong_cu.value,
       nghe: form.nghe.value.trim(),
       lydo: form.lydo.value.trim(),
       lop: "Wiki AI - Bo nao thu 2 (beta B1 free)",
