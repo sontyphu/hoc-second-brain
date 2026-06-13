@@ -50,6 +50,18 @@
   .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -8px rgba(245,158,11,.7)}
   .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
   .btn-ghost:hover{background:rgba(255,255,255,.18)}
+  /* HERO GRAPH (Obsidian-style) */
+  .hero-graph{max-width:540px;margin:0 auto 6px;filter:drop-shadow(0 10px 26px rgba(0,0,0,.28))}
+  .hero-graph svg{width:100%;height:auto;display:block;overflow:visible}
+  .hero-graph .graph{animation:gfloat 7s ease-in-out infinite}
+  .hero-graph .halo{transform-box:fill-box;transform-origin:center;animation:gpulse 3.4s ease-in-out infinite}
+  .hero-graph .tw{animation:gtw 3s ease-in-out infinite}
+  .hero-graph .tw2{animation:gtw 4.4s ease-in-out infinite}
+  @keyframes gfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes gpulse{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:.6;transform:scale(1.18)}}
+  @keyframes gtw{0%,100%{opacity:.5}50%{opacity:1}}
+  @media(max-width:760px){.hero-graph{max-width:380px}}
+  @media(prefers-reduced-motion:reduce){.hero-graph .graph,.hero-graph .halo,.hero-graph .tw,.hero-graph .tw2{animation:none}}
   .btn-block{width:100%;font-size:18px;padding:17px}
 
   /* PROBLEM */
@@ -144,6 +156,41 @@
 <!-- HERO -->
 <header class="hero">
   <div class="wrap">
+    <div class="hero-graph" aria-hidden="true">
+      <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg">
+        <defs><radialGradient id="hubg" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#fde68a"/><stop offset="100%" stop-color="#f59e0b"/></radialGradient></defs>
+        <g class="graph">
+          <g stroke="#ffffff" stroke-opacity=".22" stroke-width="1.4" fill="none">
+            <line x1="320" y1="120" x2="165" y2="80"/><line x1="320" y1="120" x2="480" y2="150"/><line x1="320" y1="120" x2="245" y2="190"/><line x1="320" y1="120" x2="245" y2="135"/><line x1="320" y1="120" x2="405" y2="130"/><line x1="320" y1="120" x2="305" y2="45"/><line x1="320" y1="120" x2="335" y2="200"/><line x1="320" y1="120" x2="395" y2="70"/>
+            <line x1="165" y1="80" x2="215" y2="45"/><line x1="165" y1="80" x2="100" y2="65"/><line x1="165" y1="80" x2="85" y2="140"/><line x1="165" y1="80" x2="245" y2="135"/><line x1="165" y1="80" x2="60" y2="100"/>
+            <line x1="480" y1="150" x2="395" y2="70"/><line x1="480" y1="150" x2="525" y2="80"/><line x1="480" y1="150" x2="565" y2="170"/><line x1="480" y1="150" x2="405" y2="130"/><line x1="480" y1="150" x2="440" y2="210"/><line x1="480" y1="150" x2="560" y2="110"/>
+            <line x1="245" y1="190" x2="130" y2="180"/><line x1="245" y1="190" x2="335" y2="200"/><line x1="245" y1="190" x2="85" y2="140"/>
+            <line x1="405" y1="130" x2="395" y2="70"/><line x1="215" y1="45" x2="305" y2="45"/>
+          </g>
+          <g>
+            <circle class="halo" cx="320" cy="120" r="30" fill="#f59e0b" opacity=".4"/>
+            <circle cx="320" cy="120" r="16" fill="url(#hubg)" stroke="#fff" stroke-opacity=".5" stroke-width="1.5"/>
+            <circle cx="165" cy="80" r="11" fill="#a78bfa"/>
+            <circle cx="480" cy="150" r="11" fill="#c7d2fe"/>
+            <circle cx="245" cy="190" r="9" fill="#c7d2fe"/>
+            <circle class="tw" cx="85" cy="140" r="6" fill="#e0e7ff"/>
+            <circle cx="130" cy="180" r="5" fill="#c7d2fe"/>
+            <circle class="tw2" cx="215" cy="45" r="6" fill="#fbbf24"/>
+            <circle cx="305" cy="45" r="5" fill="#e0e7ff"/>
+            <circle cx="395" cy="70" r="6" fill="#a78bfa"/>
+            <circle class="tw" cx="525" cy="80" r="5" fill="#e0e7ff"/>
+            <circle cx="565" cy="170" r="6" fill="#c7d2fe"/>
+            <circle class="tw2" cx="440" cy="210" r="5" fill="#fbbf24"/>
+            <circle cx="335" cy="200" r="5" fill="#e0e7ff"/>
+            <circle cx="100" cy="65" r="5" fill="#c7d2fe"/>
+            <circle cx="245" cy="135" r="5" fill="#e0e7ff"/>
+            <circle cx="405" cy="130" r="6" fill="#c7d2fe"/>
+            <circle class="tw" cx="560" cy="110" r="4" fill="#e0e7ff"/>
+            <circle cx="60" cy="100" r="4" fill="#c7d2fe"/>
+          </g>
+        </g>
+      </svg>
+    </div>
     <span class="badge">🎁 Cohort beta · Học MIỄN PHÍ · chỉ 2-3 suất</span>
     <h1>Tự tay xây <em>Bộ Não Thứ 2</em> - kho kiến thức được AI tự quản lý</h1>
     <p class="lede">Bạn thả tài liệu vào, AI đọc, viết lại thành kho tri thức gọn gàng, liên kết và tra cứu được - thay vì để mọi thứ trôi nổi trong đầu và 47 tab đang mở.</p>
@@ -154,7 +201,6 @@
     </div>
     <div class="cta-row">
       <a href="#dangky" class="btn btn-primary">Đăng ký giữ suất miễn phí →</a>
-      <a href="#deal" class="btn btn-ghost">Vì sao miễn phí?</a>
     </div>
   </div>
 </header>
@@ -182,22 +228,6 @@
       <div class="brow"><span class="num">2</span><span><b>Tra cứu bằng cách hỏi</b> - “Tổng hợp giúp tôi mọi thứ đã ghi về X”. AI trả lời kèm nguồn, thay vì bạn lục từng file.</span></div>
       <div class="brow"><span class="num">3</span><span><b>AI tự lo phần lộn xộn</b> - gắn liên kết, dọn trùng lặp, giữ kho sạch. Bạn chỉ ra quyết định và duyệt.</span></div>
       <div class="brow"><span class="num">4</span><span><b>Nền tảng để tiến xa hơn</b> - khi kho đã chạy, đây là bệ phóng để sau này cho AI <i>tự thực thi</i> công việc (Agent), không chỉ trả lời.</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- DEAL: why free -->
-<section id="deal">
-  <div class="wrap">
-    <div class="deal">
-      <span class="tag">Minh bạch chuyện "miễn phí"</span>
-      <h2 style="margin-top:8px">Vì sao tôi mở lớp này miễn phí?</h2>
-      <p style="color:#7c2d12">Nói thật với bạn: đây là <b>cohort beta đầu tiên</b>. Tôi đang hoàn thiện lớp và cần những người học thật để biết chỗ nào còn vướng. Bạn được học miễn phí; điều tôi mong từ bạn là cùng góp sức 2 việc nhỏ:</p>
-      <ul>
-        <li>Cho <b>feedback thẳng thắn</b>: chỗ nào dễ, chỗ nào tắc, chỗ nào cần sửa.</li>
-        <li>Viết một <b>nhận xét ngắn</b> sau khi xây xong bộ não của mình.</li>
-      </ul>
-      <p style="margin-top:14px;color:#7c2d12"><b>Đây là sự đồng hành hai bên cùng có lợi</b>: bạn có một bộ não thứ 2 cho riêng mình, tôi có những góp ý quý giá để hoàn thiện lớp. Vì cầm tay 1-1 nên tôi chỉ nhận <b>2-3 người</b> thật sự nghiêm túc cho đợt này. Giá chính thức của lớp sau beta là <b>500.000đ</b>.</p>
     </div>
   </div>
 </section>
