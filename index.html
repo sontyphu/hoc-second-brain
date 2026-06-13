@@ -50,20 +50,6 @@
   .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -8px rgba(245,158,11,.7)}
   .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
   .btn-ghost:hover{background:rgba(255,255,255,.18)}
-  /* HERO GRAPH (Obsidian-style) */
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
-  .hero-content{min-width:0}
-  .hero-graph{width:100%;max-width:520px;margin:0 auto;filter:drop-shadow(0 10px 26px rgba(0,0,0,.28))}
-  .hero-graph svg{width:100%;height:auto;display:block;overflow:visible;touch-action:none;cursor:default}
-  .hero-graph circle[data-i],.hero-graph line{transition:opacity .18s}
-  .hero-graph .halo{transform-box:fill-box;transform-origin:center;animation:gpulse 3.4s ease-in-out infinite}
-  .hero-graph .tw{animation:gtw 3s ease-in-out infinite}
-  .hero-graph .tw2{animation:gtw 4.4s ease-in-out infinite}
-  @keyframes gfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-  @keyframes gpulse{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:.6;transform:scale(1.18)}}
-  @keyframes gtw{0%,100%{opacity:.5}50%{opacity:1}}
-  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:12px}.hero-content{order:2}.hero-graph{order:1;max-width:440px}}
-  @media(prefers-reduced-motion:reduce){.hero-graph .graph,.hero-graph .halo,.hero-graph .tw,.hero-graph .tw2{animation:none}}
   .btn-block{width:100%;font-size:18px;padding:17px}
 
   /* PROBLEM */
@@ -157,8 +143,7 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-content">
+  <div class="wrap">
     <span class="badge">🎁 Cohort beta · Học MIỄN PHÍ · chỉ 2-3 suất</span>
     <h1>Tự tay xây <em>Bộ Não Thứ 2</em> - kho kiến thức được AI tự quản lý</h1>
     <p class="lede">Bạn thả tài liệu vào, AI đọc, viết lại thành kho tri thức gọn gàng, liên kết và tra cứu được - thay vì để mọi thứ trôi nổi trong đầu và 47 tab đang mở.</p>
@@ -169,42 +154,6 @@
     </div>
     <div class="cta-row">
       <a href="#dangky" class="btn btn-primary">Đăng ký giữ suất miễn phí →</a>
-    </div>
-    </div>
-    <div class="hero-graph" aria-hidden="true">
-      <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg">
-        <defs><radialGradient id="hubg" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#fde68a"/><stop offset="100%" stop-color="#f59e0b"/></radialGradient></defs>
-        <g class="graph">
-          <g class="edges" stroke="#ffffff" stroke-opacity=".22" stroke-width="1.4" fill="none">
-            <line data-s="0" data-t="1" x1="320" y1="120" x2="165" y2="80"/><line data-s="0" data-t="2" x1="320" y1="120" x2="480" y2="150"/><line data-s="0" data-t="3" x1="320" y1="120" x2="245" y2="190"/><line data-s="0" data-t="14" x1="320" y1="120" x2="245" y2="135"/><line data-s="0" data-t="15" x1="320" y1="120" x2="405" y2="130"/><line data-s="0" data-t="7" x1="320" y1="120" x2="305" y2="45"/><line data-s="0" data-t="12" x1="320" y1="120" x2="335" y2="200"/><line data-s="0" data-t="8" x1="320" y1="120" x2="395" y2="70"/>
-            <line data-s="1" data-t="6" x1="165" y1="80" x2="215" y2="45"/><line data-s="1" data-t="13" x1="165" y1="80" x2="100" y2="65"/><line data-s="1" data-t="4" x1="165" y1="80" x2="85" y2="140"/><line data-s="1" data-t="14" x1="165" y1="80" x2="245" y2="135"/><line data-s="1" data-t="17" x1="165" y1="80" x2="60" y2="100"/>
-            <line data-s="2" data-t="8" x1="480" y1="150" x2="395" y2="70"/><line data-s="2" data-t="9" x1="480" y1="150" x2="525" y2="80"/><line data-s="2" data-t="10" x1="480" y1="150" x2="565" y2="170"/><line data-s="2" data-t="15" x1="480" y1="150" x2="405" y2="130"/><line data-s="2" data-t="11" x1="480" y1="150" x2="440" y2="210"/><line data-s="2" data-t="16" x1="480" y1="150" x2="560" y2="110"/>
-            <line data-s="3" data-t="5" x1="245" y1="190" x2="130" y2="180"/><line data-s="3" data-t="12" x1="245" y1="190" x2="335" y2="200"/><line data-s="3" data-t="4" x1="245" y1="190" x2="85" y2="140"/>
-            <line data-s="15" data-t="8" x1="405" y1="130" x2="395" y2="70"/><line data-s="6" data-t="7" x1="215" y1="45" x2="305" y2="45"/>
-          </g>
-          <g class="nodes">
-            <circle class="halo" cx="320" cy="120" r="30" fill="#f59e0b" opacity=".4"/>
-            <circle data-i="0" cx="320" cy="120" r="16" fill="url(#hubg)" stroke="#fff" stroke-opacity=".5" stroke-width="1.5"/>
-            <circle data-i="1" cx="165" cy="80" r="11" fill="#a78bfa"/>
-            <circle data-i="2" cx="480" cy="150" r="11" fill="#c7d2fe"/>
-            <circle data-i="3" cx="245" cy="190" r="9" fill="#c7d2fe"/>
-            <circle data-i="4" cx="85" cy="140" r="6" fill="#e0e7ff"/>
-            <circle data-i="5" cx="130" cy="180" r="5" fill="#c7d2fe"/>
-            <circle data-i="6" cx="215" cy="45" r="6" fill="#fbbf24"/>
-            <circle data-i="7" cx="305" cy="45" r="5" fill="#e0e7ff"/>
-            <circle data-i="8" cx="395" cy="70" r="6" fill="#a78bfa"/>
-            <circle data-i="9" cx="525" cy="80" r="5" fill="#e0e7ff"/>
-            <circle data-i="10" cx="565" cy="170" r="6" fill="#c7d2fe"/>
-            <circle data-i="11" cx="440" cy="210" r="5" fill="#fbbf24"/>
-            <circle data-i="12" cx="335" cy="200" r="5" fill="#e0e7ff"/>
-            <circle data-i="13" cx="100" cy="65" r="5" fill="#c7d2fe"/>
-            <circle data-i="14" cx="245" cy="135" r="5" fill="#e0e7ff"/>
-            <circle data-i="15" cx="405" cy="130" r="6" fill="#c7d2fe"/>
-            <circle data-i="16" cx="560" cy="110" r="4" fill="#e0e7ff"/>
-            <circle data-i="17" cx="60" cy="100" r="4" fill="#c7d2fe"/>
-          </g>
-        </g>
-      </svg>
     </div>
   </div>
 </header>
@@ -426,42 +375,6 @@
       body: 'value=' + encodeURIComponent(JSON.stringify(data))
     }).then(done).catch(done);
   });
-</script>
-
-<script>
-  // Biểu đồ Obsidian tương tác: kéo node + hover làm sáng nhánh (vật lý lò xo nhẹ, tự viết)
-  (function(){
-    var svg = document.querySelector('.hero-graph svg');
-    if(!svg) return;
-    var W = 640, H = 240;
-    var C = [].slice.call(svg.querySelectorAll('circle[data-i]'));
-    var Ls = [].slice.call(svg.querySelectorAll('line[data-s]'));
-    var halo = svg.querySelector('.halo');
-    var N = C.map(function(c){ var x=+c.getAttribute('cx'), y=+c.getAttribute('cy'); return {el:c, hx:x, hy:y, x:x, y:y, vx:0, vy:0, r:+c.getAttribute('r'), fix:false}; });
-    var L = Ls.map(function(l){ return {el:l, s:+l.getAttribute('data-s'), t:+l.getAttribute('data-t')}; });
-    var A = N.map(function(){ return {}; });
-    L.forEach(function(k){ A[k.s][k.t]=1; A[k.t][k.s]=1; });
-    var hover = -1, drag = -1;
-    function toVB(e){ var r = svg.getBoundingClientRect(); return {x:(e.clientX-r.left)/r.width*W, y:(e.clientY-r.top)/r.height*H}; }
-    function nearest(p){ var b=-1, bd=1e9; for(var i=0;i<N.length;i++){ var dx=N[i].x-p.x, dy=N[i].y-p.y, d=dx*dx+dy*dy, rr=(N[i].r+9)*(N[i].r+9); if(d<rr && d<bd){ bd=d; b=i; } } return b; }
-    svg.addEventListener('pointermove', function(e){ var p=toVB(e); if(drag>=0){ N[drag].x=p.x; N[drag].y=p.y; } else { var h=nearest(p); if(h!==hover){ hover=h; svg.style.cursor=h>=0?'grab':'default'; } } });
-    svg.addEventListener('pointerdown', function(e){ var i=nearest(toVB(e)); if(i>=0){ drag=i; N[i].fix=true; svg.style.cursor='grabbing'; try{ svg.setPointerCapture(e.pointerId); }catch(x){} e.preventDefault(); } });
-    function release(){ if(drag>=0){ N[drag].fix=false; drag=-1; } svg.style.cursor = hover>=0?'grab':'default'; }
-    svg.addEventListener('pointerup', release);
-    svg.addEventListener('pointercancel', release);
-    svg.addEventListener('pointerleave', function(){ if(drag<0) hover=-1; });
-    function loop(){
-      var i, k, a, b, dx, dy, d, ux, uy, f;
-      for(k=0;k<L.length;k++){ a=N[L[k].s]; b=N[L[k].t]; dx=b.x-a.x; dy=b.y-a.y; d=Math.sqrt(dx*dx+dy*dy)||1; f=(d-78)*0.012; ux=dx/d; uy=dy/d; if(!a.fix){ a.vx+=ux*f; a.vy+=uy*f; } if(!b.fix){ b.vx-=ux*f; b.vy-=uy*f; } }
-      for(i=0;i<N.length;i++){ var n=N[i]; if(!n.fix){ n.vx+=(n.hx-n.x)*0.02; n.vy+=(n.hy-n.y)*0.02; n.vx*=0.84; n.vy*=0.84; n.x+=n.vx; n.y+=n.vy; n.x=Math.max(n.r+3,Math.min(W-n.r-3,n.x)); n.y=Math.max(n.r+3,Math.min(H-n.r-3,n.y)); } n.el.setAttribute('cx', n.x.toFixed(1)); n.el.setAttribute('cy', n.y.toFixed(1)); }
-      if(halo){ halo.setAttribute('cx', N[0].x.toFixed(1)); halo.setAttribute('cy', N[0].y.toFixed(1)); }
-      for(k=0;k<L.length;k++){ var s=N[L[k].s], t=N[L[k].t], e=L[k].el; e.setAttribute('x1', s.x.toFixed(1)); e.setAttribute('y1', s.y.toFixed(1)); e.setAttribute('x2', t.x.toFixed(1)); e.setAttribute('y2', t.y.toFixed(1)); }
-      for(i=0;i<N.length;i++){ N[i].el.style.opacity = hover<0 ? '' : ((i===hover || A[hover][i]) ? '1' : '0.16'); }
-      for(k=0;k<L.length;k++){ var lk=L[k]; lk.el.style.opacity = hover<0 ? '' : ((lk.s===hover || lk.t===hover) ? '0.95' : '0.05'); }
-      requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
-  })();
 </script>
 </body>
 </html>
