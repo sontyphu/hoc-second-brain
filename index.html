@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Lớp Wiki AI - Xây dựng Bộ Não Thứ 2 | Lê Thanh Sơn</title>
-<meta name="description" content="Cohort beta MIỄN PHÍ: tự tay xây bộ não thứ 2 - kho kiến thức cá nhân được AI quản lý. Cầm tay 1-1 cùng Lê Thanh Sơn. Chỉ 2-3 suất, hạn 15/06." />
+<meta name="description" content="Lớp thử nghiệm MIỄN PHÍ, học online qua Zoom: tự tay xây bộ não thứ 2 - nơi AI nhớ và sắp xếp mọi thứ giúp bạn. Cầm tay cùng Lê Thanh Sơn, gói gọn 1 buổi. Chỉ 10 suất, hạn 15/06." />
 <meta property="og:title" content="Lớp Wiki AI - Xây dựng Bộ Não Thứ 2" />
-<meta property="og:description" content="Cohort beta MIỄN PHÍ - cầm tay 1-1 xây kho kiến thức cá nhân được AI quản lý. Chỉ 2-3 suất." />
+<meta property="og:description" content="Lớp thử nghiệm MIỄN PHÍ - cầm tay xây nơi AI nhớ và sắp xếp mọi thứ giúp bạn, gói gọn 1 buổi. Chỉ 10 suất." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,7 +41,7 @@
   .badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#231300;font-weight:800;font-size:14px;padding:8px 16px;border-radius:999px;box-shadow:0 6px 20px -6px rgba(245,158,11,.7)}
   .hero h1{font-size:clamp(30px,6.2vw,52px);color:#fff;margin:18px 0 14px}
   .hero h1 em{font-style:normal;background:linear-gradient(90deg,#fde68a,#fbbf24);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lede{font-size:clamp(17px,2.4vw,21px);color:#e0e7ff;max-width:640px}
+  .lede{font-size:clamp(17px,2.4vw,21px);color:#e0e7ff;max-width:660px}
   .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
   .chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:14px;font-weight:600;padding:8px 14px;border-radius:10px;backdrop-filter:blur(6px)}
   .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
@@ -63,21 +63,32 @@
 
   .soft{background:var(--soft)}
   .center{text-align:center}
-  .center p{max-width:640px;margin-left:auto;margin-right:auto}
+  .center p{max-width:660px;margin-left:auto;margin-right:auto}
 
-  /* BENEFITS list */
-  .benefits{display:grid;gap:14px;margin-top:8px}
-  .brow{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
-  .brow .num{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--primary),var(--violet))}
-  .brow b{color:var(--ink)}
-  .brow span{font-size:15px;color:var(--muted)}
+  /* benefit 2x2 cards */
+  .bcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow)}
+  .bcard .num{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#fff;font-size:18px;background:linear-gradient(135deg,var(--primary),var(--violet));margin-bottom:14px}
+  .bcard h3{margin-bottom:8px;font-size:18px}
+  .bcard p{font-size:15px}
 
-  /* DEAL box */
-  .deal{background:linear-gradient(135deg,#fffbeb,#fff7ed);border:2px solid #fcd34d;border-radius:20px;padding:30px}
-  .deal .tag{color:var(--accent-d);font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
-  .deal ul{list-style:none;margin-top:14px;display:grid;gap:11px}
-  .deal li{position:relative;padding-left:26px;font-weight:600;color:var(--ink);font-size:16px;line-height:1.5}
-  .deal li:before{content:"✦";position:absolute;left:0;top:0;color:var(--accent-d);font-weight:800}
+  /* "Để làm gì" use cards */
+  .ucard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:flex;gap:15px;align-items:flex-start}
+  .ucard .ic{flex:none;width:48px;height:48px;border-radius:13px;display:grid;place-items:center;font-size:24px;background:#eef2ff}
+  .ucard h3{font-size:17px;margin-bottom:5px}
+  .ucard p{font-size:14.5px}
+
+  /* built-on Obsidian */
+  .builton{display:flex;align-items:center;gap:15px;justify-content:center;flex-wrap:wrap;margin:30px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 24px;box-shadow:var(--shadow);max-width:580px}
+  .builton img{width:44px;height:44px;flex:none}
+  .builton span{font-size:15px;color:var(--muted)}
+  .builton b{color:var(--ink)}
+
+  /* needs - điều kiện có màu */
+  ul.needs{list-style:none;display:grid;gap:12px;margin-top:8px}
+  ul.needs li{display:flex;gap:13px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 16px}
+  ul.needs .ni{flex:none;width:42px;height:42px;border-radius:11px;display:grid;place-items:center;font-size:21px}
+  ul.needs li b{color:var(--ink)}
+  ul.needs li span:last-child{font-size:15px;color:var(--muted)}
 
   /* conditions / fit */
   .check li,.cross li{position:relative;padding-left:30px;margin-bottom:10px;font-size:15.5px;color:var(--ink);line-height:1.55}
@@ -87,10 +98,10 @@
   .fit-label{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
   .fit-label.no{margin-top:18px}
 
-  /* instructor */
-  .host{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
-  .host .ava{flex:none;width:108px;height:108px;border-radius:20px;object-fit:cover;object-position:center top;box-shadow:var(--shadow);border:3px solid #fff;outline:1px solid var(--line)}
-  .host .info{flex:1;min-width:240px}
+  /* instructor - ảnh to, chữ hẹp */
+  .host{display:flex;gap:34px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .host .ava{flex:none;width:260px;height:260px;border-radius:24px;object-fit:cover;object-position:center top;box-shadow:var(--shadow-lg);border:5px solid #fff;outline:1px solid var(--line)}
+  .host .info{flex:1;min-width:280px;max-width:430px}
 
   /* FORM */
   #dangky{background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff}
@@ -108,9 +119,11 @@
   .consent label{font-size:14px;color:#451a03;font-weight:500;line-height:1.5}
   .hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
   .formnote{text-align:center;font-size:13px;color:var(--muted);margin-top:12px}
-  .success{display:none;text-align:center;padding:18px}
+  .success{display:none;text-align:center;padding:24px 18px}
   .success .big{font-size:46px}
-  .success h3{font-size:22px;margin:8px 0}
+  .success h3{font-size:23px;margin:8px 0}
+  .success .qr{width:212px;height:212px;object-fit:contain;border:1px solid var(--line);border-radius:14px;padding:8px;background:#fff;margin:16px auto 8px;display:block;box-shadow:var(--shadow)}
+  .success .btn{margin-top:6px}
   .err{display:none;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;border-radius:10px;padding:11px 14px;font-size:14px;font-weight:600;margin-bottom:14px}
 
   /* FAQ */
@@ -132,7 +145,10 @@
     section{padding:42px 0}
     .cards-3,.cards-2{grid-template-columns:1fr}
     .hero .wrap{padding-top:40px}
+    .host .ava{width:210px;height:210px}
+    .host .info{max-width:none}
     .btn{width:100%}
+    .builton{width:100%}
     .sticky-cta{display:block}
     .sticky-cta .btn{margin:0}
     #dangky{padding-bottom:90px}
@@ -144,12 +160,14 @@
 <!-- HERO -->
 <header class="hero">
   <div class="wrap">
-    <span class="badge">🎁 Cohort beta · Học MIỄN PHÍ · chỉ 2-3 suất</span>
-    <h1>Tự tay xây <em>Bộ Não Thứ 2</em> - kho kiến thức được AI tự quản lý</h1>
-    <p class="lede">Bạn thả tài liệu vào, AI đọc, viết lại thành kho tri thức gọn gàng, liên kết và tra cứu được - thay vì để mọi thứ trôi nổi trong đầu và 47 tab đang mở.</p>
+    <span class="badge">🎁 Lớp thử nghiệm · Học MIỄN PHÍ · 10 suất</span>
+    <h1>Tự tay xây <em>Bộ Não Thứ 2</em> - nơi AI nhớ và sắp xếp mọi thứ giúp bạn</h1>
+    <p class="lede">Bạn thả tài liệu, ghi chú vào một chỗ; AI đọc, sắp xếp lại gọn gàng rồi tìm lại giúp bạn trong vài giây - thay vì để mọi thứ trôi nổi trong đầu và 47 tab đang mở.</p>
     <div class="hero-meta">
-      <span class="chip">🧠 Lớp Wiki AI - Cấp nền tảng</span>
-      <span class="chip">👐 Cầm tay 1-1 cùng Lê Thanh Sơn</span>
+      <span class="chip">🧠 Lớp xây Bộ Não Thứ 2</span>
+      <span class="chip">🌐 Học online qua Zoom</span>
+      <span class="chip">👐 Cầm tay cùng Lê Thanh Sơn</span>
+      <span class="chip">📅 Gói gọn trong 1 buổi</span>
       <span class="chip">⏳ Hạn đăng ký: 15/06</span>
     </div>
     <div class="cta-row">
@@ -165,8 +183,8 @@
     <p>Đọc nhiều, lưu nhiều, nhưng đến lúc cần thì không tìm lại được. Quen thuộc chứ?</p></div>
     <div class="grid cards-3" style="margin-top:30px">
       <div class="card"><span class="ic">🗂️</span><h3>Lưu mà không dùng lại</h3><p>Ghi chú nằm rải rác ở Notion, Zalo, ảnh chụp màn hình, file Word… cần thì chịu, không biết nó ở đâu.</p></div>
-      <div class="card"><span class="ic">🌀</span><h3>Tự sắp xếp thì bỏ cuộc</h3><p>App nào cũng bắt bạn tự tổ chức, tự gắn thẻ, tự dọn. Được vài tuần là loạn rồi bỏ.</p></div>
-      <div class="card"><span class="ic">🤖</span><h3>Có AI mà chưa biết xài vào việc thật</h3><p>Nghe AI khắp nơi nhưng vẫn copy-paste thủ công từng đoạn, chưa biến nó thành trợ lý quản lý kiến thức.</p></div>
+      <div class="card"><span class="ic">🌀</span><h3>Tự sắp xếp thì bỏ cuộc</h3><p>App nào cũng bắt bạn tự tổ chức, tự gắn nhãn, tự dọn. Được vài tuần là loạn rồi bỏ.</p></div>
+      <div class="card"><span class="ic">🤖</span><h3>Có AI mà chưa dùng vào việc thật</h3><p>Nghe AI khắp nơi nhưng vẫn chép tay từng đoạn, chưa biến nó thành trợ lý nhớ việc cho mình.</p></div>
     </div>
   </div>
 </section>
@@ -174,13 +192,31 @@
 <!-- SOLUTION / BENEFITS -->
 <section class="soft">
   <div class="wrap">
-    <div class="center"><span class="eyebrow">Giải pháp</span><h2>Một bộ não thứ 2 - và AI là người vận hành nó</h2>
-    <p>Sau lớp này, bạn có một hệ thống chạy theo đúng một nguyên tắc: <b>AI viết, bạn duyệt</b>.</p></div>
-    <div class="benefits">
-      <div class="brow"><span class="num">1</span><span><b>Kho kiến thức "Brain" riêng của bạn</b> - AI đọc tài liệu một lần, viết thành trang wiki có cấu trúc và tự liên kết. Không phải đọc lại từ đầu mỗi khi cần.</span></div>
-      <div class="brow"><span class="num">2</span><span><b>Tra cứu bằng cách hỏi</b> - “Tổng hợp giúp tôi mọi thứ đã ghi về X”. AI trả lời kèm nguồn, thay vì bạn lục từng file.</span></div>
-      <div class="brow"><span class="num">3</span><span><b>AI tự lo phần lộn xộn</b> - gắn liên kết, dọn trùng lặp, giữ kho sạch. Bạn chỉ ra quyết định và duyệt.</span></div>
-      <div class="brow"><span class="num">4</span><span><b>Nền tảng để tiến xa hơn</b> - khi kho đã chạy, đây là bệ phóng để sau này cho AI <i>tự thực thi</i> công việc (Agent), không chỉ trả lời.</span></div>
+    <div class="center"><span class="eyebrow">Giải pháp</span><h2>Một bộ não thứ 2 - và AI lo phần sắp xếp giúp bạn</h2>
+    <p>Sau lớp này, bạn có một hệ thống chạy theo đúng một nguyên tắc: <b>AI làm, bạn duyệt</b>.</p></div>
+    <div class="grid cards-2" style="margin-top:30px">
+      <div class="bcard"><span class="num">1</span><h3>Một kho riêng của bạn</h3><p>AI đọc tài liệu một lần rồi sắp thành những trang ghi chú gọn gàng, nối với nhau - khỏi đọc lại từ đầu mỗi khi cần.</p></div>
+      <div class="bcard"><span class="num">2</span><h3>Tra cứu bằng cách hỏi</h3><p>“Tổng hợp giúp tôi mọi thứ đã ghi về việc X” - AI trả lời kèm chỗ đã lưu, thay vì bạn lục từng file.</p></div>
+      <div class="bcard"><span class="num">3</span><h3>AI tự lo phần lộn xộn</h3><p>Tự nối các ghi chú liên quan, dọn trùng lặp, giữ kho luôn sạch. Bạn chỉ ra quyết định và duyệt.</p></div>
+      <div class="bcard"><span class="num">4</span><h3>Bệ phóng tiến xa hơn</h3><p>Khi kho đã chạy, đây là nền để sau này AI tự làm việc thay bạn, không chỉ dừng ở trả lời.</p></div>
+    </div>
+    <div class="builton">
+      <img src="obsidian-logo.png" alt="Obsidian" />
+      <span>Tất cả dựng trên <b>Obsidian</b> - phần mềm ghi chú <b>miễn phí</b>, chạy ngay trên máy của bạn.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ĐỂ LÀM GÌ / USES -->
+<section>
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Để làm gì?</span><h2>Có bộ não thứ 2 rồi, bạn được gì?</h2>
+    <p>Không phải để "cho oai". Đây là những việc đời thường nó làm giúp bạn mỗi ngày:</p></div>
+    <div class="grid cards-2" style="margin-top:30px">
+      <div class="ucard"><span class="ic">🔎</span><div><h3>Hỏi là ra ngay</h3><p>“Hợp đồng với anh A có điều khoản gì?” - AI trả lời kèm đúng chỗ bạn đã lưu. Khỏi nhớ, khỏi lục.</p></div></div>
+      <div class="ucard"><span class="ic">✍️</span><div><h3>AI viết giúp, đúng chất bạn</h3><p>Nhờ soạn email, bài đăng, báo giá… dựa trên chính tài liệu và cách nói của bạn - không phải bịa.</p></div></div>
+      <div class="ucard"><span class="ic">🧩</span><div><h3>Không rơi rớt việc gì</h3><p>Mọi ý tưởng, ghi chú cuộc họp, đầu việc nằm gọn một chỗ - không quên, không thất lạc.</p></div></div>
+      <div class="ucard"><span class="ic">🤝</span><div><h3>Bàn giao &amp; đào tạo nhanh</h3><p>Người mới mở kho ra là nắm việc; bạn không phải ngồi nói lại từ đầu mỗi lần.</p></div></div>
     </div>
   </div>
 </section>
@@ -192,28 +228,28 @@
     <div class="grid cards-2" style="margin-top:26px">
       <div class="card">
         <h3 style="margin-bottom:16px">Bạn cần có sẵn</h3>
-        <ul class="check">
-          <li><b>Một công cụ AI dòng lệnh</b> - chỉ cần 1 trong 3: Claude Code · Codex · Gemini CLI (để AI đọc/ghi file trong kho). <i>Phí công cụ riêng tuỳ lựa chọn, không tính vào học phí lớp.</i></li>
-          <li>Một <b>máy tính</b> (Windows / macOS đều được).</li>
-          <li><b>2-3 giờ tuần đầu</b> để cài đặt và xây kho đầu tiên.</li>
-          <li>Tinh thần <b>chịu làm thật</b> - đây là lớp thực hành, không phải nghe rồi để đó.</li>
+        <ul class="needs">
+          <li><span class="ni" style="background:#eef2ff;color:#4f46e5">🤖</span><span><b>Một phần mềm AI trên máy</b> - Claude Code, Codex hoặc Gemini <i>(phí riêng, không tính vào lớp)</i></span></li>
+          <li><span class="ni" style="background:#e0f2fe;color:#0284c7">💻</span><span><b>Một máy tính có mạng</b> - Windows hoặc macOS (học online qua Zoom)</span></li>
+          <li><span class="ni" style="background:#fef3c7;color:#d97706">⏱️</span><span><b>2-3 giờ trong buổi học</b> - để cài đặt và xây kho đầu tiên</span></li>
+          <li><span class="ni" style="background:#fee2e2;color:#dc2626">🔥</span><span><b>Tinh thần làm thật</b> - lớp thực hành, không nghe rồi để đó</span></li>
         </ul>
       </div>
       <div class="card">
         <h3 style="margin-bottom:16px">Lớp này dành cho ai?</h3>
-        <p class="fit-label">Phù hợp nếu bạn</p>
+        <p class="fit-label" style="color:var(--ok)">✓ Phù hợp nếu bạn</p>
         <ul class="check">
-          <li>Chủ doanh nghiệp, chuyên gia, người làm nội dung muốn quản lý kiến thức có hệ thống.</li>
-          <li>Muốn dùng AI làm "trợ lý quản lý kiến thức", không chỉ chat dạo.</li>
+          <li>Chủ doanh nghiệp, chuyên gia, người làm nội dung cần sắp xếp thông tin gọn gàng.</li>
+          <li>Muốn AI làm "trợ lý nhớ việc" cho mình, không chỉ trò chuyện cho vui.</li>
         </ul>
-        <p class="fit-label no">Chưa hợp nếu bạn</p>
+        <p class="fit-label no" style="color:#dc2626">✕ Chưa hợp nếu bạn</p>
         <ul class="cross">
-          <li>Chỉ tìm "mẹo AI nhanh", ngại làm thực hành.</li>
-          <li>Chưa sẵn sàng cài đặt một công cụ AI dòng lệnh.</li>
+          <li>Chỉ tìm "mẹo AI nhanh", ngại thực hành.</li>
+          <li>Chưa sẵn sàng cài một phần mềm AI trên máy.</li>
         </ul>
       </div>
     </div>
-    <p class="center" style="margin-top:18px;font-size:14.5px">Không cần biết lập trình. Không cần biết kỹ thuật. Mọi bước cài đặt và dòng lệnh sẽ được hướng dẫn cầm tay.</p>
+    <p class="center" style="margin-top:18px;font-size:14.5px">Không cần biết lập trình. Không cần rành kỹ thuật. Mọi bước cài đặt đều có người hướng dẫn tận tay, làm theo là được.</p>
   </div>
 </section>
 
@@ -225,7 +261,7 @@
       <div class="info">
         <span class="eyebrow">Người hướng dẫn</span>
         <h2 style="margin-bottom:8px">Lê Thanh Sơn</h2>
-        <p>Chuyên gia &amp; diễn giả đào tạo doanh nghiệp ứng dụng AI để tăng trưởng. Tôi giúp chủ doanh nghiệp và người đi làm <b>dùng AI thật vào việc thật</b> - không lý thuyết suông, làm được ngay. Bộ não thứ 2 là hệ thống chính tôi đang dùng mỗi ngày để vận hành công việc, và đây là lớp tôi cầm tay bạn dựng lại nó cho riêng mình.</p>
+        <p>Chuyên gia &amp; diễn giả đào tạo doanh nghiệp ứng dụng AI để tăng trưởng. Tôi giúp chủ doanh nghiệp và người đi làm <b>dùng AI thật vào việc thật</b> - không lý thuyết suông, làm được ngay. Bộ não thứ 2 là hệ thống chính tôi đang dùng mỗi ngày để chạy công việc, và đây là buổi tôi cầm tay bạn dựng lại nó cho riêng mình.</p>
       </div>
     </div>
   </div>
@@ -236,8 +272,8 @@
   <div class="wrap">
     <div class="center">
       <span class="eyebrow" style="background:rgba(255,255,255,.12);color:#fde68a">Đăng ký</span>
-      <h2>Giữ 1 trong 2-3 suất miễn phí</h2>
-      <p>Điền thông tin bên dưới. Tôi sẽ liên hệ trực tiếp để xác nhận và xếp lịch buổi đầu. Hạn chót: <b>15/06</b>.</p>
+      <h2>Giữ 1 trong 10 suất miễn phí</h2>
+      <p>Điền thông tin bên dưới. Tôi sẽ liên hệ trực tiếp để xác nhận và xếp lịch buổi học online qua Zoom. Hạn chót: <b>15/06</b>.</p>
     </div>
 
     <div class="formcard">
@@ -257,7 +293,7 @@
           <input type="email" name="email" required placeholder="email@cua-ban.com" />
         </div>
         <div class="field">
-          <label>Bạn đã có 1 trong 3 công cụ: Claude Code, Codex, Gemini CLI chưa? <span class="req">*</span></label>
+          <label>Bạn đã cài phần mềm AI nào trên máy chưa? (Claude Code, Codex hoặc Gemini) <span class="req">*</span></label>
           <select name="cong_cu" required>
             <option value="">-- Chọn --</option>
             <option>Đã có (ít nhất 1 trong 3)</option>
@@ -276,7 +312,7 @@
 
         <div class="consent">
           <input type="checkbox" name="camket" id="camket" required />
-          <label for="camket">Dù được học miễn phí, tôi cam kết học <b>nghiêm túc 100%</b>: dự đủ buổi, làm bài thực hành và xây bằng được bộ não thứ 2 cho riêng mình.</label>
+          <label for="camket">Dù được học miễn phí, tôi cam kết học <b>nghiêm túc 100%</b>: dự đủ buổi học, làm bài thực hành và xây bằng được bộ não thứ 2 cho riêng mình.</label>
         </div>
 
         <!-- honeypot chống spam -->
@@ -288,8 +324,12 @@
 
       <div class="success" id="successBox">
         <div class="big">🎉</div>
-        <h3>Đã nhận đăng ký của bạn!</h3>
-        <p>Tôi sẽ liên hệ qua điện thoại/Zalo trong thời gian sớm nhất để xác nhận suất và xếp lịch buổi đầu. Nếu cần gấp, cứ nhắn trực tiếp cho tôi nhé.</p>
+        <h3>Đăng ký thành công!</h3>
+        <p>Bước cuối - và quan trọng nhất: <b>vào ngay nhóm Zalo của lớp</b> để nhận lịch học, tài liệu và được hỗ trợ trực tiếp.</p>
+        <img class="qr" src="qr-zalo.jpg" alt="Mã QR vào nhóm Zalo lớp Wiki AI" />
+        <p style="font-size:14px">Quét mã QR bằng Zalo, hoặc bấm nút bên dưới:</p>
+        <a href="https://zalo.me/g/w2blrg0glkh8lw1kmixk" target="_blank" rel="noopener" class="btn btn-primary">💬 Vào nhóm Zalo của lớp →</a>
+        <p class="formnote">Tôi cũng sẽ liên hệ qua điện thoại/Zalo để xác nhận suất và xếp lịch buổi học nhé.</p>
       </div>
     </div>
   </div>
@@ -299,17 +339,18 @@
 <section class="soft">
   <div class="wrap">
     <h2 class="center" style="margin-bottom:26px">Câu hỏi thường gặp</h2>
-    <details><summary>Tôi không biết lập trình, học được không?</summary><div class="ans">Được. Bạn chỉ cần biết copy-paste và gõ vài lệnh cơ bản - mọi bước được hướng dẫn cầm tay. Không cần kiến thức lập trình.</div></details>
-    <details><summary>Tôi dùng máy Windows thì sao?</summary><div class="ans">Hoàn toàn ổn. Mọi công cụ (Obsidian, Claude) đều chạy trên Windows và macOS. Lớp cầm tay nên sẽ hỗ trợ đúng theo máy của bạn.</div></details>
-    <details><summary>Vì sao cần một công cụ AI dòng lệnh?</summary><div class="ans">Đây là phần AI trực tiếp đọc/ghi file để vận hành kho của bạn. Bạn chỉ cần 1 trong 3: Claude Code, Codex hoặc Gemini CLI. Tuỳ công cụ sẽ có bản miễn phí hoặc trả phí - đây là chi phí công cụ riêng, tách khỏi học phí lớp.</div></details>
-    <details><summary>Mất bao lâu để chạy được?</summary><div class="ans">Sau buổi xây kho đầu tiên (vài giờ) là bộ não đã dùng được. Toàn bộ lộ trình khoảng 15-20 giờ, trải dài 1-2 tuần, làm tới đâu dùng được tới đó.</div></details>
-    <details><summary>"Miễn phí" có điều kiện gì không?</summary><div class="ans">Có một chút: bạn học miễn phí, và tôi mong bạn góp ý thẳng thắn cùng chia sẻ một cảm nhận ngắn sau khoá để lớp ngày càng tốt hơn. Đây là sự đồng hành hai bên cùng có lợi.</div></details>
+    <details><summary>Tôi không biết lập trình, học được không?</summary><div class="ans">Được. Bạn chỉ cần làm theo vài bước đơn giản trên máy - mọi thao tác được hướng dẫn tận tay. Không cần kiến thức lập trình.</div></details>
+    <details><summary>Tôi dùng máy Windows thì sao?</summary><div class="ans">Hoàn toàn ổn. Mọi phần mềm (Obsidian, Claude) đều chạy trên cả Windows và macOS. Lớp cầm tay nên sẽ hỗ trợ đúng theo máy của bạn.</div></details>
+    <details><summary>Học online hay phải tới lớp?</summary><div class="ans"><b>Học online qua Zoom</b> - bạn ngồi ở đâu cũng tham gia được, chỉ cần máy tính có mạng. Link Zoom sẽ gửi trong nhóm Zalo của lớp trước buổi học.</div></details>
+    <details><summary>Vì sao cần một phần mềm AI trên máy?</summary><div class="ans">Đây là phần giúp AI tự đọc và ghi vào kho của bạn. Bạn chỉ cần 1 trong 3: Claude Code, Codex hoặc Gemini. Tuỳ phần mềm sẽ có bản miễn phí hoặc trả phí - đây là chi phí phần mềm riêng, tách khỏi học phí lớp.</div></details>
+    <details><summary>Lớp kéo dài bao lâu?</summary><div class="ans">Gói gọn trong <b>1 buổi cầm tay, học online qua Zoom</b> (khoảng 2-3 giờ). Hết buổi là bạn đã có bộ não thứ 2 chạy được và biết cách tự mở rộng thêm - làm tới đâu dùng được tới đó.</div></details>
+    <details><summary>"Miễn phí" có điều kiện gì không?</summary><div class="ans">Có một chút: bạn học miễn phí, và tôi mong bạn góp ý thẳng thắn cùng chia sẻ một cảm nhận ngắn sau buổi học để lớp ngày càng tốt hơn. Đây là sự đồng hành hai bên cùng có lợi.</div></details>
   </div>
 </section>
 
 <footer>
   <p><b>Lớp Wiki AI - Xây dựng Bộ Não Thứ 2</b></p>
-  <p style="margin-top:6px">Hướng dẫn bởi Lê Thanh Sơn · Cohort beta · Chỉ 2-3 suất · Hạn 15/06</p>
+  <p style="margin-top:6px">Hướng dẫn bởi Lê Thanh Sơn · Lớp thử nghiệm · Học online · 1 buổi · 10 suất · Hạn 15/06</p>
 </footer>
 
 <!-- sticky mobile CTA -->
