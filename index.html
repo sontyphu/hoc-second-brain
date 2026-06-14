@@ -119,11 +119,12 @@
   .consent label{font-size:14px;color:#451a03;font-weight:500;line-height:1.5}
   .hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
   .formnote{text-align:center;font-size:13px;color:var(--muted);margin-top:12px}
-  .success{display:none;text-align:center;padding:24px 18px}
-  .success .big{font-size:46px}
-  .success h3{font-size:23px;margin:8px 0}
-  .success .qr{width:212px;height:212px;object-fit:contain;border:1px solid var(--line);border-radius:14px;padding:8px;background:#fff;margin:16px auto 8px;display:block;box-shadow:var(--shadow)}
+  .success{display:none;text-align:center;padding:20px 16px}
+  .success h3{font-size:22px;margin:0 0 6px}
+  .success .sub{font-size:15px;margin-bottom:6px}
+  .success .qr{width:min(360px,90%);height:auto;object-fit:contain;border:1px solid var(--line);border-radius:14px;padding:6px;background:#fff;margin:12px auto;display:block;box-shadow:var(--shadow)}
   .success .btn{margin-top:6px}
+  .success .formnote{margin-top:10px}
   .err{display:none;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;border-radius:10px;padding:11px 14px;font-size:14px;font-weight:600;margin-bottom:14px}
 
   /* FAQ */
@@ -323,13 +324,11 @@
       </form>
 
       <div class="success" id="successBox">
-        <div class="big">🎉</div>
-        <h3>Đăng ký thành công!</h3>
-        <p>Bước cuối - và quan trọng nhất: <b>vào ngay nhóm Zalo của lớp</b> để nhận lịch học, tài liệu và được hỗ trợ trực tiếp.</p>
+        <h3>🎉 Đăng ký thành công!</h3>
+        <p class="sub">Bước cuối: <b>quét mã QR vào nhóm Zalo của lớp</b> để nhận lịch học &amp; tài liệu.</p>
         <img class="qr" src="qr-zalo.jpg" alt="Mã QR vào nhóm Zalo lớp Wiki AI" />
-        <p style="font-size:14px">Quét mã QR bằng Zalo, hoặc bấm nút bên dưới:</p>
         <a href="https://zalo.me/g/w2blrg0glkh8lw1kmixk" target="_blank" rel="noopener" class="btn btn-primary">💬 Vào nhóm Zalo của lớp →</a>
-        <p class="formnote">Tôi cũng sẽ liên hệ qua điện thoại/Zalo để xác nhận suất và xếp lịch buổi học nhé.</p>
+        <p class="formnote">Không quét được? Bấm nút trên. Tôi cũng sẽ liên hệ Zalo xác nhận suất &amp; xếp lịch.</p>
       </div>
     </div>
   </div>
