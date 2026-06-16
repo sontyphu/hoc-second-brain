@@ -3,6 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ===== ĐO LƯỜNG: Google Analytics 4 (ID: G-TE748QLVE3) ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TE748QLVE3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TE748QLVE3');
+</script>
+
+<!-- ===== ĐO LƯỜNG: Microsoft Clarity (ID: x7rxip1e98) ===== -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "x7rxip1e98");
+</script>
 <title>Lớp Wiki AI - Xây dựng Bộ Não Thứ 2 | Lê Thanh Sơn</title>
 <meta name="description" content="Lớp thử nghiệm MIỄN PHÍ, học online qua Zoom: tự tay xây bộ não thứ 2 - nơi AI nhớ và sắp xếp mọi thứ giúp bạn. Cầm tay cùng Lê Thanh Sơn, gói gọn 1 buổi. Chỉ 10 suất, hạn 18/06." />
 <meta property="og:title" content="Lớp Wiki AI - Xây dựng Bộ Não Thứ 2" />
@@ -415,6 +433,13 @@
     submitBtn.textContent = 'Đang gửi…';
 
     var done = function(){
+      // Đo: 1 lượt ĐĂNG KÝ THÀNH CÔNG (chuyển đổi quan trọng nhất)
+      if (typeof gtag === 'function') {
+        gtag('event', 'dang_ky', { event_category: 'lop_wiki_ai', event_label: 'form_dang_ky_thanh_cong' });
+      }
+      if (typeof window.clarity === 'function') {
+        window.clarity('event', 'dang_ky_thanh_cong');
+      }
       form.style.display = 'none';
       successBox.style.display = 'block';
       successBox.scrollIntoView({behavior:'smooth', block:'center'});
@@ -434,6 +459,15 @@
       headers:{'Content-Type':'application/x-www-form-urlencoded'},
       body: 'value=' + encodeURIComponent(JSON.stringify(data))
     }).then(done).catch(done);
+  });
+
+  // Đo: bấm nút "Đăng ký giữ suất" (đo Ý ĐỊNH trước form -> thấy chỗ rớt giữa "bấm" và "điền xong")
+  document.querySelectorAll('a[href="#dangky"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      if (typeof gtag === 'function') {
+        gtag('event', 'bam_dang_ky', { event_category: 'lop_wiki_ai', event_label: 'cta_cuon_toi_form' });
+      }
+    });
   });
 </script>
 </body>
