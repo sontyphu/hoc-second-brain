@@ -70,6 +70,17 @@
   .btn-ghost:hover{background:rgba(255,255,255,.18)}
   .btn-block{width:100%;font-size:18px;padding:17px}
 
+  /* HERO VIDEO */
+  .hero-video{position:relative;margin-top:28px;max-width:780px;border-radius:18px;overflow:hidden;
+    box-shadow:0 26px 64px -22px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.2);background:#0A0F1E}
+  .hero-video video{display:block;width:100%;height:auto}
+  .sound-btn{position:absolute;right:13px;bottom:13px;display:inline-flex;align-items:center;gap:7px;
+    background:rgba(10,15,30,.66);color:#fff;border:1px solid rgba(255,255,255,.32);font-family:inherit;
+    font-weight:700;font-size:14px;padding:9px 15px;border-radius:999px;cursor:pointer;
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .15s}
+  .sound-btn:hover{background:rgba(10,15,30,.88)}
+  .video-cap{margin-top:11px;font-size:13.5px;color:#c7d2fe}
+
   /* PROBLEM */
   .grid{display:grid;gap:18px}
   .cards-3{grid-template-columns:repeat(3,1fr)}
@@ -194,6 +205,14 @@
     <div class="cta-row">
       <a href="#dangky" class="btn btn-primary">Đăng ký giữ suất miễn phí →</a>
     </div>
+
+    <div class="hero-video">
+      <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="bo-nao-thu-2-poster.jpg">
+        <source src="bo-nao-thu-2.mp4" type="video/mp4" />
+      </video>
+      <button class="sound-btn" id="soundBtn" type="button" aria-label="Bật tiếng">🔇 Bật tiếng</button>
+    </div>
+    <p class="video-cap">Video tự chạy không tiếng - bấm “Bật tiếng” để nghe lời giới thiệu (30 giây).</p>
   </div>
 </header>
 
@@ -469,6 +488,21 @@
       }
     });
   });
+
+  // ====== Video hero: nút bật/tắt tiếng ======
+  (function(){
+    var v = document.getElementById('heroVideo');
+    var b = document.getElementById('soundBtn');
+    if (!v || !b) return;
+    b.addEventListener('click', function(){
+      v.muted = !v.muted;
+      if (!v.muted){ v.currentTime = 0; v.play(); }
+      b.textContent = v.muted ? '🔇 Bật tiếng' : '🔊 Tắt tiếng';
+      if (!v.muted && typeof gtag === 'function'){
+        gtag('event', 'bat_tieng_video', { event_category: 'lop_wiki_ai', event_label: 'hero_video' });
+      }
+    });
+  })();
 </script>
 </body>
 </html>
