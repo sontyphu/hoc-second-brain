@@ -41,7 +41,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:'Be Vietnam Pro',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+  body{font-family:'Be Vietnam Pro',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;text-align:center}
   .wrap{width:100%;max-width:920px;margin:0 auto;padding:0 20px}
   h1,h2,h3{line-height:1.25;font-weight:800;letter-spacing:-.01em}
   h2{font-size:clamp(24px,4.5vw,34px);margin-bottom:14px}
@@ -57,21 +57,19 @@
     background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.18) 1px,transparent 0);background-size:26px 26px;opacity:.35}
   .hero .wrap{position:relative;padding-top:56px;padding-bottom:60px}
   .badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#231300;font-weight:800;font-size:14px;padding:8px 16px;border-radius:999px;box-shadow:0 6px 20px -6px rgba(245,158,11,.7)}
-  .hero h1{font-size:clamp(30px,6.2vw,52px);color:#fff;margin:18px 0 14px}
+  .hero h1{font-size:clamp(30px,6.2vw,52px);color:#fff;margin:18px auto 14px;max-width:840px}
   .hero h1 em{font-style:normal;background:linear-gradient(90deg,#fde68a,#fbbf24);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lede{font-size:clamp(17px,2.4vw,21px);color:#e0e7ff;max-width:660px}
-  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .lede{font-size:clamp(17px,2.4vw,21px);color:#e0e7ff;max-width:660px;margin:0 auto}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;justify-content:center}
   .chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:14px;font-weight:600;padding:8px 14px;border-radius:10px;backdrop-filter:blur(6px)}
-  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;justify-content:center}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:17px;padding:15px 28px;border-radius:12px;cursor:pointer;border:none;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease}
   .btn-primary{background:var(--accent);color:#231300;box-shadow:0 10px 26px -8px rgba(245,158,11,.65)}
   .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -8px rgba(245,158,11,.7)}
-  .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
-  .btn-ghost:hover{background:rgba(255,255,255,.18)}
   .btn-block{width:100%;font-size:18px;padding:17px}
 
   /* HERO VIDEO */
-  .hero-video{position:relative;margin-top:28px;max-width:780px;border-radius:18px;overflow:hidden;
+  .hero-video{position:relative;margin:28px auto 0;max-width:780px;border-radius:18px;overflow:hidden;
     box-shadow:0 26px 64px -22px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.2);background:#0A0F1E}
   .hero-video video{display:block;width:100%;height:auto}
   .sound-btn{position:absolute;right:13px;bottom:13px;display:inline-flex;align-items:center;gap:7px;
@@ -85,24 +83,22 @@
   .grid{display:grid;gap:18px}
   .cards-3{grid-template-columns:repeat(3,1fr)}
   .cards-2{grid-template-columns:repeat(2,1fr)}
-  .card{background:var(--soft);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-  .card .ic{font-size:26px;margin-bottom:10px;display:block}
+  .card{background:var(--soft);border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-align:center}
   .card h3{margin-bottom:6px}
   .card p{font-size:15px}
 
   .soft{background:var(--soft)}
   .center{text-align:center}
-  .center p{max-width:660px;margin-left:auto;margin-right:auto}
+  .center p,.lead-p{max-width:660px;margin-left:auto;margin-right:auto}
 
-  /* benefit 2x2 cards */
-  .bcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow)}
-  .bcard .num{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#fff;font-size:18px;background:linear-gradient(135deg,var(--primary),var(--violet));margin-bottom:14px}
+  /* benefit cards */
+  .bcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow);text-align:center}
+  .bcard .num{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#fff;font-size:18px;background:linear-gradient(135deg,var(--primary),var(--violet));margin:0 auto 14px}
   .bcard h3{margin-bottom:8px;font-size:18px}
   .bcard p{font-size:15px}
 
-  /* "Để làm gì" use cards */
-  .ucard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:flex;gap:15px;align-items:flex-start}
-  .ucard .ic{flex:none;width:48px;height:48px;border-radius:13px;display:grid;place-items:center;font-size:24px;background:#eef2ff}
+  /* uses cards */
+  .ucard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);text-align:center}
   .ucard h3{font-size:17px;margin-bottom:5px}
   .ucard p{font-size:14.5px}
 
@@ -112,40 +108,43 @@
   .builton span{font-size:15px;color:var(--muted)}
   .builton b{color:var(--ink)}
 
-  /* needs - điều kiện có màu */
-  ul.needs{list-style:none;display:grid;gap:12px;margin-top:8px}
-  ul.needs li{display:flex;gap:13px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 16px}
-  ul.needs .ni{flex:none;width:42px;height:42px;border-radius:11px;display:grid;place-items:center;font-size:21px}
+  /* needs list */
+  ul.needs{list-style:none;display:grid;gap:12px;margin:8px auto 0;max-width:560px}
+  ul.needs li{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 16px;font-size:15px;color:var(--muted)}
   ul.needs li b{color:var(--ink)}
-  ul.needs li span:last-child{font-size:15px;color:var(--muted)}
 
-  /* conditions / fit */
-  .check li,.cross li{position:relative;padding-left:30px;margin-bottom:10px;font-size:15.5px;color:var(--ink);line-height:1.55}
-  ul.check,ul.cross{list-style:none}
-  .check li:before{content:"✓";position:absolute;left:0;top:2px;color:var(--primary);background:#eef2ff;width:21px;height:21px;border-radius:6px;display:grid;place-items:center;font-weight:800;font-size:12px}
-  .cross li:before{content:"✕";position:absolute;left:0;top:2px;color:#94a3b8;background:#f1f5f9;width:21px;height:21px;border-radius:6px;display:grid;place-items:center;font-weight:700;font-size:11px}
-  .fit-label{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  /* fit lists */
+  ul.fitlist{list-style:none;margin:0 auto;max-width:520px}
+  ul.fitlist li{font-size:15.5px;color:var(--ink);line-height:1.55;margin-bottom:10px}
+  .fit-label{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin:0 0 10px}
   .fit-label.no{margin-top:18px}
 
-  /* instructor - ảnh to, chữ hẹp */
-  .host{display:flex;gap:34px;align-items:center;flex-wrap:wrap;justify-content:center}
-  .host .ava{flex:none;width:260px;height:260px;border-radius:24px;object-fit:cover;object-position:center top;box-shadow:var(--shadow-lg);border:5px solid #fff;outline:1px solid var(--line)}
-  .host .info{flex:1;min-width:280px;max-width:430px}
-  .creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+  /* deal box */
+  .deal{background:#fffbeb;border:1.5px solid #fcd34d;border-radius:16px;padding:22px 24px;text-align:center}
+  .deal .tag{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#92400e;background:#fde68a;padding:6px 13px;border-radius:999px;margin-bottom:14px}
+  .deal ul{list-style:none;display:grid;gap:11px}
+  .deal li{font-size:15px;color:#451a03;line-height:1.55;max-width:560px;margin:0 auto}
+  .deal li b{color:#231300}
+
+  /* instructor */
+  .host{display:flex;gap:34px;align-items:center;flex-wrap:wrap;justify-content:center;text-align:center}
+  .host .ava{flex:none;width:240px;height:240px;border-radius:24px;object-fit:cover;object-position:center top;box-shadow:var(--shadow-lg);border:5px solid #fff;outline:1px solid var(--line)}
+  .host .info{flex:1;min-width:280px;max-width:460px}
+  .creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px;justify-content:center}
   .creds span{font-size:13px;font-weight:600;color:var(--primary-d);background:#eef2ff;border:1px solid #e0e7ff;padding:6px 11px;border-radius:999px}
 
   /* FORM */
   #dangky{background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff}
   #dangky h2{color:#fff}
   #dangky .center p{color:#c7d2fe}
-  .formcard{background:#fff;color:var(--ink);border-radius:22px;padding:30px;max-width:640px;margin:26px auto 0;box-shadow:var(--shadow-lg)}
+  .formcard{background:#fff;color:var(--ink);border-radius:22px;padding:30px;max-width:640px;margin:26px auto 0;box-shadow:var(--shadow-lg);text-align:left}
   .field{margin-bottom:16px}
   .field label{display:block;font-weight:700;font-size:14.5px;margin-bottom:7px}
   .field label .req{color:#dc2626}
   .field input,.field select,.field textarea{width:100%;font-family:inherit;font-size:16px;padding:13px 15px;border:1.6px solid var(--line);border-radius:11px;background:var(--soft);transition:border-color .15s,box-shadow .15s}
   .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px #e0e7ff;background:#fff}
   .field textarea{resize:vertical;min-height:80px}
-  .consent{display:flex;gap:11px;align-items:flex-start;background:#fffbeb;border:1.5px solid #fcd34d;border-radius:12px;padding:14px;margin:6px 0 18px}
+  .consent{display:flex;gap:11px;align-items:flex-start;background:#fffbeb;border:1.5px solid #fcd34d;border-radius:12px;padding:14px;margin:6px 0 18px;text-align:left}
   .consent input{margin-top:4px;width:18px;height:18px;flex:none;accent-color:var(--accent-d)}
   .consent label{font-size:14px;color:#451a03;font-weight:500;line-height:1.5}
   .hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
@@ -156,10 +155,10 @@
   .success .qr{width:min(360px,90%);height:auto;object-fit:contain;border:1px solid var(--line);border-radius:14px;padding:6px;background:#fff;margin:12px auto;display:block;box-shadow:var(--shadow)}
   .success .btn{margin-top:6px}
   .success .formnote{margin-top:10px}
-  .err{display:none;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;border-radius:10px;padding:11px 14px;font-size:14px;font-weight:600;margin-bottom:14px}
+  .err{display:none;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;border-radius:10px;padding:11px 14px;font-size:14px;font-weight:600;margin-bottom:14px;text-align:center}
 
   /* FAQ */
-  details{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:0;margin-bottom:12px;overflow:hidden}
+  details{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:0;margin:0 auto 12px;overflow:hidden;max-width:720px;text-align:left}
   details summary{cursor:pointer;font-weight:700;padding:17px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:16px}
   details summary::-webkit-details-marker{display:none}
   details summary:after{content:"+";font-size:24px;color:var(--primary);font-weight:400;transition:transform .2s}
@@ -177,7 +176,7 @@
     section{padding:42px 0}
     .cards-3,.cards-2{grid-template-columns:1fr}
     .hero .wrap{padding-top:40px}
-    .host .ava{width:210px;height:210px}
+    .host .ava{width:200px;height:200px}
     .host .info{max-width:none}
     .btn{width:100%}
     .builton{width:100%}
@@ -192,38 +191,39 @@
 <!-- HERO -->
 <header class="hero">
   <div class="wrap">
-    <span class="badge">🎁 Khóa học miễn phí · Học online qua Zoom · 10 suất mỗi đợt</span>
+    <span class="badge">Khóa học miễn phí · Học online qua Zoom · 10 suất mỗi đợt</span>
     <h1><em>Second Brain</em> - tự tay xây bộ não thứ 2, để AI nhớ và sắp xếp mọi thứ thay bạn</h1>
     <p class="lede">Bạn thả tài liệu, ghi chú vào một chỗ; AI đọc, sắp xếp lại gọn gàng rồi tìm lại cho bạn trong vài giây - thay vì để mọi thứ trôi nổi trong đầu và mấy chục tab đang mở.</p>
     <div class="hero-meta">
-      <span class="chip">🎁 Miễn phí 100%</span>
-      <span class="chip">👐 Cầm tay trong 1 buổi</span>
-      <span class="chip">🧩 Không cần biết lập trình</span>
-      <span class="chip">✅ Làm xong dùng được ngay</span>
-    </div>
-    <div class="cta-row">
-      <a href="#dangky" class="btn btn-primary">Đăng ký giữ suất miễn phí →</a>
+      <span class="chip">Miễn phí 100%</span>
+      <span class="chip">Cầm tay trong 1 buổi</span>
+      <span class="chip">Không cần biết lập trình</span>
+      <span class="chip">Làm xong dùng được ngay</span>
     </div>
 
     <div class="hero-video">
       <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="bo-nao-thu-2-poster.jpg">
         <source src="bo-nao-thu-2.mp4" type="video/mp4" />
       </video>
-      <button class="sound-btn" id="soundBtn" type="button" aria-label="Bật tiếng">🔇 Bật tiếng</button>
+      <button class="sound-btn" id="soundBtn" type="button" aria-label="Bật tiếng">Bật tiếng</button>
     </div>
-    <p class="video-cap">Video tự chạy không tiếng - bấm “Bật tiếng” để nghe lời giới thiệu (30 giây).</p>
+    <p class="video-cap">Video tự chạy không tiếng - bấm "Bật tiếng" để nghe lời giới thiệu (30 giây).</p>
+
+    <div class="cta-row">
+      <a href="#dangky" class="btn btn-primary">Đăng ký giữ chỗ miễn phí</a>
+    </div>
   </div>
 </header>
 
 <!-- PROBLEM -->
 <section>
   <div class="wrap">
-    <div class="center"><h2>Kiến thức bạn tích cóp đang… bốc hơi mỗi ngày</h2>
-    <p>Đọc nhiều, lưu nhiều, nhưng đến lúc cần thì không tìm lại được. Quen thuộc chứ?</p></div>
+    <h2>Kiến thức bạn tích cóp đang bốc hơi mỗi ngày</h2>
+    <p class="lead-p">Đọc nhiều, lưu nhiều, nhưng đến lúc cần thì không tìm lại được. Quen chứ?</p>
     <div class="grid cards-3" style="margin-top:30px">
-      <div class="card"><span class="ic">🗂️</span><h3>Lưu mà không dùng lại</h3><p>Ghi chú nằm rải rác ở Notion, Zalo, ảnh chụp màn hình, file Word… cần thì chịu, không biết nó ở đâu.</p></div>
-      <div class="card"><span class="ic">🌀</span><h3>Tự sắp xếp thì bỏ cuộc</h3><p>App nào cũng bắt bạn tự tổ chức, tự gắn nhãn, tự dọn. Được vài tuần là loạn rồi bỏ.</p></div>
-      <div class="card"><span class="ic">🤖</span><h3>Có AI mà chưa dùng vào việc thật</h3><p>Nghe AI khắp nơi nhưng vẫn chép tay từng đoạn, chưa biến nó thành trợ lý nhớ việc cho mình.</p></div>
+      <div class="card"><h3>Lưu mà không dùng lại</h3><p>Ghi chú nằm rải rác ở Notion, Zalo, ảnh chụp màn hình, file Word, cần thì chịu, không biết nó ở đâu.</p></div>
+      <div class="card"><h3>Tự sắp xếp thì bỏ cuộc</h3><p>App nào cũng bắt bạn tự tổ chức, tự gắn nhãn, tự dọn. Được vài tuần là loạn rồi bỏ.</p></div>
+      <div class="card"><h3>Có AI mà chưa dùng vào việc thật</h3><p>Nghe AI khắp nơi nhưng vẫn chép tay từng đoạn, chưa biến nó thành trợ lý nhớ việc cho mình.</p></div>
     </div>
   </div>
 </section>
@@ -231,17 +231,18 @@
 <!-- SOLUTION / BENEFITS -->
 <section class="soft">
   <div class="wrap">
-    <div class="center"><span class="eyebrow">Giải pháp</span><h2>Một bộ não thứ 2 - và AI lo phần sắp xếp giúp bạn</h2>
-    <p>Sau buổi học, bạn có một hệ thống chạy theo đúng một nguyên tắc: <b>AI làm, bạn duyệt</b>.</p></div>
+    <span class="eyebrow">Giải pháp</span>
+    <h2>Một bộ não thứ 2, và AI lo phần sắp xếp giúp bạn</h2>
+    <p class="lead-p">Sau buổi học, bạn có một hệ thống chạy theo đúng một nguyên tắc: <b>AI làm, bạn duyệt</b>.</p>
     <div class="grid cards-2" style="margin-top:30px">
-      <div class="bcard"><span class="num">1</span><h3>Một kho riêng của bạn</h3><p>AI đọc tài liệu một lần rồi sắp thành những trang ghi chú gọn gàng, nối với nhau - khỏi đọc lại từ đầu mỗi khi cần.</p></div>
-      <div class="bcard"><span class="num">2</span><h3>Tra cứu bằng cách hỏi</h3><p>“Tổng hợp giúp tôi mọi thứ đã ghi về việc X” - AI trả lời kèm chỗ đã lưu, thay vì bạn lục từng file.</p></div>
+      <div class="bcard"><span class="num">1</span><h3>Một kho riêng của bạn</h3><p>AI đọc tài liệu một lần rồi sắp thành những trang ghi chú gọn gàng, nối với nhau, khỏi đọc lại từ đầu mỗi khi cần.</p></div>
+      <div class="bcard"><span class="num">2</span><h3>Tra cứu bằng cách hỏi</h3><p>"Tổng hợp giúp tôi mọi thứ đã ghi về việc X", AI trả lời kèm chỗ đã lưu, thay vì bạn lục từng file.</p></div>
       <div class="bcard"><span class="num">3</span><h3>AI tự lo phần lộn xộn</h3><p>Tự nối các ghi chú liên quan, dọn trùng lặp, giữ kho luôn sạch. Bạn chỉ ra quyết định và duyệt.</p></div>
       <div class="bcard"><span class="num">4</span><h3>Bệ phóng tiến xa hơn</h3><p>Khi kho đã chạy, đây là nền để sau này AI tự làm việc thay bạn, không chỉ dừng ở trả lời.</p></div>
     </div>
     <div class="builton">
       <img src="obsidian-logo.png" alt="Obsidian" />
-      <span>Tất cả dựng trên <b>Obsidian</b> - phần mềm ghi chú <b>miễn phí</b>, chạy ngay trên máy của bạn.</span>
+      <span>Tất cả dựng trên <b>Obsidian</b>, phần mềm ghi chú <b>miễn phí</b>, chạy ngay trên máy của bạn.</span>
     </div>
   </div>
 </section>
@@ -249,13 +250,14 @@
 <!-- ĐỂ LÀM GÌ / USES -->
 <section>
   <div class="wrap">
-    <div class="center"><span class="eyebrow">Để làm gì?</span><h2>Có bộ não thứ 2 rồi, bạn được gì?</h2>
-    <p>Không phải để "cho oai". Đây là những việc đời thường nó làm giúp bạn mỗi ngày:</p></div>
+    <span class="eyebrow">Để làm gì?</span>
+    <h2>Có bộ não thứ 2 rồi, bạn được gì?</h2>
+    <p class="lead-p">Không phải để cho oai. Đây là những việc đời thường nó làm giúp bạn mỗi ngày:</p>
     <div class="grid cards-2" style="margin-top:30px">
-      <div class="ucard"><span class="ic">🔎</span><div><h3>Hỏi là ra ngay</h3><p>“Hợp đồng với anh A có điều khoản gì?” - AI trả lời kèm đúng chỗ bạn đã lưu. Khỏi nhớ, khỏi lục.</p></div></div>
-      <div class="ucard"><span class="ic">✍️</span><div><h3>AI viết giúp, đúng chất bạn</h3><p>Nhờ soạn email, bài đăng, báo giá… dựa trên chính tài liệu và cách nói của bạn - không phải bịa.</p></div></div>
-      <div class="ucard"><span class="ic">🧩</span><div><h3>Không rơi rớt việc gì</h3><p>Mọi ý tưởng, ghi chú cuộc họp, đầu việc nằm gọn một chỗ - không quên, không thất lạc.</p></div></div>
-      <div class="ucard"><span class="ic">🤝</span><div><h3>Bàn giao &amp; đào tạo nhanh</h3><p>Người mới mở kho ra là nắm việc; bạn không phải ngồi nói lại từ đầu mỗi lần.</p></div></div>
+      <div class="ucard"><h3>Hỏi là ra ngay</h3><p>"Hợp đồng với anh A có điều khoản gì?", AI trả lời kèm đúng chỗ bạn đã lưu. Khỏi nhớ, khỏi lục.</p></div>
+      <div class="ucard"><h3>AI viết giúp, đúng chất bạn</h3><p>Nhờ soạn email, bài đăng, báo giá dựa trên chính tài liệu và cách nói của bạn, không phải bịa.</p></div>
+      <div class="ucard"><h3>Không rơi rớt việc gì</h3><p>Mọi ý tưởng, ghi chú cuộc họp, đầu việc nằm gọn một chỗ, không quên, không thất lạc.</p></div>
+      <div class="ucard"><h3>Bàn giao và đào tạo nhanh</h3><p>Người mới mở kho ra là nắm việc; bạn không phải ngồi nói lại từ đầu mỗi lần.</p></div>
     </div>
   </div>
 </section>
@@ -263,33 +265,34 @@
 <!-- CONDITIONS + FIT -->
 <section class="soft">
   <div class="wrap">
-    <div class="center"><span class="eyebrow">Lớp có chọn lọc</span><h2>Điều kiện tham gia</h2>
-    <p>Mỗi đợt chỉ nhận <b>10 người</b> và có chọn lọc đầu vào - bạn cần đủ điều kiện dưới đây mới nên đăng ký.</p></div>
+    <span class="eyebrow">Lớp có chọn lọc</span>
+    <h2>Điều kiện tham gia</h2>
+    <p class="lead-p">Mỗi đợt chỉ nhận <b>10 người</b> và có chọn lọc đầu vào, bạn cần đủ điều kiện dưới đây mới nên đăng ký.</p>
     <div class="grid cards-2" style="margin-top:26px">
       <div class="card">
         <h3 style="margin-bottom:16px">Bạn cần có sẵn</h3>
         <ul class="needs">
-          <li><span class="ni" style="background:#eef2ff;color:#4f46e5">🤖</span><span><b>Một phần mềm AI trên máy</b> - Claude Code, Codex hoặc Gemini <i>(có bản miễn phí dùng được; bản trả phí chạy mượt hơn - không tính vào lớp)</i></span></li>
-          <li><span class="ni" style="background:#e0f2fe;color:#0284c7">💻</span><span><b>Một máy tính có mạng</b> - Windows hoặc macOS (học online qua Zoom)</span></li>
-          <li><span class="ni" style="background:#fef3c7;color:#d97706">⏱️</span><span><b>2-3 giờ trong buổi học</b> - để cài đặt và xây kho đầu tiên</span></li>
-          <li><span class="ni" style="background:#fee2e2;color:#dc2626">🔥</span><span><b>Tinh thần làm thật</b> - lớp thực hành, không nghe rồi để đó</span></li>
+          <li><b>Một phần mềm AI trên máy</b> - Claude Code, Codex hoặc Gemini (có bản miễn phí dùng được; bản trả phí chạy mượt hơn, không tính vào lớp)</li>
+          <li><b>Một máy tính có mạng</b> - Windows hoặc macOS (học online qua Zoom)</li>
+          <li><b>2-3 giờ trong buổi học</b> - để cài đặt và xây kho đầu tiên</li>
+          <li><b>Tinh thần làm thật</b> - lớp thực hành, không nghe rồi để đó</li>
         </ul>
       </div>
       <div class="card">
         <h3 style="margin-bottom:16px">Lớp này dành cho ai?</h3>
-        <p class="fit-label" style="color:var(--ok)">✓ Phù hợp nếu bạn</p>
-        <ul class="check">
+        <p class="fit-label" style="color:var(--ok)">Phù hợp nếu bạn</p>
+        <ul class="fitlist">
           <li>Chủ doanh nghiệp, chuyên gia, người làm nội dung cần sắp xếp thông tin gọn gàng.</li>
-          <li>Muốn AI làm "trợ lý nhớ việc" cho mình, không chỉ trò chuyện cho vui.</li>
+          <li>Muốn AI làm trợ lý nhớ việc cho mình, không chỉ trò chuyện cho vui.</li>
         </ul>
-        <p class="fit-label no" style="color:#dc2626">✕ Chưa hợp nếu bạn</p>
-        <ul class="cross">
-          <li>Chỉ tìm "mẹo AI nhanh", ngại thực hành.</li>
+        <p class="fit-label no" style="color:#dc2626">Chưa hợp nếu bạn</p>
+        <ul class="fitlist">
+          <li>Chỉ tìm mẹo AI nhanh, ngại thực hành.</li>
           <li>Chưa sẵn sàng cài một phần mềm AI trên máy.</li>
         </ul>
       </div>
     </div>
-    <p class="center" style="margin-top:18px;font-size:14.5px">Không cần biết lập trình - mọi thao tác sẽ được hướng dẫn tận tay. Nhưng đây là <b>lớp có chọn lọc</b>: chỉ nhận người đủ 4 điều kiện trên và thật sự bắt tay làm. Đăng ký không có nghĩa chắc chắn được nhận.</p>
+    <p class="lead-p" style="margin-top:18px;font-size:14.5px">Không cần biết lập trình, mọi thao tác sẽ được hướng dẫn tận tay. Nhưng đây là <b>lớp có chọn lọc</b>: chỉ nhận người đủ 4 điều kiện trên và thật sự bắt tay làm. Đăng ký không có nghĩa chắc chắn được nhận.</p>
   </div>
 </section>
 
@@ -297,11 +300,11 @@
 <section>
   <div class="wrap">
     <div class="host">
-      <img class="ava" src="le-thanh-son.jpg" alt="Lê Thanh Sơn - chuyên gia &amp; diễn giả đào tạo AI" />
+      <img class="ava" src="le-thanh-son.jpg" alt="Lê Thanh Sơn - chuyên gia và diễn giả đào tạo AI" />
       <div class="info">
         <span class="eyebrow">Người hướng dẫn</span>
         <h2 style="margin-bottom:8px">Lê Thanh Sơn</h2>
-        <p>Chuyên gia &amp; diễn giả đào tạo doanh nghiệp ứng dụng AI để tăng trưởng. Tôi giúp chủ doanh nghiệp và người đi làm <b>dùng AI thật vào việc thật</b> - không lý thuyết suông, làm được ngay. Bộ não thứ 2 là hệ thống chính tôi đang dùng mỗi ngày để chạy công việc, và đây là buổi tôi cầm tay bạn dựng lại nó cho riêng mình.</p>
+        <p>Chuyên gia và diễn giả đào tạo doanh nghiệp ứng dụng AI để tăng trưởng. Tôi giúp chủ doanh nghiệp và người đi làm <b>dùng AI thật vào việc thật</b>, không lý thuyết suông, làm được ngay. Bộ não thứ 2 là hệ thống chính tôi đang dùng mỗi ngày để chạy công việc, và đây là buổi tôi cầm tay bạn dựng lại nó cho riêng mình.</p>
         <div class="creds">
           <span>4 năm đào tạo ứng dụng AI</span>
           <span>20+ doanh nghiệp đã đào tạo</span>
@@ -323,11 +326,11 @@
     </div>
 
     <div class="deal" style="max-width:640px;margin:24px auto 0">
-      <span class="tag">⏳ Lời mời có giới hạn</span>
+      <span class="tag">Lời mời có giới hạn</span>
       <ul>
-        <li><b>Bạn nhận:</b> 1 buổi online cầm tay + dựng xong bộ não thứ 2 của riêng bạn + vào nhóm Zalo hỗ trợ - <b>miễn phí 100%</b>.</li>
+        <li><b>Bạn nhận:</b> 1 buổi online cầm tay + dựng xong bộ não thứ 2 của riêng bạn + vào nhóm Zalo hỗ trợ, <b>miễn phí 100%</b>.</li>
         <li><b>Vì sao miễn phí:</b> đây là bước nền tôi muốn nhiều người đi qua được trước khi đi sâu hơn cùng nhau. Đổi lại, tôi mong bạn một cảm nhận thẳng thắn sau buổi.</li>
-        <li><b>Chỉ 10 suất mỗi đợt</b> - vì tôi kèm sát từng người trong buổi. Và <b>chỉ nhận người đủ điều kiện</b>; đăng ký không có nghĩa chắc chắn được nhận.</li>
+        <li><b>Chỉ 10 suất mỗi đợt</b>, vì tôi kèm sát từng người trong buổi. Và <b>chỉ nhận người đủ điều kiện</b>; đăng ký không có nghĩa chắc chắn được nhận.</li>
       </ul>
     </div>
 
@@ -373,16 +376,16 @@
         <!-- honeypot chống spam -->
         <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Đăng ký giữ suất ngay →</button>
-        <p class="formnote">🔒 Thông tin chỉ dùng để liên hệ về lớp học. Không spam, không chia sẻ cho bên thứ ba.</p>
+        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Đăng ký giữ chỗ ngay</button>
+        <p class="formnote">Thông tin chỉ dùng để liên hệ về lớp học. Không spam, không chia sẻ cho bên thứ ba.</p>
       </form>
 
       <div class="success" id="successBox">
-        <h3>🎉 Đăng ký thành công!</h3>
-        <p class="sub">Bước cuối: <b>quét mã QR vào nhóm Zalo của lớp</b> để nhận lịch học &amp; tài liệu.</p>
+        <h3>Đăng ký thành công!</h3>
+        <p class="sub">Bước cuối: <b>quét mã QR vào nhóm Zalo của lớp</b> để nhận lịch học và tài liệu.</p>
         <img class="qr" src="qr-zalo.jpg" alt="Mã QR vào nhóm Zalo khóa Second Brain" />
-        <a href="https://zalo.me/g/w2blrg0glkh8lw1kmixk" target="_blank" rel="noopener" class="btn btn-primary">💬 Vào nhóm Zalo của lớp →</a>
-        <p class="formnote">Không quét được? Bấm nút trên. Tôi cũng sẽ liên hệ Zalo xác nhận suất &amp; xếp lịch.</p>
+        <a href="https://zalo.me/g/w2blrg0glkh8lw1kmixk" target="_blank" rel="noopener" class="btn btn-primary">Vào nhóm Zalo của lớp</a>
+        <p class="formnote">Không quét được? Bấm nút trên. Tôi cũng sẽ liên hệ Zalo xác nhận chỗ và xếp lịch.</p>
       </div>
     </div>
   </div>
@@ -392,11 +395,11 @@
 <section class="soft">
   <div class="wrap">
     <h2 class="center" style="margin-bottom:26px">Câu hỏi thường gặp</h2>
-    <details><summary>Tôi không biết lập trình, học được không?</summary><div class="ans">Được. Bạn chỉ cần làm theo vài bước đơn giản trên máy - mọi thao tác được hướng dẫn tận tay. Không cần kiến thức lập trình.</div></details>
+    <details><summary>Tôi không biết lập trình, học được không?</summary><div class="ans">Được. Bạn chỉ cần làm theo vài bước đơn giản trên máy, mọi thao tác được hướng dẫn tận tay. Không cần kiến thức lập trình.</div></details>
     <details><summary>Tôi dùng máy Windows thì sao?</summary><div class="ans">Hoàn toàn ổn. Mọi phần mềm (Obsidian, Claude) đều chạy trên cả Windows và macOS. Lớp cầm tay nên sẽ hỗ trợ đúng theo máy của bạn.</div></details>
-    <details><summary>Học online hay phải tới lớp?</summary><div class="ans"><b>Học online qua Zoom</b> - bạn ngồi ở đâu cũng tham gia được, chỉ cần máy tính có mạng. Link Zoom sẽ gửi trong nhóm Zalo của lớp trước buổi học.</div></details>
-    <details><summary>Vì sao cần một phần mềm AI trên máy?</summary><div class="ans">Đây là phần giúp AI tự đọc và ghi vào kho của bạn. Bạn chỉ cần 1 trong 3: Claude Code, Codex hoặc Gemini. <b>Bản miễn phí là đủ để học và dùng</b>; nếu muốn chạy mượt và hiệu quả hơn thì dùng bản trả phí - tuỳ bạn. Đây là chi phí phần mềm riêng, tách khỏi học phí lớp.</div></details>
-    <details><summary>Khi nào học? Học vào ngày nào?</summary><div class="ans">Lịch học sẽ chốt <b>sau khi đủ nhóm</b>. Tôi sẽ hẹn một khung giờ phù hợp với cả nhóm rồi báo cụ thể trong nhóm Zalo của lớp - nên bạn cứ giữ chỗ trước, lịch chốt sau.</div></details>
+    <details><summary>Học online hay phải tới lớp?</summary><div class="ans"><b>Học online qua Zoom</b>, bạn ngồi ở đâu cũng tham gia được, chỉ cần máy tính có mạng. Link Zoom sẽ gửi trong nhóm Zalo của lớp trước buổi học.</div></details>
+    <details><summary>Vì sao cần một phần mềm AI trên máy?</summary><div class="ans">Đây là phần giúp AI tự đọc và ghi vào kho của bạn. Bạn chỉ cần 1 trong 3: Claude Code, Codex hoặc Gemini. <b>Bản miễn phí là đủ để học và dùng</b>; nếu muốn chạy mượt và hiệu quả hơn thì dùng bản trả phí, tuỳ bạn. Đây là chi phí phần mềm riêng, tách khỏi học phí lớp.</div></details>
+    <details><summary>Khi nào học? Học vào ngày nào?</summary><div class="ans">Lịch học sẽ chốt <b>sau khi đủ nhóm</b>. Tôi sẽ hẹn một khung giờ phù hợp với cả nhóm rồi báo cụ thể trong nhóm Zalo của lớp, nên bạn cứ giữ chỗ trước, lịch chốt sau.</div></details>
   </div>
 </section>
 
@@ -406,7 +409,7 @@
 </footer>
 
 <!-- sticky mobile CTA -->
-<div class="sticky-cta"><a href="#dangky" class="btn btn-primary btn-block">Đăng ký giữ suất miễn phí →</a></div>
+<div class="sticky-cta"><a href="#dangky" class="btn btn-primary btn-block">Đăng ký giữ chỗ miễn phí</a></div>
 
 <script>
   // ====== CẤU HÌNH ======
@@ -476,7 +479,7 @@
     }).then(done).catch(done);
   });
 
-  // Đo: bấm nút "Đăng ký giữ suất" (đo Ý ĐỊNH trước form -> thấy chỗ rớt giữa "bấm" và "điền xong")
+  // Đo: bấm nút "Đăng ký giữ chỗ" (đo Ý ĐỊNH trước form -> thấy chỗ rớt giữa "bấm" và "điền xong")
   document.querySelectorAll('a[href="#dangky"]').forEach(function(a){
     a.addEventListener('click', function(){
       if (typeof gtag === 'function') {
@@ -493,7 +496,7 @@
     b.addEventListener('click', function(){
       v.muted = !v.muted;
       if (!v.muted){ v.currentTime = 0; v.play(); }
-      b.textContent = v.muted ? '🔇 Bật tiếng' : '🔊 Tắt tiếng';
+      b.textContent = v.muted ? 'Bật tiếng' : 'Tắt tiếng';
       if (!v.muted && typeof gtag === 'function'){
         gtag('event', 'bat_tieng_video', { event_category: 'lop_wiki_ai', event_label: 'hero_video' });
       }
