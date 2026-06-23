@@ -207,12 +207,11 @@
     </div>
 
     <div class="hero-video">
-      <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="bo-nao-thu-2-poster.jpg">
+      <video id="heroVideo" controls playsinline preload="metadata" poster="bo-nao-thu-2-poster.jpg">
         <source src="bo-nao-thu-2.mp4" type="video/mp4" />
       </video>
-      <button class="sound-btn" id="soundBtn" type="button" aria-label="Bật tiếng">Bật tiếng</button>
     </div>
-    <p class="video-cap">Video tự chạy không tiếng - bấm "Bật tiếng" để nghe lời giới thiệu (30 giây).</p>
+    <p class="video-cap">Bấm play để xem giới thiệu Second Brain (5 phút).</p>
 
     <div class="cta-row">
       <a href="#dangky" class="btn btn-primary">Đăng ký giữ chỗ miễn phí</a>
@@ -493,20 +492,6 @@
     });
   });
 
-  // ====== Video hero: nút bật/tắt tiếng ======
-  (function(){
-    var v = document.getElementById('heroVideo');
-    var b = document.getElementById('soundBtn');
-    if (!v || !b) return;
-    b.addEventListener('click', function(){
-      v.muted = !v.muted;
-      if (!v.muted){ v.currentTime = 0; v.play(); }
-      b.textContent = v.muted ? 'Bật tiếng' : 'Tắt tiếng';
-      if (!v.muted && typeof gtag === 'function'){
-        gtag('event', 'bat_tieng_video', { event_category: 'lop_wiki_ai', event_label: 'hero_video' });
-      }
-    });
-  })();
 </script>
 </body>
 </html>
