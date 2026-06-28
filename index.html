@@ -825,40 +825,35 @@
     };
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Đang gửi…';
+    submitBtn.textContent = 'Đang chuyển…';
 
-    var done = function(){
-      // Đo: 1 lượt ĐĂNG KÝ THÀNH CÔNG (chuyển đổi quan trọng nhất)
-      if (typeof gtag === 'function') {
-        gtag('event', 'dang_ky', { event_category: 'lop_wiki_ai', event_label: 'form_dang_ky_thanh_cong' });
-      }
-      if (typeof window.clarity === 'function') {
-        window.clarity('event', 'dang_ky_thanh_cong');
-      }
-      // Lưu thông tin để trang thanh toán cá nhân hoá + tạo nội dung CK theo SĐT
-      try {
-        sessionStorage.setItem('sb_order', JSON.stringify({
-          hoten: data.hoten, sdt: data.sdt, email: data.email
-        }));
-      } catch(e){}
-      // Chuyển sang trang thanh toán (kéo lên đầu trang trong trang đó)
-      window.location.href = 'thanh-toan.html';
-    };
-
-    if (!WEBHOOK_URL || WEBHOOK_URL.indexOf('__MAKE') === 0){
-      // chưa nối webhook (đang xem thử) -> vẫn hiện thành công để kiểm tra giao diện
-      setTimeout(done, 600);
-      return;
+    // Đo: 1 lượt ĐĂNG KÝ THÀNH CÔNG
+    if (typeof gtag === 'function') {
+      gtag('event', 'dang_ky', { event_category: 'lop_wiki_ai', event_label: 'form_dang_ky_thanh_cong' });
     }
+    if (typeof window.clarity === 'function') {
+      window.clarity('event', 'dang_ky_thanh_cong');
+    }
+    // Lưu thông tin để trang thanh toán cá nhân hoá + tạo nội dung CK theo SĐT
+    try {
+      sessionStorage.setItem('sb_order', JSON.stringify({
+        hoten: data.hoten, sdt: data.sdt, email: data.email
+      }));
+    } catch(e){}
 
-    // Gửi dạng form-urlencoded với 1 trường "value" chứa JSON
-    // → khớp mẫu Make: ParseJSON({{1.value}}). no-cors tránh lỗi CORS từ trang tĩnh.
-    fetch(WEBHOOK_URL, {
-      method:'POST',
-      mode:'no-cors',
-      headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      body: 'value=' + encodeURIComponent(JSON.stringify(data))
-    }).then(done).catch(done);
+    // Gửi lead về Make CHẠY NỀN (keepalive: vẫn gửi được khi đã chuyển trang) - KHÔNG chờ phản hồi
+    try {
+      if (WEBHOOK_URL && WEBHOOK_URL.indexOf('__MAKE') !== 0){
+        fetch(WEBHOOK_URL, {
+          method:'POST', mode:'no-cors', keepalive:true,
+          headers:{'Content-Type':'application/x-www-form-urlencoded'},
+          body: 'value=' + encodeURIComponent(JSON.stringify(data))
+        });
+      }
+    } catch(e){}
+
+    // Chuyển sang trang thanh toán NGAY (không phụ thuộc webhook)
+    window.location.href = 'thanh-toan.html';
   });
 
   // Đo: bấm nút "Đăng ký giữ chỗ" (đo Ý ĐỊNH trước form -> thấy chỗ rớt giữa "bấm" và "điền xong")
