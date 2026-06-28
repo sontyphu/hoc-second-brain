@@ -55,6 +55,7 @@
     --accent:#f59e0b; --accent-d:#d97706;
     --bg:#ffffff; --soft:#f8fafc; --soft2:#f1f5f9;
     --ok:#16a34a; --radius:16px;
+    --content:880px;
     --shadow:0 10px 30px -12px rgba(15,23,42,.18);
     --shadow-lg:0 24px 60px -20px rgba(49,46,129,.45);
   }
@@ -63,7 +64,7 @@
   html,body{overflow-x:hidden}
   img,video{max-width:100%;height:auto}
   body{font-family:'Be Vietnam Pro',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;text-align:center}
-  .wrap{width:100%;max-width:1113px;margin:0 auto;padding:0 20px}
+  .wrap{width:100%;max-width:var(--content);margin:0 auto;padding:0 20px}
   h1,h2,h3{line-height:1.25;font-weight:800;letter-spacing:-.01em;text-wrap:balance}
   h2{font-size:clamp(24px,4.5vw,34px);margin-bottom:14px}
   h3{font-size:19px;font-weight:700}
@@ -80,7 +81,7 @@
   .badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#231300;font-weight:800;font-size:14px;padding:8px 16px;border-radius:999px;box-shadow:0 6px 20px -6px rgba(245,158,11,.7)}
   .hero h1{font-size:clamp(30px,6.2vw,52px);color:#fff;margin:18px auto 14px;max-width:1016px}
   .hero h1 em{font-style:normal;background:linear-gradient(90deg,#fde68a,#fbbf24);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lede{font-size:clamp(17px,2.4vw,21px);color:#e0e7ff;max-width:799px;margin:0 auto}
+  .lede{font-size:clamp(17px,2.4vw,21px);color:#e0e7ff;max-width:var(--content);margin:0 auto}
   .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;justify-content:center}
   .chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:14px;font-weight:600;padding:8px 14px;border-radius:10px;backdrop-filter:blur(6px)}
   .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;justify-content:center}
@@ -110,7 +111,7 @@
 
   .soft{background:var(--soft)}
   .center{text-align:center}
-  .center p,.lead-p{max-width:799px;margin-left:auto;margin-right:auto}
+  .center p,.lead-p{max-width:var(--content);margin-left:auto;margin-right:auto}
 
   /* benefit cards */
   .bcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow);text-align:left}
@@ -124,18 +125,18 @@
   .ucard p{font-size:14.5px}
 
   /* built-on Obsidian */
-  .builton{display:flex;align-items:center;gap:15px;justify-content:center;flex-wrap:wrap;margin:30px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 24px;box-shadow:var(--shadow);max-width:702px}
+  .builton{display:flex;align-items:center;gap:15px;justify-content:center;flex-wrap:wrap;margin:30px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 24px;box-shadow:var(--shadow);max-width:var(--content)}
   .builton img{width:44px;height:44px;flex:none}
   .builton span{font-size:15px;color:var(--muted)}
   .builton b{color:var(--ink)}
 
   /* needs list */
-  ul.needs{list-style:none;display:grid;gap:12px;margin:8px auto 0;max-width:678px}
+  ul.needs{list-style:none;display:grid;gap:12px;margin:8px auto 0;max-width:var(--content)}
   ul.needs li{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 16px;font-size:15px;color:var(--muted)}
   ul.needs li b{color:var(--ink)}
 
   /* fit lists */
-  ul.fitlist{list-style:none;margin:0 auto;max-width:629px}
+  ul.fitlist{list-style:none;margin:0 auto;max-width:var(--content)}
   ul.fitlist li{font-size:15.5px;color:var(--ink);line-height:1.55;margin-bottom:10px}
   .fit-label{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin:0 0 10px}
   .fit-label.no{margin-top:18px}
@@ -159,7 +160,7 @@
   #dangky{background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff}
   #dangky h2{color:#fff}
   #dangky .center p{color:#c7d2fe}
-  .formcard{background:#fff;color:var(--ink);border-radius:22px;padding:30px;max-width:774px;margin:26px auto 0;box-shadow:var(--shadow-lg);text-align:left}
+  .formcard{background:#fff;color:var(--ink);border-radius:22px;padding:30px;max-width:var(--content);margin:26px auto 0;box-shadow:var(--shadow-lg);text-align:left}
   .field{margin-bottom:16px}
   .field label{display:block;font-weight:700;font-size:14.5px;margin-bottom:7px}
   .field label .req{color:#dc2626}
@@ -180,7 +181,7 @@
   .err{display:none;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;border-radius:10px;padding:11px 14px;font-size:14px;font-weight:600;margin-bottom:14px;text-align:center}
 
   /* FAQ */
-  details{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:0;margin:0 auto 12px;overflow:hidden;max-width:871px;text-align:left}
+  details{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:0;margin:0 auto 12px;overflow:hidden;max-width:var(--content);text-align:left}
   details summary{cursor:pointer;font-weight:700;padding:17px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:16px}
   details summary::-webkit-details-marker{display:none}
   details summary:after{content:"+";font-size:24px;color:var(--primary);font-weight:400;transition:transform .2s}
@@ -242,14 +243,14 @@
 
 <!-- CSS cho các khối bán hàng nâng cấp -->
 <style>
-  .story{max-width:799px;margin:0 auto;text-align:left;font-size:16.5px;color:var(--muted)}
+  .story{max-width:var(--content);margin:0 auto;text-align:left;font-size:16.5px;color:var(--muted)}
   .story p{margin-bottom:14px}
   .story .pull{font-size:19px;font-weight:700;color:var(--ink);border-left:4px solid var(--primary);padding-left:16px;margin:18px 0;line-height:1.45}
-  ul.tried{list-style:none;display:grid;gap:11px;max-width:799px;margin:18px auto 0;text-align:left}
+  ul.tried{list-style:none;display:grid;gap:11px;max-width:var(--content);margin:18px auto 0;text-align:left}
   ul.tried li{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px;font-size:15px;color:var(--muted)}
   ul.tried li:before{content:"✕";color:#dc2626;font-weight:800;flex:none}
   ul.tried li b{color:var(--ink)}
-  .vstack{max-width:774px;margin:24px auto 0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px 22px;box-shadow:var(--shadow)}
+  .vstack{max-width:var(--content);margin:24px auto 0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px 22px;box-shadow:var(--shadow)}
   .vstack .row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:15px;text-align:left}
   .vstack .row:last-child{border-bottom:none}
   .vstack .row b{color:var(--ink);font-weight:600}
@@ -263,7 +264,7 @@
   .countdown .box .l{font-size:11px;color:#c7d2fe;text-transform:uppercase;letter-spacing:.06em;margin-top:5px}
   .commits{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:16px 0 4px}
   .commits span{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-weight:600;font-size:13.5px;padding:8px 13px;border-radius:999px}
-  .recap{max-width:629px;margin:14px auto 18px;text-align:left;list-style:none;display:grid;gap:8px}
+  .recap{max-width:var(--content);margin:14px auto 18px;text-align:left;list-style:none;display:grid;gap:8px}
   .recap li{display:flex;gap:9px;font-size:14.5px;color:#e0e7ff}
   .recap li:before{content:"✓";color:#a3e635;font-weight:800;flex:none}
   .tcards{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-top:26px}
@@ -271,7 +272,7 @@
   .tcard .stars{color:#f59e0b;font-size:14px;margin-bottom:6px}
   .tcard p{color:var(--ink);font-size:14.5px;font-style:italic}
   .tcard .who{margin-top:10px;font-size:13px;color:var(--muted);font-weight:600}
-  .guar{display:flex;gap:16px;align-items:flex-start;max-width:823px;margin:0 auto;background:#eef2ff;border:1.5px solid #c7d2fe;border-radius:18px;padding:22px 24px;text-align:left}
+  .guar{display:flex;gap:16px;align-items:flex-start;max-width:var(--content);margin:0 auto;background:#eef2ff;border:1.5px solid #c7d2fe;border-radius:18px;padding:22px 24px;text-align:left}
   .guar .ic{font-size:40px;flex:none;line-height:1}
   .guar h3{font-size:19px;margin-bottom:6px}
   .guar p{font-size:14.5px;margin-bottom:8px}
@@ -282,16 +283,16 @@
   .howto .step h4{font-size:16px;margin-bottom:5px}
   .howto .step p{font-size:13.5px}
   .howto .arrow{display:flex;align-items:center;color:var(--primary);font-size:26px;font-weight:800;flex:none}
-  .glossary{max-width:799px;margin:24px auto 0;background:#eef2ff;border:1px solid #e0e7ff;border-radius:14px;padding:18px 22px;text-align:left}
+  .glossary{max-width:var(--content);margin:24px auto 0;background:#eef2ff;border:1px solid #e0e7ff;border-radius:14px;padding:18px 22px;text-align:left}
   .glossary h4{font-size:15px;margin-bottom:10px;color:var(--primary-d);display:flex;align-items:center;gap:7px}
   .glossary ul{list-style:none;display:grid;gap:9px}
   .glossary li{font-size:14.5px;color:var(--ink)}
   .glossary li b{color:var(--primary-d)}
   @media(max-width:760px){.howto .arrow{display:none}}
-  .scatter{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;align-items:center;margin:26px auto 0;max-width:629px}
+  .scatter{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;align-items:center;margin:26px auto 0;max-width:var(--content)}
   .scatter img{height:48px;width:auto}
   .scatter .lbl{width:100%;text-align:center;font-size:14px;color:var(--muted);margin-bottom:2px}
-  .graphfig{max-width:871px;margin:28px auto 0;text-align:center}
+  .graphfig{max-width:var(--content);margin:28px auto 0;text-align:center}
   .graphfig img,.graphfig video{width:100%;height:auto;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg);display:block}
   .graphfig figcaption{font-size:13.5px;color:var(--muted);margin:10px auto 0;max-width:660px}
   .vid-obsidian{display:flex;gap:28px;align-items:center;max-width:1016px;margin:28px auto 0}
@@ -306,7 +307,7 @@
   .story-body{flex:1;min-width:0}
   .story-body .story{max-width:none;margin-top:14px}
   @media(max-width:760px){.storywrap{flex-direction:column;align-items:center;text-align:center}.story-portrait{width:210px;height:270px}.story-body .story{text-align:left}}
-  .lessons{display:grid;grid-template-columns:1fr;gap:0;max-width:871px;margin:14px auto 0;text-align:left}
+  .lessons{display:grid;grid-template-columns:1fr;gap:0;max-width:var(--content);margin:14px auto 0;text-align:left}
   .lessons .ucard{border:none;box-shadow:none;border-radius:0;border-bottom:1px solid var(--line);padding:14px 4px;background:transparent}
   .lessons .ucard:last-child{border-bottom:none}
   .lessons .ucard h3{font-size:16px;margin-bottom:3px}
@@ -319,7 +320,7 @@
   <div class="wrap">
     <h2>Kiến thức bạn tích cóp đang bốc hơi mỗi ngày</h2>
     <p class="lead-p">Đọc nhiều, lưu nhiều, nhưng đến lúc cần thì không tìm lại được. Quen chứ?</p>
-    <figure class="graphfig" style="max-width:748px">
+    <figure class="graphfig" style="max-width:var(--content)">
       <img src="vande-qua-tai.jpg" alt="Quá tải thông tin - ghi chú rải rác khắp Zalo, Drive, Notion, Gmail, sticky note, không biết tìm file ở đâu" loading="lazy" />
       <figcaption>Mọi thứ ở khắp nơi - Zalo, Drive, Notion, ảnh chụp màn hình, sticky note… đến lúc cần thì "tìm file ở đâu?".</figcaption>
     </figure>
@@ -368,7 +369,7 @@
       <li><b>Hỏi ChatGPT mỗi lần</b> - nó không nhớ tài liệu của bạn, trả lời chung chung, phải nhắc lại từ đầu.</li>
       <li><b>Cố nhớ hết trong đầu</b> - quá tải, càng nhớ càng stress.</li>
     </ul>
-    <figure class="graphfig" style="max-width:748px">
+    <figure class="graphfig" style="max-width:var(--content)">
       <img src="zalo-giao-dien.jpg" alt="Thông tin trôi giữa hàng trăm tin nhắn Zalo" loading="lazy" />
       <figcaption>Ngay cả tin nhắn cũng vậy - thông tin quan trọng trôi giữa hàng trăm cuộc chat, lúc cần cuộn mãi không ra.</figcaption>
     </figure>
@@ -441,7 +442,7 @@
   @media(max-width:760px){.gallery-grid{grid-template-columns:1fr}.gallery-grid figure img{height:210px}.gallery-grid .g-wide img{height:230px}}
 
   /* === Lộ trình học - accordion gập/mở === */
-  .curriculum{max-width:871px;margin:18px auto 0;display:grid;gap:14px;text-align:left}
+  .curriculum{max-width:var(--content);margin:18px auto 0;display:grid;gap:14px;text-align:left}
   .acc{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
   .acc-head{width:100%;display:flex;align-items:center;gap:14px;padding:18px 20px;background:none;border:none;cursor:pointer;font-family:inherit;text-align:left}
   .acc-head:hover{background:var(--soft)}
@@ -636,7 +637,7 @@
     <p class="lead-p">Đăng ký hôm nay để nhận mức giá ưu đãi và đủ <b>5 quà tặng</b> kèm theo.</p>
 
     <!-- 5 QUÀ TẶNG -->
-    <div class="grid" style="grid-template-columns:1fr;gap:14px;margin-top:26px;max-width:799px;margin-left:auto;margin-right:auto">
+    <div class="grid" style="grid-template-columns:1fr;gap:14px;margin-top:26px;max-width:var(--content);margin-left:auto;margin-right:auto">
       <div class="bcard">
         <span class="num">1</span>
         <p class="qtag">🎁 Giải quyết: Mất hàng tuần mày mò xây cấu trúc từ con số 0</p>
@@ -681,7 +682,7 @@
     </div>
 
     <!-- THẺ GIÁ -->
-    <div style="max-width:774px;margin:18px auto 0;background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff;border-radius:22px;padding:30px 28px;text-align:center;box-shadow:var(--shadow-lg)">
+    <div style="max-width:var(--content);margin:18px auto 0;background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff;border-radius:22px;padding:30px 28px;text-align:center;box-shadow:var(--shadow-lg)">
       <p style="color:#c7d2fe;font-size:15px;margin:0 0 6px">Ưu đãi hôm nay, bạn chỉ trả</p>
       <p style="color:#4ade80;font-weight:800;font-size:clamp(40px,8vw,54px);margin:0 0 6px;line-height:1.05">868.000đ</p>
       <p style="color:#fde68a;font-size:14px;font-weight:600;margin:0 0 18px">Tiết kiệm hơn 71% so với 2.990.000đ · chỉ trong hôm nay</p>
@@ -699,7 +700,7 @@
     </div>
 
     <!-- ĐẾM NGƯỢC + TÓM TẮT QUYỀN LỢI + CAM KẾT -->
-    <div style="max-width:774px;margin:22px auto 0;text-align:center">
+    <div style="max-width:var(--content);margin:22px auto 0;text-align:center">
       <p style="color:#fde68a;font-weight:700;font-size:15px;margin-bottom:8px">⏳ Ưu đãi 71% kết thúc khi hết hôm nay</p>
       <div class="countdown" id="cd">
         <div class="box"><div class="n" id="cd-h">00</div><div class="l">Giờ</div></div>
@@ -828,7 +829,7 @@
   <p><b>Second Brain - Xây dựng Bộ Não Thứ 2</b></p>
   <p style="margin-top:6px">Hướng dẫn bởi Lê Thanh Sơn · Khóa học online · Trọn bộ 12 bài · 2 giai đoạn</p>
   <p style="margin-top:6px">Liên hệ / hỗ trợ: Zalo 0343928094 · Email Sonmktpro@gmail.com</p>
-  <p style="margin-top:14px;font-size:12.5px;max-width:760px;margin-left:auto;margin-right:auto;line-height:1.6;color:#64748b">
+  <p style="margin-top:14px;font-size:12.5px;max-width:var(--content);margin-left:auto;margin-right:auto;line-height:1.6;color:#64748b">
     <b>Miễn trừ trách nhiệm:</b> Kết quả nhận được tùy thuộc vào nỗ lực, mức độ thực hành và bối cảnh của từng người; nội dung khóa học mang tính hướng dẫn, không cam kết kết quả giống nhau cho mọi học viên. Thông tin bạn cung cấp chỉ dùng để liên hệ về lớp học và được bảo mật, không chia sẻ cho bên thứ ba.
   </p>
   <p style="margin-top:10px;font-size:12px;color:#64748b">© 2026 Lê Thanh Sơn · Chính sách bảo mật · Điều khoản sử dụng</p>
