@@ -130,7 +130,8 @@
 
   /* instructor */
   .host{display:flex;gap:34px;align-items:center;flex-wrap:wrap;justify-content:center;text-align:center}
-  .host .ava{flex:none;width:240px;height:240px;border-radius:24px;object-fit:cover;object-position:center top;box-shadow:var(--shadow-lg);border:5px solid #fff;outline:1px solid var(--line)}
+  .host{align-items:stretch}
+  .host .ava{flex:none;width:320px;height:auto;align-self:stretch;min-height:440px;border-radius:24px;object-fit:cover;object-position:center top;box-shadow:var(--shadow-lg);border:5px solid #fff;outline:1px solid var(--line)}
   .host .info{flex:1;min-width:280px;max-width:460px;text-align:left}
   .creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px;justify-content:flex-start}
   .creds span{font-size:13px;font-weight:600;color:var(--primary-d);background:#eef2ff;border:1px solid #e0e7ff;padding:6px 11px;border-radius:999px}
@@ -178,7 +179,8 @@
     section{padding:42px 0}
     .cards-3,.cards-2{grid-template-columns:1fr}
     .hero .wrap{padding-top:40px}
-    .host .ava{width:200px;height:200px}
+    .host{align-items:center}
+    .host .ava{width:240px;height:auto;min-height:300px;align-self:center}
     .host .info{max-width:none}
     .btn{width:100%}
     .builton{width:100%}
@@ -197,8 +199,8 @@
 <header class="hero">
   <div class="wrap">
     <span class="badge">Khóa học online · Trọn bộ 12 bài + 5 quà tặng · Ưu đãi 71% hôm nay</span>
-    <h1>Tự tay xây <em>bộ não thứ 2</em> chạy bằng AI — nhớ và sắp xếp mọi thứ thay bạn, gọn trong một buổi</h1>
-    <p class="lede">Bạn thả tài liệu, ghi chú vào một chỗ; AI đọc, sắp xếp lại gọn gàng rồi tìm lại cho bạn trong vài giây — <b>kể cả khi bạn không rành công nghệ</b> hay từng bỏ cuộc với Notion, Evernote.</p>
+    <h1>Tự tay xây <em>bộ não thứ 2</em> chạy bằng AI - nhớ và sắp xếp mọi thứ thay bạn, gọn trong một buổi</h1>
+    <p class="lede">Bạn thả tài liệu, ghi chú vào một chỗ; AI đọc, sắp xếp lại gọn gàng rồi tìm lại cho bạn trong vài giây - <b>kể cả khi bạn không rành công nghệ</b> hay từng bỏ cuộc với Notion, Evernote.</p>
     <div class="hero-meta">
       <span class="chip">12 bài theo lộ trình</span>
       <span class="chip">Cầm tay từng bước</span>
@@ -221,14 +223,14 @@
 
 <!-- CSS cho các khối bán hàng nâng cấp -->
 <style>
-  .story{max-width:760px;margin:0 auto;text-align:left;font-size:16.5px;color:var(--muted)}
+  .story{max-width:660px;margin:0 auto;text-align:left;font-size:16.5px;color:var(--muted)}
   .story p{margin-bottom:14px}
   .story .pull{font-size:19px;font-weight:700;color:var(--ink);border-left:4px solid var(--primary);padding-left:16px;margin:18px 0;line-height:1.45}
   ul.tried{list-style:none;display:grid;gap:11px;max-width:660px;margin:18px auto 0;text-align:left}
   ul.tried li{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px;font-size:15px;color:var(--muted)}
   ul.tried li:before{content:"✕";color:#dc2626;font-weight:800;flex:none}
   ul.tried li b{color:var(--ink)}
-  .vstack{max-width:560px;margin:24px auto 0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px 20px;box-shadow:var(--shadow)}
+  .vstack{max-width:640px;margin:24px auto 0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px 22px;box-shadow:var(--shadow)}
   .vstack .row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:15px;text-align:left}
   .vstack .row:last-child{border-bottom:none}
   .vstack .row b{color:var(--ink);font-weight:600}
@@ -265,9 +267,9 @@
     <h2>Tôi từng lưu cả trăm bài hay… rồi tìm không ra</h2>
     <div class="story" style="margin-top:18px">
       <p>Có một giai đoạn, tôi đọc rất nhiều, học rất nhiều khóa, lưu cả trăm bài viết hay, ghi chú rải khắp Zalo, ảnh chụp màn hình, file Word. Tôi nghĩ mình đang "tích lũy kiến thức".</p>
-      <p>Nhưng đến lúc cần — một con số, một ý tưởng, một điều khoản trong hợp đồng — thì tôi chịu. Không nhớ đã lưu ở đâu, không tìm lại nổi. Cảm giác bất lực nhất là <b>biết chắc mình đã đọc rồi mà không lấy lại được</b>.</p>
-      <p class="pull">"Đầu lúc nào cũng quá tải, học nhiều mà chẳng đọng lại bao nhiêu. Tôi không thiếu kiến thức — tôi thiếu một chỗ để giữ và tìm lại nó."</p>
-      <p>Mọi thứ chỉ thay đổi khi tôi ngừng cố nhớ, và để AI lo phần lưu trữ — sắp xếp. Giờ tôi chỉ cần hỏi một câu, hệ thống trả lời kèm đúng chỗ đã lưu. Đó chính là thứ tôi sẽ cầm tay bạn dựng trong khóa này.</p>
+      <p>Nhưng đến lúc cần - một con số, một ý tưởng, một điều khoản trong hợp đồng - thì tôi chịu. Không nhớ đã lưu ở đâu, không tìm lại nổi. Cảm giác bất lực nhất là <b>biết chắc mình đã đọc rồi mà không lấy lại được</b>.</p>
+      <p class="pull">"Đầu lúc nào cũng quá tải, học nhiều mà chẳng đọng lại bao nhiêu. Tôi không thiếu kiến thức - tôi thiếu một chỗ để giữ và tìm lại nó."</p>
+      <p>Mọi thứ chỉ thay đổi khi tôi ngừng cố nhớ, và để AI lo phần lưu trữ - sắp xếp. Giờ tôi chỉ cần hỏi một câu, hệ thống trả lời kèm đúng chỗ đã lưu. Đó chính là thứ tôi sẽ cầm tay bạn dựng trong khóa này.</p>
     </div>
   </div>
 </section>
@@ -289,16 +291,16 @@
 <section>
   <div class="wrap">
     <span class="eyebrow">Vì sao cách cũ không xong</span>
-    <h2>Tôi đã thử mọi cách người ta khuyên — và đều thất bại</h2>
+    <h2>Tôi đã thử mọi cách người ta khuyên - và đều thất bại</h2>
     <p class="lead-p">Có thể bạn cũng đang mắc kẹt ở một trong những thứ này:</p>
     <ul class="tried">
-      <li><b>Notion / Evernote</b> — bắt tự tổ chức, tự gắn nhãn; được vài tuần là loạn rồi bỏ.</li>
-      <li><b>Ghi chú giấy, sổ tay</b> — đẹp lúc đầu, nhưng rồi mất, không tìm lại được.</li>
-      <li><b>Đổ hết vào Google Drive / Zalo</b> — biến thành "nghĩa địa file", có cũng như không.</li>
-      <li><b>Hỏi ChatGPT mỗi lần</b> — nó không nhớ tài liệu của bạn, trả lời chung chung, phải nhắc lại từ đầu.</li>
-      <li><b>Cố nhớ hết trong đầu</b> — quá tải, càng nhớ càng stress.</li>
+      <li><b>Notion / Evernote</b> - bắt tự tổ chức, tự gắn nhãn; được vài tuần là loạn rồi bỏ.</li>
+      <li><b>Ghi chú giấy, sổ tay</b> - đẹp lúc đầu, nhưng rồi mất, không tìm lại được.</li>
+      <li><b>Đổ hết vào Google Drive / Zalo</b> - biến thành "nghĩa địa file", có cũng như không.</li>
+      <li><b>Hỏi ChatGPT mỗi lần</b> - nó không nhớ tài liệu của bạn, trả lời chung chung, phải nhắc lại từ đầu.</li>
+      <li><b>Cố nhớ hết trong đầu</b> - quá tải, càng nhớ càng stress.</li>
     </ul>
-    <p class="lead-p" style="margin-top:20px;font-size:16px"><b>Hóa ra vấn đề không nằm ở việc thiếu công cụ. Cái thiếu là một HỆ THỐNG — và cách để AI vận hành nó cho bạn.</b></p>
+    <p class="lead-p" style="margin-top:20px;font-size:16px"><b>Hóa ra vấn đề không nằm ở việc thiếu công cụ. Cái thiếu là một HỆ THỐNG - và cách để AI vận hành nó cho bạn.</b></p>
   </div>
 </section>
 
@@ -364,7 +366,7 @@
         <h3 style="color:#b91c1c;margin-bottom:14px;text-align:center">Khi chưa có hệ thống</h3>
         <ul class="ba-list ba-no">
           <li>Học xong là quên, đầu tư thời gian mà không giữ lại được gì.</li>
-          <li>Tìm kiếm tài liệu mất 20–30 phút mỗi lần, làm đứt mạch tập trung.</li>
+          <li>Tìm kiếm tài liệu mất 20-30 phút mỗi lần, làm đứt mạch tập trung.</li>
           <li>Ý tưởng hay trôi mất, không có chỗ ghi lại bài bản.</li>
           <li>Đầu óc quá tải, cứ phải cố nhớ thay vì được tập trung làm.</li>
           <li>Lặp lại công việc đã làm rồi vì không lưu lại quy trình.</li>
@@ -393,26 +395,26 @@
     <h2>Bạn học gì trong khóa Second Brain?</h2>
     <p class="lead-p">Trọn bộ <b>12 bài</b>, chia 2 giai đoạn: từ xây nền móng tư duy đến vận hành bộ não thứ 2 cùng AI mỗi ngày.</p>
 
-    <h3 style="text-align:left;max-width:920px;margin:30px auto 4px">Giai đoạn 1 — Xây nền móng, tư duy về tri thức cá nhân</h3>
+    <h3 style="text-align:left;max-width:920px;margin:30px auto 4px">Giai đoạn 1 - Xây nền móng, tư duy về tri thức cá nhân</h3>
     <p style="text-align:left;max-width:920px;margin:0 auto 16px;font-size:15px">Mục tiêu: hiểu vì sao cần bộ não thứ 2 và cách tổ chức kiến thức đúng từ đầu.</p>
     <div class="grid cards-2">
-      <div class="ucard"><h3>Bài 1 — Vì sao não bạn không được sinh ra để ghi nhớ?</h3><p>Não người sinh ra để kết nối và sáng tạo, không phải để làm kho chứa. Bạn cần một "bộ não thứ 2" bên ngoài để lưu trữ, còn não thật để tập trung tư duy.</p></div>
-      <div class="ucard"><h3>Bài 2 — Bộ não thứ 2 là gì, và tại sao bạn cần nó ngay?</h3><p>Khác biệt giữa ghi chú thông thường và một hệ thống tri thức cá nhân thực sự. Bộ não thứ 2 giúp bạn lưu lại mọi điều đã học, đọc, trải nghiệm và tìm lại ngay khi cần.</p></div>
-      <div class="ucard"><h3>Bài 3 — Chọn công cụ phù hợp để bắt đầu</h3><p>Bạn không cần học nhiều phần mềm. Bài này giúp bạn chọn đúng một công cụ, hiểu khi nào dùng AI để hỗ trợ, và tập trung vào xây hệ thống thay vì chạy theo công cụ.</p></div>
-      <div class="ucard"><h3>Bài 4 — Cấu trúc chuẩn của một bộ não thứ 2</h3><p>Các ngăn cốt lõi: Hồ sơ cá nhân, Kho kiến thức, Quy trình làm việc, Bộ câu hỏi, Kết quả đầu ra. Nguyên tắc sắp xếp để vừa dễ tìm, vừa dễ mở rộng.</p></div>
-      <div class="ucard"><h3>Bài 5 — Đưa kiến thức vào hệ thống đúng cách</h3><p>Tài liệu nào nên lưu vào, tài liệu nào cần tóm tắt trước. Cách biến nội dung rời rạc — bài báo, buổi họp, khóa học — thành kiến thức có cấu trúc dùng được lâu dài.</p></div>
-      <div class="ucard"><h3>Bài 6 — Bài tập đầu tiên, vẽ bản đồ tri thức của bạn</h3><p>Tổng hợp những gì bạn đã có. Xác định khu vực kiến thức quan trọng nhất. Hoàn thành bản đồ tri thức cá nhân đầu tiên — nền móng của toàn bộ hệ thống.</p></div>
+      <div class="ucard"><h3>Bài 1 - Vì sao não bạn không được sinh ra để ghi nhớ?</h3><p>Não người sinh ra để kết nối và sáng tạo, không phải để làm kho chứa. Bạn cần một "bộ não thứ 2" bên ngoài để lưu trữ, còn não thật để tập trung tư duy.</p></div>
+      <div class="ucard"><h3>Bài 2 - Bộ não thứ 2 là gì, và tại sao bạn cần nó ngay?</h3><p>Khác biệt giữa ghi chú thông thường và một hệ thống tri thức cá nhân thực sự. Bộ não thứ 2 giúp bạn lưu lại mọi điều đã học, đọc, trải nghiệm và tìm lại ngay khi cần.</p></div>
+      <div class="ucard"><h3>Bài 3 - Chọn công cụ phù hợp để bắt đầu</h3><p>Bạn không cần học nhiều phần mềm. Bài này giúp bạn chọn đúng một công cụ, hiểu khi nào dùng AI để hỗ trợ, và tập trung vào xây hệ thống thay vì chạy theo công cụ.</p></div>
+      <div class="ucard"><h3>Bài 4 - Cấu trúc chuẩn của một bộ não thứ 2</h3><p>Các ngăn cốt lõi: Hồ sơ cá nhân, Kho kiến thức, Quy trình làm việc, Bộ câu hỏi, Kết quả đầu ra. Nguyên tắc sắp xếp để vừa dễ tìm, vừa dễ mở rộng.</p></div>
+      <div class="ucard"><h3>Bài 5 - Đưa kiến thức vào hệ thống đúng cách</h3><p>Tài liệu nào nên lưu vào, tài liệu nào cần tóm tắt trước. Cách biến nội dung rời rạc - bài báo, buổi họp, khóa học - thành kiến thức có cấu trúc dùng được lâu dài.</p></div>
+      <div class="ucard"><h3>Bài 6 - Bài tập đầu tiên, vẽ bản đồ tri thức của bạn</h3><p>Tổng hợp những gì bạn đã có. Xác định khu vực kiến thức quan trọng nhất. Hoàn thành bản đồ tri thức cá nhân đầu tiên - nền móng của toàn bộ hệ thống.</p></div>
     </div>
 
-    <h3 style="text-align:left;max-width:920px;margin:34px auto 4px">Giai đoạn 2 — Xây hệ thống, vận hành bộ não thứ 2 với sức mạnh của AI</h3>
+    <h3 style="text-align:left;max-width:920px;margin:34px auto 4px">Giai đoạn 2 - Xây hệ thống, vận hành bộ não thứ 2 với sức mạnh của AI</h3>
     <p style="text-align:left;max-width:920px;margin:0 auto 16px;font-size:15px">Mục tiêu: trực tiếp xây dựng hệ thống cá nhân và biết cách dùng AI làm đòn bẩy.</p>
     <div class="grid cards-2">
-      <div class="ucard"><h3>Bài 7 — Cài đặt không gian làm việc thông minh</h3><p>Tạo workspace bằng các công cụ AI hỗ trợ (Claude, Cursor…). Cách ra lệnh cho AI xây khung hệ thống. Cuối bài, bạn có bộ thư mục bộ não thứ 2 phiên bản đầu tiên.</p></div>
-      <div class="ucard"><h3>Bài 8 — Tạo "hồ sơ cá nhân" để AI hiểu bạn là ai</h3><p>Hồ sơ ghi lại: bạn là ai, bạn làm gì, khách hàng/đối tượng của bạn, mục tiêu hiện tại. Khi AI có hồ sơ này, câu trả lời sẽ sát với thực tế của bạn hơn nhiều.</p></div>
-      <div class="ucard"><h3>Bài 9 — Xây kho kiến thức chuyên môn của riêng bạn</h3><p>Cách gom kiến thức theo chủ đề. Quy tắc viết để AI đọc hiểu và bạn dễ tra cứu. Cuối bài, bạn có ít nhất 3 chủ đề kiến thức được lưu đúng cách.</p></div>
-      <div class="ucard"><h3>Bài 10 — Biến kinh nghiệm thành quy trình tái sử dụng</h3><p>Ghi lại cách bạn làm các việc lặp đi lặp lại (viết bài, chăm sóc khách, báo cáo…) thành quy trình chuẩn. AI sẽ dựa vào đó để hỗ trợ bạn làm nhanh và đúng hơn.</p></div>
-      <div class="ucard"><h3>Bài 11 — Thư viện câu hỏi, công cụ bí mật của người dùng AI giỏi</h3><p>Câu hỏi tốt phải gắn với ngữ cảnh cụ thể của bạn, không phải câu chung chung. Bài này giúp bạn tạo bộ câu hỏi mẫu theo từng tình huống công việc, dùng được ngay.</p></div>
-      <div class="ucard"><h3>Bài 12 — Vận hành bộ não thứ 2 mỗi ngày</h3><p>Cách khai thác hệ thống đã xây. Cách cập nhật sau mỗi buổi làm việc. Quy trình duy trì hàng tuần để bộ não thứ 2 ngày càng giàu có hơn theo thời gian.</p></div>
+      <div class="ucard"><h3>Bài 7 - Cài đặt không gian làm việc thông minh</h3><p>Tạo workspace bằng các công cụ AI hỗ trợ (Claude, Cursor…). Cách ra lệnh cho AI xây khung hệ thống. Cuối bài, bạn có bộ thư mục bộ não thứ 2 phiên bản đầu tiên.</p></div>
+      <div class="ucard"><h3>Bài 8 - Tạo "hồ sơ cá nhân" để AI hiểu bạn là ai</h3><p>Hồ sơ ghi lại: bạn là ai, bạn làm gì, khách hàng/đối tượng của bạn, mục tiêu hiện tại. Khi AI có hồ sơ này, câu trả lời sẽ sát với thực tế của bạn hơn nhiều.</p></div>
+      <div class="ucard"><h3>Bài 9 - Xây kho kiến thức chuyên môn của riêng bạn</h3><p>Cách gom kiến thức theo chủ đề. Quy tắc viết để AI đọc hiểu và bạn dễ tra cứu. Cuối bài, bạn có ít nhất 3 chủ đề kiến thức được lưu đúng cách.</p></div>
+      <div class="ucard"><h3>Bài 10 - Biến kinh nghiệm thành quy trình tái sử dụng</h3><p>Ghi lại cách bạn làm các việc lặp đi lặp lại (viết bài, chăm sóc khách, báo cáo…) thành quy trình chuẩn. AI sẽ dựa vào đó để hỗ trợ bạn làm nhanh và đúng hơn.</p></div>
+      <div class="ucard"><h3>Bài 11 - Thư viện câu hỏi, công cụ bí mật của người dùng AI giỏi</h3><p>Câu hỏi tốt phải gắn với ngữ cảnh cụ thể của bạn, không phải câu chung chung. Bài này giúp bạn tạo bộ câu hỏi mẫu theo từng tình huống công việc, dùng được ngay.</p></div>
+      <div class="ucard"><h3>Bài 12 - Vận hành bộ não thứ 2 mỗi ngày</h3><p>Cách khai thác hệ thống đã xây. Cách cập nhật sau mỗi buổi làm việc. Quy trình duy trì hàng tuần để bộ não thứ 2 ngày càng giàu có hơn theo thời gian.</p></div>
     </div>
 
     <div class="cta-row" style="margin-top:34px;justify-content:center">
@@ -426,7 +428,7 @@
   <div class="wrap">
     <span class="eyebrow">Trước khi bắt đầu</span>
     <h2>Điều kiện để học hiệu quả</h2>
-    <p class="lead-p">Khóa phù hợp nhất khi bạn có sẵn vài thứ dưới đây — để vừa học video, vừa thực hành được ngay.</p>
+    <p class="lead-p">Khóa phù hợp nhất khi bạn có sẵn vài thứ dưới đây - để vừa học video, vừa thực hành được ngay.</p>
     <div class="grid cards-2" style="margin-top:26px">
       <div class="card">
         <h3 style="margin-bottom:16px">Bạn cần có sẵn</h3>
@@ -519,7 +521,7 @@
     if(!TESTIMONIALS.length){ if(sec) sec.style.display='none'; return; }
     list.innerHTML = TESTIMONIALS.map(function(t){
       var n=t.sao||5, stars='★★★★★'.slice(0,n);
-      return '<div class="tcard"><div class="stars">'+stars+'</div><p>"'+t.noi+'"</p><div class="who">— '+t.ten+(t.nghe?(', '+t.nghe):'')+'</div></div>';
+      return '<div class="tcard"><div class="stars">'+stars+'</div><p>"'+t.noi+'"</p><div class="who">- '+t.ten+(t.nghe?(', '+t.nghe):'')+'</div></div>';
     }).join('');
   })();
 </script>
@@ -543,7 +545,7 @@
         <span class="num">2</span>
         <p class="qtag">🎁 Giải quyết: Mất hàng tuần mày mò xây cấu trúc từ đầu</p>
         <h3>Mẫu bộ não thứ 2, sẵn sàng điền vào dùng ngay</h3>
-        <p>Bộ mẫu hoàn chỉnh với đầy đủ các ngăn: Hồ sơ cá nhân, Kho kiến thức, Quy trình, Câu hỏi mẫu. Chỉ cần điền thông tin của bạn vào, tiết kiệm 10–15 giờ setup.</p>
+        <p>Bộ mẫu hoàn chỉnh với đầy đủ các ngăn: Hồ sơ cá nhân, Kho kiến thức, Quy trình, Câu hỏi mẫu. Chỉ cần điền thông tin của bạn vào, tiết kiệm 10-15 giờ setup.</p>
       </div>
       <div class="bcard">
         <span class="num">3</span>
@@ -567,7 +569,7 @@
 
     <!-- VALUE STACK -->
     <div class="vstack">
-      <div class="row"><b>Khóa chính — 12 bài (2 giai đoạn)</b><span class="val">1.490.000đ</span></div>
+      <div class="row"><b>Khóa chính - 12 bài (2 giai đoạn)</b><span class="val">1.490.000đ</span></div>
       <div class="row"><b>🎁 Bộ câu hỏi mẫu theo tình huống</b><span class="val">300.000đ</span></div>
       <div class="row"><b>🎁 Mẫu bộ não thứ 2 điền-là-dùng</b><span class="val">400.000đ</span></div>
       <div class="row"><b>🎁 Checklist 20 bước đưa kiến thức vào hệ thống</b><span class="val">200.000đ</span></div>
@@ -577,7 +579,7 @@
     </div>
 
     <!-- THẺ GIÁ -->
-    <div style="max-width:520px;margin:18px auto 0;background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff;border-radius:22px;padding:30px 28px;text-align:center;box-shadow:var(--shadow-lg)">
+    <div style="max-width:640px;margin:18px auto 0;background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff;border-radius:22px;padding:30px 28px;text-align:center;box-shadow:var(--shadow-lg)">
       <p style="color:#c7d2fe;font-size:14px;margin:0 0 8px">Tổng giá trị thực tế</p>
       <p style="color:#94a3b8;text-decoration:line-through;font-weight:700;font-size:20px;margin:0">2.990.000đ</p>
       <p style="color:#4ade80;font-weight:800;font-size:clamp(34px,7vw,46px);margin:4px 0 6px;line-height:1.1">868.000đ</p>
@@ -594,7 +596,7 @@
       <span class="ic">🛡️</span>
       <div>
         <h3>Cam kết của Lê Thanh Sơn</h3>
-        <p><b>Hoàn tiền 100% trong 7 ngày:</b> nếu bạn học đủ các bài, làm đầy đủ bài thực hành mà vẫn không dựng được bộ não thứ 2 cho mình, chỉ cần nhắn mình — hoàn lại toàn bộ học phí, không hỏi lý do.</p>
+        <p><b>Hoàn tiền 100% trong 7 ngày:</b> nếu bạn học đủ các bài, làm đầy đủ bài thực hành mà vẫn không dựng được bộ não thứ 2 cho mình, chỉ cần nhắn mình - hoàn lại toàn bộ học phí, không hỏi lý do.</p>
         <p><b>Chất lượng:</b> học cầm tay từng bước, làm tới đâu chắc tới đó; có buổi live và nhóm Zalo hỗ trợ sau khóa.</p>
         <p><b>Bảo mật:</b> thông tin của bạn chỉ dùng để liên hệ về lớp học, không chia sẻ cho bên thứ ba.</p>
       </div>
@@ -608,7 +610,7 @@
     <div class="center">
       <span class="eyebrow" style="background:rgba(255,255,255,.12);color:#fde68a">Đăng ký</span>
       <h2>Đăng ký khóa Second Brain</h2>
-      <p>Điền thông tin bên dưới rồi bấm Đăng ký — bạn sẽ được chuyển sang bước thanh toán bằng chuyển khoản QR để hoàn tất giữ chỗ.</p>
+      <p>Điền thông tin bên dưới rồi bấm Đăng ký - bạn sẽ được chuyển sang bước thanh toán bằng chuyển khoản QR để hoàn tất giữ chỗ.</p>
     </div>
 
     <!-- ĐẾM NGƯỢC + TÓM TẮT QUYỀN LỢI + CAM KẾT -->
