@@ -468,15 +468,18 @@
 <!-- CẢM NHẬN HỌC VIÊN -->
 <section id="tts">
   <div class="wrap">
-    <span class="eyebrow">Học viên nói gì</span>
-    <h2>Cảm nhận từ người đã học</h2>
+    <span class="eyebrow">Học viên thực tế</span>
+    <h2>Học viên học AI cùng Lê Thanh Sơn nói gì</h2>
+    <p class="lead-p">Cảm nhận thật từ các học viên đã học ứng dụng AI cùng thầy Sơn.</p>
     <div class="tcards" id="ttsList"></div>
   </div>
 </section>
 <script>
   // Anh Sơn điền cảm nhận THẬT vào mảng này (không bịa). Để trống -> tự ẩn cả khu.
   var TESTIMONIALS = [
-    // { ten:"Nguyễn Văn A", nghe:"Chủ shop", noi:"Cảm nhận thật của học viên...", sao:5 },
+    { ten:"BS Nguyễn Văn Thắng", nghe:"Bác sĩ Nha khoa", noi:"Em ứng dụng vào chuyên môn thấy tốt hơn nhiều. Mới xem tới buổi 2 mà áp dụng vào đã thấy làm khỏe hơn nhiều ạ!", sao:5 },
+    { ten:"Chị Trần Thị Phương", nghe:"Học viên ứng dụng AI", noi:"Kiến thức thực chiến rất hữu ích, học là áp dụng được ngay vào case thực tế. Học xong 3 buổi, level dùng AI của em tăng hẳn, nhất là phần quản lý dự án.", sao:5 },
+    { ten:"Anh Vincent", nghe:"Học viên khóa AI", noi:"Thầy dạy rất dễ hiểu, nhiệt tình, cách truyền đạt hay, tâm huyết không giấu diếm, chân thành. Xin cảm ơn thầy!", sao:5 },
   ];
   (function(){
     var sec=document.getElementById('tts'), list=document.getElementById('ttsList');
