@@ -269,6 +269,12 @@
   .glossary li{font-size:14.5px;color:var(--ink)}
   .glossary li b{color:var(--primary-d)}
   @media(max-width:760px){.howto .arrow{display:none}}
+  .scatter{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;align-items:center;margin:26px auto 0;max-width:572px}
+  .scatter img{height:48px;width:auto}
+  .scatter .lbl{width:100%;text-align:center;font-size:14px;color:var(--muted);margin-bottom:2px}
+  .graphfig{max-width:792px;margin:28px auto 0;text-align:center}
+  .graphfig img{width:100%;height:auto;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg)}
+  .graphfig figcaption{font-size:13.5px;color:var(--muted);margin:10px auto 0;max-width:600px}
   @media(max-width:760px){.tcards{grid-template-columns:1fr}.guar{flex-direction:column;gap:10px;text-align:center;align-items:center}}
 </style>
 
@@ -281,6 +287,12 @@
       <div class="card"><h3>Lưu mà không dùng lại</h3><p>Ghi chú nằm rải rác ở Notion, Zalo, ảnh chụp màn hình, file Word, cần thì chịu, không biết nó ở đâu.</p></div>
       <div class="card"><h3>Tự sắp xếp thì bỏ cuộc</h3><p>App nào cũng bắt bạn tự tổ chức, tự gắn nhãn, tự dọn. Được vài tuần là loạn rồi bỏ.</p></div>
       <div class="card"><h3>Có AI mà chưa dùng vào việc thật</h3><p>Nghe AI khắp nơi nhưng vẫn chép tay từng đoạn, chưa biến nó thành trợ lý nhớ việc cho mình.</p></div>
+    </div>
+    <div class="scatter">
+      <span class="lbl">Ghi chú của bạn đang nằm rải rác mỗi nơi một ít:</span>
+      <img src="logo-drive.png" alt="Google Drive" loading="lazy" />
+      <img src="logo-notion.png" alt="Notion" loading="lazy" />
+      <img src="logo-notes.png" alt="Apple Notes - Ghi chú" loading="lazy" />
     </div>
   </div>
 </section>
@@ -349,6 +361,10 @@
         <li><b>Công cụ AI (Claude, Gemini…):</b> "trợ lý" đọc kho của bạn rồi trả lời khi bạn hỏi, soạn giúp bạn dựa trên chính tài liệu của bạn.</li>
       </ul>
     </div>
+    <figure class="graphfig">
+      <img src="graph-view.jpg" alt="Bộ não thứ 2 trên Obsidian - mạng lưới ghi chú nối nhau" loading="lazy" />
+      <figcaption>Bộ não thứ 2 thật của Lê Thanh Sơn trên Obsidian - mỗi chấm là một ghi chú, mỗi đường là một liên kết kiến thức. Đây chính là thứ bạn sẽ tự tay dựng.</figcaption>
+    </figure>
   </div>
 </section>
 
