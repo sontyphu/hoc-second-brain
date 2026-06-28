@@ -275,6 +275,13 @@
   .graphfig{max-width:871px;margin:28px auto 0;text-align:center}
   .graphfig img,.graphfig video{width:100%;height:auto;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg);display:block}
   .graphfig figcaption{font-size:13.5px;color:var(--muted);margin:10px auto 0;max-width:660px}
+  .vid-obsidian{display:flex;gap:28px;align-items:center;max-width:1016px;margin:28px auto 0}
+  .vid-obsidian .vid-side{flex:1 1 58%;max-width:none;margin:0}
+  .vid-obsidian .obsidian-side{flex:1 1 42%;text-align:left}
+  .vid-obsidian .obsidian-side img{width:54px;height:54px;margin-bottom:12px}
+  .vid-obsidian .obsidian-side p{font-size:16px;color:var(--muted)}
+  .vid-obsidian .obsidian-side b{color:var(--ink)}
+  @media(max-width:760px){.vid-obsidian{flex-direction:column;gap:18px}.vid-obsidian .obsidian-side{text-align:center}}
   .storywrap{display:flex;gap:30px;align-items:flex-start;max-width:1012px;margin:0 auto;text-align:left}
   .story-portrait{flex:none;width:240px;height:240px;border-radius:20px;object-fit:cover;box-shadow:var(--shadow-lg);border:5px solid #fff;outline:1px solid var(--line)}
   .story-body{flex:1;min-width:0}
@@ -373,22 +380,17 @@
       <div class="bcard"><span class="num">3</span><h3>AI tự lo phần lộn xộn</h3><p>Tự nối các ghi chú liên quan, dọn trùng lặp, giữ kho luôn sạch. Bạn chỉ ra quyết định và duyệt.</p></div>
       <div class="bcard"><span class="num">4</span><h3>Bệ phóng tiến xa hơn</h3><p>Khi kho đã chạy, đây là nền để sau này AI tự làm việc thay bạn, không chỉ dừng ở trả lời.</p></div>
     </div>
-    <div class="builton">
-      <img src="obsidian-logo.png" alt="Obsidian" />
-      <span>Tất cả dựng trên <b>Obsidian</b> - một phần mềm ghi chú <b>miễn phí</b>, cài một lần là chạy ngay trên máy bạn, không cần internet.</span>
+    <div class="vid-obsidian">
+      <figure class="graphfig vid-side">
+        <video src="graph-demo.mp4" poster="graph-view.jpg" autoplay loop muted playsinline preload="metadata"></video>
+        <figcaption>Bộ não thứ 2 thật của Lê Thanh Sơn - mỗi chấm là một ghi chú, mỗi đường là một liên kết kiến thức.</figcaption>
+      </figure>
+      <div class="obsidian-side">
+        <img src="obsidian-logo.png" alt="Obsidian" />
+        <p>Tất cả dựng trên <b>Obsidian</b> - một phần mềm ghi chú <b>miễn phí</b>, cài một lần là chạy ngay trên máy bạn, không cần internet.</p>
+        <p style="margin-top:12px">Đây chính là thứ bạn sẽ <b>tự tay dựng</b> trong khóa học.</p>
+      </div>
     </div>
-    <div class="glossary">
-      <h4>Vài từ cho dễ hiểu</h4>
-      <ul>
-        <li><b>Bộ não thứ 2:</b> một "kho trí nhớ" bên ngoài đầu bạn, nằm trong máy tính, để giữ mọi thứ bạn học và làm - lúc nào cần là lấy ra ngay.</li>
-        <li><b>Obsidian:</b> phần mềm miễn phí dùng để dựng cái kho đó. Hãy hình dung như một cuốn sổ tay thông minh trên máy tính.</li>
-        <li><b>Công cụ AI (Claude, Gemini…):</b> "trợ lý" đọc kho của bạn rồi trả lời khi bạn hỏi, soạn giúp bạn dựa trên chính tài liệu của bạn.</li>
-      </ul>
-    </div>
-    <figure class="graphfig">
-      <video src="graph-demo.mp4" poster="graph-view.jpg" autoplay loop muted playsinline preload="metadata"></video>
-      <figcaption>Bộ não thứ 2 thật của Lê Thanh Sơn trên Obsidian - mỗi chấm là một ghi chú, mỗi đường là một liên kết kiến thức. Đây chính là thứ bạn sẽ tự tay dựng.</figcaption>
-    </figure>
   </div>
 </section>
 
@@ -618,10 +620,9 @@
 
     <!-- THẺ GIÁ -->
     <div style="max-width:774px;margin:18px auto 0;background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff;border-radius:22px;padding:30px 28px;text-align:center;box-shadow:var(--shadow-lg)">
-      <p style="color:#c7d2fe;font-size:14px;margin:0 0 8px">Tổng giá trị thực tế</p>
-      <p style="color:#94a3b8;text-decoration:line-through;font-weight:700;font-size:20px;margin:0">2.990.000đ</p>
-      <p style="color:#4ade80;font-weight:800;font-size:clamp(34px,7vw,46px);margin:4px 0 6px;line-height:1.1">868.000đ</p>
-      <p style="color:#fde68a;font-size:14px;font-weight:600;margin:0 0 18px">Ưu đãi tiết kiệm hơn 71% · Chỉ trong hôm nay</p>
+      <p style="color:#c7d2fe;font-size:15px;margin:0 0 6px">Ưu đãi hôm nay, bạn chỉ trả</p>
+      <p style="color:#4ade80;font-weight:800;font-size:clamp(40px,8vw,54px);margin:0 0 6px;line-height:1.05">868.000đ</p>
+      <p style="color:#fde68a;font-size:14px;font-weight:600;margin:0 0 18px">Tiết kiệm hơn 71% so với 2.990.000đ · chỉ trong hôm nay</p>
       <a href="#dangky" class="btn btn-primary btn-block">Đăng ký ngay và nhận đủ 5 quà tặng</a>
     </div>
   </div>
@@ -686,15 +687,6 @@
         tick(); setInterval(tick,1000);
       })();
     </script>
-
-    <div class="deal" style="max-width:774px;margin:24px auto 0">
-      <span class="tag">Ưu đãi hôm nay</span>
-      <ul>
-        <li><b>Bạn nhận:</b> trọn bộ 12 bài (2 giai đoạn) + dựng xong bộ não thứ 2 của riêng bạn + <b>5 quà tặng</b> + nhóm Zalo hỗ trợ.</li>
-        <li><b>Giá hôm nay:</b> <span style="text-decoration:line-through">2.990.000đ</span> → <b style="font-size:1.1em">chỉ 868.000đ</b> (tiết kiệm hơn 71%).</li>
-        <li><b>Ưu đãi áp dụng trong hôm nay.</b> Sau khi đăng ký, bạn chuyển sang bước thanh toán bằng chuyển khoản QR.</li>
-      </ul>
-    </div>
 
     <div class="formcard">
       <form id="regForm" novalidate>
