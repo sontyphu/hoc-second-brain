@@ -266,6 +266,56 @@
   </div>
 </section>
 
+<!-- CSS bổ sung cho quà tặng / bảng trước-sau / thư viện ảnh -->
+<style>
+  .qtag{font-size:12.5px;font-weight:700;color:var(--accent-d);background:#fffbeb;border:1px solid #fde68a;border-radius:9px;padding:8px 11px;margin:0 0 12px;line-height:1.4}
+  .ba-list{list-style:none;display:grid;gap:11px;text-align:left}
+  .ba-list li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+  .ba-no li{color:#7f1d1d}
+  .ba-yes li{color:#14532d}
+  .ba-no li:before{content:"✕";color:#dc2626;font-weight:800;flex:none}
+  .ba-yes li:before{content:"✓";color:#16a34a;font-weight:800;flex:none}
+  .gallery-grid{display:grid;gap:16px;grid-template-columns:1fr 1fr;margin-top:26px}
+  .gallery-grid figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#fff}
+  .gallery-grid figure img{width:100%;height:260px;object-fit:cover;display:block}
+  .gallery-grid .g-wide{grid-column:1 / -1}
+  .gallery-grid .g-wide img{height:360px}
+  @media(max-width:760px){.gallery-grid{grid-template-columns:1fr}.gallery-grid figure img{height:210px}.gallery-grid .g-wide img{height:230px}}
+</style>
+
+<!-- TRƯỚC & SAU -->
+<section class="soft">
+  <div class="wrap">
+    <span class="eyebrow">Trước &amp; sau</span>
+    <h2>Cuộc sống và công việc của bạn sẽ thay đổi như thế nào?</h2>
+    <p class="lead-p">Hãy tưởng tượng mỗi ngày làm việc sẽ khác đi ra sao khi bạn có một hệ thống tri thức cá nhân thực sự.</p>
+    <div class="grid cards-2" style="margin-top:28px">
+      <div class="card" style="border-color:#fecaca;background:#fef2f2">
+        <h3 style="color:#b91c1c;margin-bottom:14px;text-align:center">Khi chưa có hệ thống</h3>
+        <ul class="ba-list ba-no">
+          <li>Học xong là quên, đầu tư thời gian mà không giữ lại được gì.</li>
+          <li>Tìm kiếm tài liệu mất 20–30 phút mỗi lần, làm đứt mạch tập trung.</li>
+          <li>Ý tưởng hay trôi mất, không có chỗ ghi lại bài bản.</li>
+          <li>Đầu óc quá tải, cứ phải cố nhớ thay vì được tập trung làm.</li>
+          <li>Lặp lại công việc đã làm rồi vì không lưu lại quy trình.</li>
+          <li>Kiến thức không tích lũy, học nhiều mà mãi không thấy tiến bộ.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color:#bbf7d0;background:#f0fdf4">
+        <h3 style="color:#15803d;margin-bottom:14px;text-align:center">Khi có bộ não thứ 2</h3>
+        <ul class="ba-list ba-yes">
+          <li>Kiến thức được lưu lại vĩnh viễn, đọc một lần, dùng được cả đời.</li>
+          <li>Tìm bất kỳ thứ gì trong vài giây, không bao giờ mò mẫm trong đống file.</li>
+          <li>Ý tưởng hay được ghi lại ngay, không còn để trôi mất.</li>
+          <li>Não được giải phóng, tập trung làm việc thay vì cố nhớ.</li>
+          <li>Quy trình được lưu sẵn, làm lần hai nhanh gấp đôi, ít sai hơn nhiều.</li>
+          <li>Kiến thức tích lũy như lãi kép, mỗi ngày hệ thống giàu có hơn một chút.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- GIÁO TRÌNH -->
 <section>
   <div class="wrap">
@@ -355,6 +405,29 @@
   </div>
 </section>
 
+<!-- THƯ VIỆN ẢNH THẬT -->
+<section id="gallery">
+  <div class="wrap">
+    <span class="eyebrow">Hình ảnh thực tế</span>
+    <h2>Từ các buổi đào tạo &amp; tọa đàm ứng dụng AI</h2>
+    <p class="lead-p">Lê Thanh Sơn trực tiếp đứng lớp, cầm tay từng người ứng dụng AI vào công việc thật.</p>
+    <div class="gallery-grid">
+      <figure class="g-wide"><img src="anh1.jpg" alt="Toàn cảnh buổi tọa đàm ứng dụng AI" loading="lazy" onerror="this.closest('figure').style.display='none'"></figure>
+      <figure><img src="anh2.jpg" alt="Lê Thanh Sơn diễn thuyết tại tọa đàm ứng dụng AI" loading="lazy" onerror="this.closest('figure').style.display='none'"></figure>
+      <figure><img src="anh3.jpg" alt="Lê Thanh Sơn hướng dẫn học viên thực hành trực tiếp" loading="lazy" onerror="this.closest('figure').style.display='none'"></figure>
+    </div>
+  </div>
+</section>
+<script>
+  // Ẩn cả khu ảnh nếu chưa có file ảnh nào (tránh hiện khung trống trên web)
+  window.addEventListener('load', function(){
+    var sec = document.getElementById('gallery');
+    if (!sec) return;
+    var shown = [].slice.call(sec.querySelectorAll('figure')).filter(function(f){ return f.style.display !== 'none'; });
+    if (shown.length === 0) sec.style.display = 'none';
+  });
+</script>
+
 <!-- OFFER / GIÁ + QUÀ -->
 <section class="soft">
   <div class="wrap">
@@ -362,17 +435,37 @@
     <h2>Sở hữu trọn khóa Second Brain</h2>
     <p class="lead-p">Đăng ký hôm nay để nhận mức giá ưu đãi và đủ <b>5 quà tặng</b> kèm theo.</p>
 
-    <!-- 5 QUÀ TẶNG (anh Sơn điền tên + mô tả 5 quà thật vào đây) -->
-    <div style="max-width:680px;margin:26px auto 0">
-      <div class="deal">
-        <span class="tag">🎁 5 quà tặng khi đăng ký hôm nay</span>
-        <ul>
-          <li>🎁 <b>[QUÀ TẶNG 1]</b> — mô tả ngắn giá trị.</li>
-          <li>🎁 <b>[QUÀ TẶNG 2]</b> — mô tả ngắn giá trị.</li>
-          <li>🎁 <b>[QUÀ TẶNG 3]</b> — mô tả ngắn giá trị.</li>
-          <li>🎁 <b>[QUÀ TẶNG 4]</b> — mô tả ngắn giá trị.</li>
-          <li>🎁 <b>[QUÀ TẶNG 5]</b> — mô tả ngắn giá trị.</li>
-        </ul>
+    <!-- 5 QUÀ TẶNG -->
+    <div class="grid cards-2" style="margin-top:26px">
+      <div class="bcard">
+        <span class="num">1</span>
+        <p class="qtag">🎁 Giải quyết: Không biết hỏi AI thế nào để ra kết quả đúng</p>
+        <h3>Bộ câu hỏi mẫu theo từng tình huống công việc</h3>
+        <p>50 câu hỏi mẫu đã được kiểm thử, phân loại theo từng vai trò và tình huống cụ thể. Bắt đầu dùng ngay từ ngày đầu, không cần tự mò.</p>
+      </div>
+      <div class="bcard">
+        <span class="num">2</span>
+        <p class="qtag">🎁 Giải quyết: Mất hàng tuần mày mò xây cấu trúc từ đầu</p>
+        <h3>Mẫu bộ não thứ 2, sẵn sàng điền vào dùng ngay</h3>
+        <p>Bộ mẫu hoàn chỉnh với đầy đủ các ngăn: Hồ sơ cá nhân, Kho kiến thức, Quy trình, Câu hỏi mẫu. Chỉ cần điền thông tin của bạn vào, tiết kiệm 10–15 giờ setup.</p>
+      </div>
+      <div class="bcard">
+        <span class="num">3</span>
+        <p class="qtag">🎁 Giải quyết: Lưu bừa vào làm hệ thống sau này lộn xộn</p>
+        <h3>Checklist đưa kiến thức vào hệ thống đúng cách</h3>
+        <p>Checklist 20 bước giúp bạn chuẩn bị và sắp xếp tài liệu trước khi đưa vào hệ thống, đảm bảo bộ não thứ 2 luôn gọn gàng và dễ tìm kiếm.</p>
+      </div>
+      <div class="bcard">
+        <span class="num">4</span>
+        <p class="qtag">🎁 Giải quyết: Xây xong không biết cập nhật và phát triển tiếp</p>
+        <h3>Hướng dẫn duy trì &amp; phát triển hệ thống hàng tháng</h3>
+        <p>Quy trình review hàng tháng 4 bước để bộ não thứ 2 ngày càng giàu có và hữu ích hơn theo thời gian, không trở nên lỗi thời.</p>
+      </div>
+      <div class="bcard" style="grid-column:1 / -1;max-width:520px;margin:0 auto">
+        <span class="num">5</span>
+        <p class="qtag">🎁 Giải quyết: Học xong không có ai hỏi, không biết mình làm đúng chưa</p>
+        <h3>Cộng đồng học viên, hỗ trợ &amp; chia sẻ trọn đời</h3>
+        <p>Tham gia nhóm kín cùng các học viên đang áp dụng thực tế, chia sẻ kinh nghiệm và nhận phản hồi trực tiếp từ giảng viên bất cứ lúc nào.</p>
       </div>
     </div>
 
