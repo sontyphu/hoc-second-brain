@@ -275,6 +275,11 @@
   .graphfig{max-width:792px;margin:28px auto 0;text-align:center}
   .graphfig img{width:100%;height:auto;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg)}
   .graphfig figcaption{font-size:13.5px;color:var(--muted);margin:10px auto 0;max-width:600px}
+  .storywrap{display:flex;gap:30px;align-items:flex-start;max-width:920px;margin:0 auto;text-align:left}
+  .story-portrait{flex:none;width:240px;height:240px;border-radius:20px;object-fit:cover;box-shadow:var(--shadow-lg);border:5px solid #fff;outline:1px solid var(--line)}
+  .story-body{flex:1;min-width:0}
+  .story-body .story{max-width:none;margin-top:14px}
+  @media(max-width:760px){.storywrap{flex-direction:column;align-items:center;text-align:center}.story-portrait{width:170px;height:170px}.story-body .story{text-align:left}}
   @media(max-width:760px){.tcards{grid-template-columns:1fr}.guar{flex-direction:column;gap:10px;text-align:center;align-items:center}}
 </style>
 
@@ -305,13 +310,18 @@
 <!-- STORY ĐỒNG CẢM -->
 <section class="soft">
   <div class="wrap">
-    <span class="eyebrow">Tôi cũng từng như bạn</span>
-    <h2>Tôi từng lưu cả trăm bài hay… rồi tìm không ra</h2>
-    <div class="story" style="margin-top:18px">
-      <p>Có một giai đoạn, tôi đọc rất nhiều, học rất nhiều khóa, lưu cả trăm bài viết hay, ghi chú rải khắp Zalo, ảnh chụp màn hình, file Word. Tôi nghĩ mình đang "tích lũy kiến thức".</p>
-      <p>Nhưng đến lúc cần - một con số, một ý tưởng, một điều khoản trong hợp đồng - thì tôi chịu. Không nhớ đã lưu ở đâu, không tìm lại nổi. Cảm giác bất lực nhất là <b>biết chắc mình đã đọc rồi mà không lấy lại được</b>.</p>
-      <p class="pull">"Đầu lúc nào cũng quá tải, học nhiều mà chẳng đọng lại bao nhiêu. Tôi không thiếu kiến thức - tôi thiếu một chỗ để giữ và tìm lại nó."</p>
-      <p>Mọi thứ chỉ thay đổi khi tôi ngừng cố nhớ, và để AI lo phần lưu trữ - sắp xếp. Giờ tôi chỉ cần hỏi một câu, hệ thống trả lời kèm đúng chỗ đã lưu. Đó chính là thứ tôi sẽ cầm tay bạn dựng trong khóa này.</p>
+    <div class="storywrap">
+      <img class="story-portrait" src="chan-dung-story.jpg" alt="Lê Thanh Sơn" loading="lazy" />
+      <div class="story-body">
+        <span class="eyebrow">Tôi cũng từng như bạn</span>
+        <h2>Tôi từng lưu cả trăm bài hay… rồi tìm không ra</h2>
+        <div class="story">
+          <p>Có một giai đoạn, tôi đọc rất nhiều, học rất nhiều khóa, lưu cả trăm bài viết hay, ghi chú rải khắp Zalo, ảnh chụp màn hình, file Word. Tôi nghĩ mình đang "tích lũy kiến thức".</p>
+          <p>Nhưng đến lúc cần - một con số, một ý tưởng, một điều khoản trong hợp đồng - thì tôi chịu. Không nhớ đã lưu ở đâu, không tìm lại nổi. Cảm giác bất lực nhất là <b>biết chắc mình đã đọc rồi mà không lấy lại được</b>.</p>
+          <p class="pull">"Đầu lúc nào cũng quá tải, học nhiều mà chẳng đọng lại bao nhiêu. Tôi không thiếu kiến thức - tôi thiếu một chỗ để giữ và tìm lại nó."</p>
+          <p>Mọi thứ chỉ thay đổi khi tôi ngừng cố nhớ, và để AI lo phần lưu trữ - sắp xếp. Giờ tôi chỉ cần hỏi một câu, hệ thống trả lời kèm đúng chỗ đã lưu. Đó chính là thứ tôi sẽ cầm tay bạn dựng trong khóa này.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
