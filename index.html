@@ -197,8 +197,8 @@
 <header class="hero">
   <div class="wrap">
     <span class="badge">Khóa học online · Trọn bộ 12 bài + 5 quà tặng · Ưu đãi 71% hôm nay</span>
-    <h1><em>Second Brain</em> - tự tay xây bộ não thứ 2, để AI nhớ và sắp xếp mọi thứ thay bạn</h1>
-    <p class="lede">Bạn thả tài liệu, ghi chú vào một chỗ; AI đọc, sắp xếp lại gọn gàng rồi tìm lại cho bạn trong vài giây - thay vì để mọi thứ trôi nổi trong đầu và mấy chục tab đang mở.</p>
+    <h1>Tự tay xây <em>bộ não thứ 2</em> chạy bằng AI — nhớ và sắp xếp mọi thứ thay bạn, gọn trong một buổi</h1>
+    <p class="lede">Bạn thả tài liệu, ghi chú vào một chỗ; AI đọc, sắp xếp lại gọn gàng rồi tìm lại cho bạn trong vài giây — <b>kể cả khi bạn không rành công nghệ</b> hay từng bỏ cuộc với Notion, Evernote.</p>
     <div class="hero-meta">
       <span class="chip">12 bài theo lộ trình</span>
       <span class="chip">Cầm tay từng bước</span>
@@ -219,6 +219,59 @@
   </div>
 </header>
 
+<!-- CSS cho các khối bán hàng nâng cấp -->
+<style>
+  .story{max-width:760px;margin:0 auto;text-align:left;font-size:16.5px;color:var(--muted)}
+  .story p{margin-bottom:14px}
+  .story .pull{font-size:19px;font-weight:700;color:var(--ink);border-left:4px solid var(--primary);padding-left:16px;margin:18px 0;line-height:1.45}
+  ul.tried{list-style:none;display:grid;gap:11px;max-width:660px;margin:18px auto 0;text-align:left}
+  ul.tried li{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px;font-size:15px;color:var(--muted)}
+  ul.tried li:before{content:"✕";color:#dc2626;font-weight:800;flex:none}
+  ul.tried li b{color:var(--ink)}
+  .vstack{max-width:560px;margin:24px auto 0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px 20px;box-shadow:var(--shadow)}
+  .vstack .row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:15px;text-align:left}
+  .vstack .row:last-child{border-bottom:none}
+  .vstack .row b{color:var(--ink);font-weight:600}
+  .vstack .row .val{font-weight:700;color:var(--muted);white-space:nowrap}
+  .vstack .row.tot{border-top:2px solid var(--line);margin-top:2px}
+  .vstack .row.tot b{font-weight:800}
+  .vstack .row.tot .val{color:var(--primary-d);font-weight:800}
+  .countdown{display:flex;gap:10px;justify-content:center;margin:6px 0 4px}
+  .countdown .box{background:#312e81;border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:12px;padding:10px 14px;min-width:64px;text-align:center}
+  .countdown .box .n{font-size:26px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+  .countdown .box .l{font-size:11px;color:#c7d2fe;text-transform:uppercase;letter-spacing:.06em;margin-top:5px}
+  .commits{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:16px 0 4px}
+  .commits span{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-weight:600;font-size:13.5px;padding:8px 13px;border-radius:999px}
+  .recap{max-width:520px;margin:14px auto 18px;text-align:left;list-style:none;display:grid;gap:8px}
+  .recap li{display:flex;gap:9px;font-size:14.5px;color:#e0e7ff}
+  .recap li:before{content:"✓";color:#a3e635;font-weight:800;flex:none}
+  .tcards{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);margin-top:26px}
+  .tcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow);text-align:left}
+  .tcard .stars{color:#f59e0b;font-size:14px;margin-bottom:6px}
+  .tcard p{color:var(--ink);font-size:14.5px;font-style:italic}
+  .tcard .who{margin-top:10px;font-size:13px;color:var(--muted);font-weight:600}
+  .guar{display:flex;gap:16px;align-items:flex-start;max-width:680px;margin:0 auto;background:#eef2ff;border:1.5px solid #c7d2fe;border-radius:18px;padding:22px 24px;text-align:left}
+  .guar .ic{font-size:40px;flex:none;line-height:1}
+  .guar h3{font-size:19px;margin-bottom:6px}
+  .guar p{font-size:14.5px;margin-bottom:8px}
+  .guar p:last-child{margin-bottom:0}
+  @media(max-width:760px){.tcards{grid-template-columns:1fr}.guar{flex-direction:column;gap:10px;text-align:center;align-items:center}}
+</style>
+
+<!-- STORY ĐỒNG CẢM -->
+<section class="soft">
+  <div class="wrap">
+    <span class="eyebrow">Câu chuyện thật</span>
+    <h2>Tôi từng lưu cả trăm bài hay… rồi tìm không ra</h2>
+    <div class="story" style="margin-top:18px">
+      <p>Có một giai đoạn, tôi đọc rất nhiều, học rất nhiều khóa, lưu cả trăm bài viết hay, ghi chú rải khắp Zalo, ảnh chụp màn hình, file Word. Tôi nghĩ mình đang "tích lũy kiến thức".</p>
+      <p>Nhưng đến lúc cần — một con số, một ý tưởng, một điều khoản trong hợp đồng — thì tôi chịu. Không nhớ đã lưu ở đâu, không tìm lại nổi. Cảm giác bất lực nhất là <b>biết chắc mình đã đọc rồi mà không lấy lại được</b>.</p>
+      <p class="pull">"Đầu lúc nào cũng quá tải, học nhiều mà chẳng đọng lại bao nhiêu. Tôi không thiếu kiến thức — tôi thiếu một chỗ để giữ và tìm lại nó."</p>
+      <p>Mọi thứ chỉ thay đổi khi tôi ngừng cố nhớ, và để AI lo phần lưu trữ — sắp xếp. Giờ tôi chỉ cần hỏi một câu, hệ thống trả lời kèm đúng chỗ đã lưu. Đó chính là thứ tôi sẽ cầm tay bạn dựng trong khóa này.</p>
+    </div>
+  </div>
+</section>
+
 <!-- PROBLEM -->
 <section>
   <div class="wrap">
@@ -229,6 +282,23 @@
       <div class="card"><h3>Tự sắp xếp thì bỏ cuộc</h3><p>App nào cũng bắt bạn tự tổ chức, tự gắn nhãn, tự dọn. Được vài tuần là loạn rồi bỏ.</p></div>
       <div class="card"><h3>Có AI mà chưa dùng vào việc thật</h3><p>Nghe AI khắp nơi nhưng vẫn chép tay từng đoạn, chưa biến nó thành trợ lý nhớ việc cho mình.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- ĐÃ THỬ ĐỀU THẤT BẠI -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Vì sao cách cũ không xong</span>
+    <h2>Tôi đã thử mọi cách người ta khuyên — và đều thất bại</h2>
+    <p class="lead-p">Có thể bạn cũng đang mắc kẹt ở một trong những thứ này:</p>
+    <ul class="tried">
+      <li><b>Notion / Evernote</b> — bắt tự tổ chức, tự gắn nhãn; được vài tuần là loạn rồi bỏ.</li>
+      <li><b>Ghi chú giấy, sổ tay</b> — đẹp lúc đầu, nhưng rồi mất, không tìm lại được.</li>
+      <li><b>Đổ hết vào Google Drive / Zalo</b> — biến thành "nghĩa địa file", có cũng như không.</li>
+      <li><b>Hỏi ChatGPT mỗi lần</b> — nó không nhớ tài liệu của bạn, trả lời chung chung, phải nhắc lại từ đầu.</li>
+      <li><b>Cố nhớ hết trong đầu</b> — quá tải, càng nhớ càng stress.</li>
+    </ul>
+    <p class="lead-p" style="margin-top:20px;font-size:16px"><b>Hóa ra vấn đề không nằm ở việc thiếu công cụ. Cái thiếu là một HỆ THỐNG — và cách để AI vận hành nó cho bạn.</b></p>
   </div>
 </section>
 
@@ -428,6 +498,29 @@
   });
 </script>
 
+<!-- CẢM NHẬN HỌC VIÊN -->
+<section id="tts">
+  <div class="wrap">
+    <span class="eyebrow">Học viên nói gì</span>
+    <h2>Cảm nhận từ người đã học</h2>
+    <div class="tcards" id="ttsList"></div>
+  </div>
+</section>
+<script>
+  // Anh Sơn điền cảm nhận THẬT vào mảng này (không bịa). Để trống -> tự ẩn cả khu.
+  var TESTIMONIALS = [
+    // { ten:"Nguyễn Văn A", nghe:"Chủ shop", noi:"Cảm nhận thật của học viên...", sao:5 },
+  ];
+  (function(){
+    var sec=document.getElementById('tts'), list=document.getElementById('ttsList');
+    if(!TESTIMONIALS.length){ if(sec) sec.style.display='none'; return; }
+    list.innerHTML = TESTIMONIALS.map(function(t){
+      var n=t.sao||5, stars='★★★★★'.slice(0,n);
+      return '<div class="tcard"><div class="stars">'+stars+'</div><p>"'+t.noi+'"</p><div class="who">— '+t.ten+(t.nghe?(', '+t.nghe):'')+'</div></div>';
+    }).join('');
+  })();
+</script>
+
 <!-- OFFER / GIÁ + QUÀ -->
 <section class="soft">
   <div class="wrap">
@@ -469,13 +562,39 @@
       </div>
     </div>
 
+    <!-- VALUE STACK -->
+    <div class="vstack">
+      <div class="row"><b>Khóa chính — 12 bài (2 giai đoạn)</b><span class="val">1.490.000đ</span></div>
+      <div class="row"><b>🎁 Bộ câu hỏi mẫu theo tình huống</b><span class="val">300.000đ</span></div>
+      <div class="row"><b>🎁 Mẫu bộ não thứ 2 điền-là-dùng</b><span class="val">400.000đ</span></div>
+      <div class="row"><b>🎁 Checklist 20 bước đưa kiến thức vào hệ thống</b><span class="val">200.000đ</span></div>
+      <div class="row"><b>🎁 Quy trình duy trì & phát triển hàng tháng</b><span class="val">200.000đ</span></div>
+      <div class="row"><b>🎁 Cộng đồng học viên trọn đời</b><span class="val">400.000đ</span></div>
+      <div class="row tot"><b>Tổng giá trị thực tế</b><span class="val">2.990.000đ</span></div>
+    </div>
+
     <!-- THẺ GIÁ -->
-    <div style="max-width:520px;margin:24px auto 0;background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff;border-radius:22px;padding:30px 28px;text-align:center;box-shadow:var(--shadow-lg)">
+    <div style="max-width:520px;margin:18px auto 0;background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff;border-radius:22px;padding:30px 28px;text-align:center;box-shadow:var(--shadow-lg)">
       <p style="color:#c7d2fe;font-size:14px;margin:0 0 8px">Tổng giá trị thực tế</p>
       <p style="color:#94a3b8;text-decoration:line-through;font-weight:700;font-size:20px;margin:0">2.990.000đ</p>
       <p style="color:#4ade80;font-weight:800;font-size:clamp(34px,7vw,46px);margin:4px 0 6px;line-height:1.1">868.000đ</p>
       <p style="color:#fde68a;font-size:14px;font-weight:600;margin:0 0 18px">Ưu đãi tiết kiệm hơn 71% · Chỉ trong hôm nay</p>
       <a href="#dangky" class="btn btn-primary btn-block">Đăng ký ngay và nhận đủ 5 quà tặng</a>
+    </div>
+  </div>
+</section>
+
+<!-- CAM KẾT / BẢO ĐẢM -->
+<section>
+  <div class="wrap">
+    <div class="guar">
+      <span class="ic">🛡️</span>
+      <div>
+        <h3>Cam kết của Lê Thanh Sơn</h3>
+        <p><b>Hoàn tiền 100% trong 7 ngày:</b> nếu bạn học đủ các bài, làm đầy đủ bài thực hành mà vẫn không dựng được bộ não thứ 2 cho mình, chỉ cần nhắn mình — hoàn lại toàn bộ học phí, không hỏi lý do.</p>
+        <p><b>Chất lượng:</b> học cầm tay từng bước, làm tới đâu chắc tới đó; có buổi live và nhóm Zalo hỗ trợ sau khóa.</p>
+        <p><b>Bảo mật:</b> thông tin của bạn chỉ dùng để liên hệ về lớp học, không chia sẻ cho bên thứ ba.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -488,6 +607,42 @@
       <h2>Đăng ký khóa Second Brain</h2>
       <p>Điền thông tin bên dưới rồi bấm Đăng ký — bạn sẽ được chuyển sang bước thanh toán bằng chuyển khoản QR để hoàn tất giữ chỗ.</p>
     </div>
+
+    <!-- ĐẾM NGƯỢC + TÓM TẮT QUYỀN LỢI + CAM KẾT -->
+    <div style="max-width:640px;margin:22px auto 0;text-align:center">
+      <p style="color:#fde68a;font-weight:700;font-size:15px;margin-bottom:8px">⏳ Ưu đãi 71% kết thúc khi hết hôm nay</p>
+      <div class="countdown" id="cd">
+        <div class="box"><div class="n" id="cd-h">00</div><div class="l">Giờ</div></div>
+        <div class="box"><div class="n" id="cd-m">00</div><div class="l">Phút</div></div>
+        <div class="box"><div class="n" id="cd-s">00</div><div class="l">Giây</div></div>
+      </div>
+      <ul class="recap">
+        <li>Trọn bộ 12 bài học (2 giai đoạn)</li>
+        <li>5 quà tặng kèm (trị giá 1.500.000đ)</li>
+        <li>Buổi live hỗ trợ + nhóm Zalo + cộng đồng trọn đời</li>
+        <li>Bảo đảm hoàn tiền 100% trong 7 ngày</li>
+      </ul>
+      <div class="commits">
+        <span>↩️ Hoàn tiền 7 ngày</span>
+        <span>✅ Chất lượng cầm tay</span>
+        <span>🔒 Bảo mật thông tin</span>
+      </div>
+    </div>
+    <script>
+      (function(){
+        function p(x){return (x<10?'0':'')+x;}
+        function tick(){
+          var now=new Date();
+          var end=new Date(now.getFullYear(),now.getMonth(),now.getDate(),23,59,59);
+          var d=Math.max(0,Math.floor((end-now)/1000));
+          var H=document.getElementById('cd-h'); if(!H) return;
+          H.textContent=p(Math.floor(d/3600));
+          document.getElementById('cd-m').textContent=p(Math.floor((d%3600)/60));
+          document.getElementById('cd-s').textContent=p(d%60);
+        }
+        tick(); setInterval(tick,1000);
+      })();
+    </script>
 
     <div class="deal" style="max-width:640px;margin:24px auto 0">
       <span class="tag">Ưu đãi hôm nay</span>
@@ -564,12 +719,18 @@
     <details><summary>Học online hay phải tới lớp?</summary><div class="ans"><b>Học online qua Zoom</b>, bạn ngồi ở đâu cũng tham gia được, chỉ cần máy tính có mạng. Link Zoom sẽ gửi trong nhóm Zalo của lớp trước buổi học.</div></details>
     <details><summary>Vì sao cần một phần mềm AI trên máy?</summary><div class="ans">Đây là phần giúp AI tự đọc và ghi vào kho của bạn. Bạn chỉ cần 1 trong 3: Claude Code, Codex hoặc Gemini. <b>Bản miễn phí là đủ để học và dùng</b>; nếu muốn chạy mượt và hiệu quả hơn thì dùng bản trả phí, tuỳ bạn. Đây là chi phí phần mềm riêng, tách khỏi học phí lớp.</div></details>
     <details><summary>Sau khi thanh toán, khi nào tôi được học?</summary><div class="ans">Bạn vào học <b>video ngay</b> sau khi thanh toán được xác nhận, học theo nhịp riêng của bạn. <b>Buổi live hỗ trợ</b> sẽ được báo lịch cụ thể trong nhóm Zalo của lớp.</div></details>
+    <details><summary>Nếu học rồi mà không phù hợp thì sao?</summary><div class="ans">Bạn được <b>hoàn tiền 100% trong 7 ngày</b>: nếu đã học đủ các bài, làm đầy đủ bài thực hành mà vẫn không dựng được bộ não thứ 2 cho mình, chỉ cần nhắn mình để được hoàn lại toàn bộ học phí.</div></details>
   </div>
 </section>
 
 <footer>
   <p><b>Second Brain - Xây dựng Bộ Não Thứ 2</b></p>
   <p style="margin-top:6px">Hướng dẫn bởi Lê Thanh Sơn · Khóa học online · Trọn bộ 12 bài · 2 giai đoạn</p>
+  <p style="margin-top:6px">Liên hệ / hỗ trợ: Zalo 0343928094 · Email Sonmktpro@gmail.com</p>
+  <p style="margin-top:14px;font-size:12.5px;max-width:760px;margin-left:auto;margin-right:auto;line-height:1.6;color:#64748b">
+    <b>Miễn trừ trách nhiệm:</b> Kết quả nhận được tùy thuộc vào nỗ lực, mức độ thực hành và bối cảnh của từng người; nội dung khóa học mang tính hướng dẫn, không cam kết kết quả giống nhau cho mọi học viên. Thông tin bạn cung cấp chỉ dùng để liên hệ về lớp học và được bảo mật, không chia sẻ cho bên thứ ba.
+  </p>
+  <p style="margin-top:10px;font-size:12px;color:#64748b">© 2026 Lê Thanh Sơn · Chính sách bảo mật · Điều khoản sử dụng</p>
 </footer>
 
 <!-- sticky mobile CTA -->
