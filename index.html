@@ -424,6 +424,32 @@
   .gallery-grid .g-wide{grid-column:1 / -1}
   .gallery-grid .g-wide img{height:360px}
   @media(max-width:760px){.gallery-grid{grid-template-columns:1fr}.gallery-grid figure img{height:210px}.gallery-grid .g-wide img{height:230px}}
+
+  /* === Lộ trình học - accordion gập/mở === */
+  .curriculum{max-width:871px;margin:18px auto 0;display:grid;gap:14px;text-align:left}
+  .acc{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+  .acc-head{width:100%;display:flex;align-items:center;gap:14px;padding:18px 20px;background:none;border:none;cursor:pointer;font-family:inherit;text-align:left}
+  .acc-head:hover{background:var(--soft)}
+  .acc-head .acc-title{flex:1;font-size:16.5px;font-weight:700;color:var(--ink);line-height:1.35}
+  .acc-head .acc-meta{flex:none;font-size:13.5px;color:var(--muted);font-weight:600;white-space:nowrap}
+  .acc-head .acc-chevron{flex:none;width:20px;height:20px;color:var(--muted);transition:transform .3s ease}
+  .acc.open .acc-head .acc-chevron{transform:rotate(180deg)}
+  .acc.open .acc-head{border-bottom:1px solid var(--line)}
+  .acc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s ease}
+  .acc.open .acc-body{grid-template-rows:1fr}
+  .acc-inner{overflow:hidden}
+  .acc-sub{padding:14px 20px 6px;font-size:14px;color:var(--muted)}
+  .lesson{display:flex;align-items:center;gap:13px;padding:13px 20px;border-top:1px solid var(--soft2)}
+  .acc-inner > .lesson:first-child{border-top:none}
+  .lesson .lesson-ico{flex:none;width:24px;height:24px;display:grid;place-items:center;border-radius:50%;background:var(--soft2);color:var(--primary)}
+  .lesson .lesson-ico svg{width:11px;height:11px;margin-left:1px}
+  .lesson .lesson-name{flex:1;font-size:15px;color:var(--ink);line-height:1.4}
+  .lesson .lesson-dur{flex:none;font-size:13px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+  @media(max-width:600px){
+    .acc-head{padding:15px 16px;gap:10px}
+    .acc-head .acc-title{font-size:15px}
+    .lesson{padding:12px 16px;gap:11px}
+  }
 </style>
 
 <!-- GIÁO TRÌNH -->
@@ -433,27 +459,54 @@
     <h2>Bạn học gì trong khóa Second Brain?</h2>
     <p class="lead-p">Trọn bộ <b>12 bài</b>, chia 2 giai đoạn: từ xây nền móng tư duy đến vận hành bộ não thứ 2 cùng AI mỗi ngày.</p>
 
-    <h3 style="text-align:left;max-width:1113px;margin:30px auto 4px">Giai đoạn 1 - Xây nền móng, tư duy về tri thức cá nhân</h3>
-    <p style="text-align:left;max-width:1113px;margin:0 auto 16px;font-size:15px">Mục tiêu: hiểu vì sao cần bộ não thứ 2 và cách tổ chức kiến thức đúng từ đầu.</p>
-    <div class="lessons">
-      <div class="ucard"><h3>Bài 1 - Vì sao não bạn không được sinh ra để ghi nhớ?</h3><p>Não người sinh ra để kết nối và sáng tạo, không phải để làm kho chứa. Bạn cần một "bộ não thứ 2" bên ngoài để lưu trữ, còn não thật để tập trung tư duy.</p></div>
-      <div class="ucard"><h3>Bài 2 - Bộ não thứ 2 là gì, và tại sao bạn cần nó ngay?</h3><p>Khác biệt giữa ghi chú thông thường và một hệ thống tri thức cá nhân thực sự. Bộ não thứ 2 giúp bạn lưu lại mọi điều đã học, đọc, trải nghiệm và tìm lại ngay khi cần.</p></div>
-      <div class="ucard"><h3>Bài 3 - Chọn công cụ phù hợp để bắt đầu</h3><p>Bạn không cần học nhiều phần mềm. Bài này giúp bạn chọn đúng một công cụ, hiểu khi nào dùng AI để hỗ trợ, và tập trung vào xây hệ thống thay vì chạy theo công cụ.</p></div>
-      <div class="ucard"><h3>Bài 4 - Cấu trúc chuẩn của một bộ não thứ 2</h3><p>Các ngăn cốt lõi: Hồ sơ cá nhân, Kho kiến thức, Quy trình làm việc, Bộ câu hỏi, Kết quả đầu ra. Nguyên tắc sắp xếp để vừa dễ tìm, vừa dễ mở rộng.</p></div>
-      <div class="ucard"><h3>Bài 5 - Đưa kiến thức vào hệ thống đúng cách</h3><p>Tài liệu nào nên lưu vào, tài liệu nào cần tóm tắt trước. Cách biến nội dung rời rạc - bài báo, buổi họp, khóa học - thành kiến thức có cấu trúc dùng được lâu dài.</p></div>
-      <div class="ucard"><h3>Bài 6 - Bài tập đầu tiên, vẽ bản đồ tri thức của bạn</h3><p>Tổng hợp những gì bạn đã có. Xác định khu vực kiến thức quan trọng nhất. Hoàn thành bản đồ tri thức cá nhân đầu tiên - nền móng của toàn bộ hệ thống.</p></div>
+    <!-- Thời lượng từng bài: anh Sơn điền vào giữa cặp thẻ <span class="lesson-dur"></span>, vd <span class="lesson-dur">00:15:12</span>. Để trống thì không hiện gì. -->
+    <div class="curriculum">
+
+      <div class="acc open">
+        <button class="acc-head" aria-expanded="true">
+          <span class="acc-title">Giai đoạn 1 - Xây nền móng, tư duy về tri thức cá nhân</span>
+          <span class="acc-meta">6 bài học</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="acc-sub">Mục tiêu: hiểu vì sao cần bộ não thứ 2 và cách tổ chức kiến thức đúng từ đầu.</div>
+          <div class="lesson"><span class="lesson-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="lesson-name">Bài 1 - Vì sao não bạn không được sinh ra để ghi nhớ?</span><span class="lesson-dur"></span></div>
+          <div class="lesson"><span class="lesson-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="lesson-name">Bài 2 - Bộ não thứ 2 là gì, và tại sao bạn cần nó ngay?</span><span class="lesson-dur"></span></div>
+          <div class="lesson"><span class="lesson-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="lesson-name">Bài 3 - Chọn công cụ phù hợp để bắt đầu</span><span class="lesson-dur"></span></div>
+          <div class="lesson"><span class="lesson-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="lesson-name">Bài 4 - Cấu trúc chuẩn của một bộ não thứ 2</span><span class="lesson-dur"></span></div>
+          <div class="lesson"><span class="lesson-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="lesson-name">Bài 5 - Đưa kiến thức vào hệ thống đúng cách</span><span class="lesson-dur"></span></div>
+          <div class="lesson"><span class="lesson-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="lesson-name">Bài 6 - Bài tập đầu tiên, vẽ bản đồ tri thức của bạn</span><span class="lesson-dur"></span></div>
+        </div></div>
+      </div>
+
+      <div class="acc">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-title">Giai đoạn 2 - Xây hệ thống, vận hành bộ não thứ 2 với sức mạnh của AI</span>
+          <span class="acc-meta">6 bài học</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="acc-sub">Mục tiêu: trực tiếp xây dựng hệ thống cá nhân và biết cách dùng AI làm đòn bẩy.</div>
+          <div class="lesson"><span class="lesson-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="lesson-name">Bài 7 - Cài đặt không gian làm việc thông minh</span><span class="lesson-dur"></span></div>
+          <div class="lesson"><span class="lesson-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="lesson-name">Bài 8 - Tạo "hồ sơ cá nhân" để AI hiểu bạn là ai</span><span class="lesson-dur"></span></div>
+          <div class="lesson"><span class="lesson-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="lesson-name">Bài 9 - Xây kho kiến thức chuyên môn của riêng bạn</span><span class="lesson-dur"></span></div>
+          <div class="lesson"><span class="lesson-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="lesson-name">Bài 10 - Biến kinh nghiệm thành quy trình tái sử dụng</span><span class="lesson-dur"></span></div>
+          <div class="lesson"><span class="lesson-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="lesson-name">Bài 11 - Thư viện câu hỏi, công cụ bí mật của người dùng AI giỏi</span><span class="lesson-dur"></span></div>
+          <div class="lesson"><span class="lesson-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="lesson-name">Bài 12 - Vận hành bộ não thứ 2 mỗi ngày</span><span class="lesson-dur"></span></div>
+        </div></div>
+      </div>
+
     </div>
 
-    <h3 style="text-align:left;max-width:1113px;margin:34px auto 4px">Giai đoạn 2 - Xây hệ thống, vận hành bộ não thứ 2 với sức mạnh của AI</h3>
-    <p style="text-align:left;max-width:1113px;margin:0 auto 16px;font-size:15px">Mục tiêu: trực tiếp xây dựng hệ thống cá nhân và biết cách dùng AI làm đòn bẩy.</p>
-    <div class="lessons">
-      <div class="ucard"><h3>Bài 7 - Cài đặt không gian làm việc thông minh</h3><p>Tạo workspace bằng các công cụ AI hỗ trợ (Claude, Cursor…). Cách ra lệnh cho AI xây khung hệ thống. Cuối bài, bạn có bộ thư mục bộ não thứ 2 phiên bản đầu tiên.</p></div>
-      <div class="ucard"><h3>Bài 8 - Tạo "hồ sơ cá nhân" để AI hiểu bạn là ai</h3><p>Hồ sơ ghi lại: bạn là ai, bạn làm gì, khách hàng/đối tượng của bạn, mục tiêu hiện tại. Khi AI có hồ sơ này, câu trả lời sẽ sát với thực tế của bạn hơn nhiều.</p></div>
-      <div class="ucard"><h3>Bài 9 - Xây kho kiến thức chuyên môn của riêng bạn</h3><p>Cách gom kiến thức theo chủ đề. Quy tắc viết để AI đọc hiểu và bạn dễ tra cứu. Cuối bài, bạn có ít nhất 3 chủ đề kiến thức được lưu đúng cách.</p></div>
-      <div class="ucard"><h3>Bài 10 - Biến kinh nghiệm thành quy trình tái sử dụng</h3><p>Ghi lại cách bạn làm các việc lặp đi lặp lại (viết bài, chăm sóc khách, báo cáo…) thành quy trình chuẩn. AI sẽ dựa vào đó để hỗ trợ bạn làm nhanh và đúng hơn.</p></div>
-      <div class="ucard"><h3>Bài 11 - Thư viện câu hỏi, công cụ bí mật của người dùng AI giỏi</h3><p>Câu hỏi tốt phải gắn với ngữ cảnh cụ thể của bạn, không phải câu chung chung. Bài này giúp bạn tạo bộ câu hỏi mẫu theo từng tình huống công việc, dùng được ngay.</p></div>
-      <div class="ucard"><h3>Bài 12 - Vận hành bộ não thứ 2 mỗi ngày</h3><p>Cách khai thác hệ thống đã xây. Cách cập nhật sau mỗi buổi làm việc. Quy trình duy trì hàng tuần để bộ não thứ 2 ngày càng giàu có hơn theo thời gian.</p></div>
-    </div>
+    <script>
+      document.querySelectorAll('.curriculum .acc-head').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var acc = btn.closest('.acc');
+          var open = acc.classList.toggle('open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      });
+    </script>
 
     <div class="cta-row" style="margin-top:34px;justify-content:center">
       <a href="#dangky" class="btn btn-primary">Nhận ưu đãi 71% hôm nay</a>
