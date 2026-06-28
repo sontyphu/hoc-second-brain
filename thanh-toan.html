@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ===== ĐO LƯỜNG: Google Analytics 4 (ID: G-TE748QLVE3) ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TE748QLVE3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TE748QLVE3');
+</script>
+
+<title>Hoàn tất thanh toán | Second Brain</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0f172a; --muted:#475569; --line:#e2e8f0;
+    --primary:#4f46e5; --primary-d:#3730a3; --violet:#7c3aed;
+    --accent:#f59e0b; --accent-d:#d97706;
+    --bg:#ffffff; --soft:#f8fafc; --soft2:#f1f5f9;
+    --ok:#16a34a; --radius:16px;
+    --shadow:0 10px 30px -12px rgba(15,23,42,.18);
+    --shadow-lg:0 24px 60px -20px rgba(49,46,129,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden}
+  img{max-width:100%;height:auto}
+  body{font-family:'Be Vietnam Pro',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--soft);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{width:100%;max-width:1000px;margin:0 auto;padding:0 18px}
+  h1,h2,h3{line-height:1.25;font-weight:800;letter-spacing:-.01em}
+  h2{font-size:clamp(20px,3.4vw,26px);margin-bottom:10px}
+  h3{font-size:18px;font-weight:700}
+  p{color:var(--muted)}
+  .center{text-align:center}
+
+  /* ===== TOP BAR / DECISION CONFIRMATION ===== */
+  .topbar{background:linear-gradient(135deg,#312e81 0%,#4f46e5 60%,#6d28d9 100%);color:#fff;text-align:center;padding:22px 18px}
+  .steps{display:flex;gap:8px;justify-content:center;align-items:center;font-size:13px;font-weight:600;color:#c7d2fe;margin-bottom:12px;flex-wrap:wrap}
+  .steps b{color:#fff}
+  .steps .done{color:#a7f3d0}
+  .steps .sep{opacity:.5}
+  .topbar h1{font-size:clamp(22px,4.2vw,32px);color:#fff;margin:0 auto 6px;max-width:680px}
+  .topbar p{color:#e0e7ff;max-width:580px;margin:0 auto;font-size:clamp(15px,2.2vw,17px)}
+
+  /* ===== LAYOUT 2 CỘT (desktop: QR bên phải / mobile: QR lên trên) ===== */
+  .checkout{display:flex;flex-direction:row-reverse;gap:24px;align-items:flex-start;padding:30px 0 10px}
+  .col-pay{flex:1 1 380px;max-width:430px;position:sticky;top:18px}
+  .col-info{flex:1 1 460px;min-width:0}
+
+  .panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin-bottom:18px}
+  .panel-pay{border:2px solid var(--primary);box-shadow:var(--shadow-lg)}
+
+  .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);background:#eef2ff;padding:5px 11px;border-radius:999px;margin-bottom:12px}
+
+  /* ===== QR + CHUYỂN KHOẢN ===== */
+  .qr-wrap{text-align:center}
+  .qr-img{width:min(280px,82%);height:auto;border:1px solid var(--line);border-radius:14px;padding:10px;background:#fff;margin:6px auto 4px;display:block}
+  .qr-hint{font-size:13.5px;color:var(--muted);margin-bottom:16px}
+  .bank{display:grid;gap:9px;text-align:left;margin-top:6px}
+  .bank-row{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--soft);border:1px solid var(--line);border-radius:11px;padding:11px 13px}
+  .bank-row .k{font-size:13px;color:var(--muted);font-weight:600}
+  .bank-row .v{font-size:16px;font-weight:800;color:var(--ink);text-align:right;word-break:break-word}
+  .bank-row.amount .v{color:var(--accent-d);font-size:19px}
+  .bank-row.note{background:#fffbeb;border-color:#fcd34d}
+  .bank-row.note .v{color:#92400e}
+  .copy{flex:none;border:none;background:#eef2ff;color:var(--primary-d);font-family:inherit;font-weight:700;font-size:12.5px;padding:7px 11px;border-radius:9px;cursor:pointer;transition:background .15s}
+  .copy:hover{background:#e0e7ff}
+  .copy.ok{background:#dcfce7;color:#15803d}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:17px;padding:15px 24px;border-radius:12px;cursor:pointer;border:none;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease;width:100%;font-family:inherit}
+  .btn-paid{background:var(--ok);color:#fff;margin-top:18px}
+  .btn-paid:hover{transform:translateY(-2px)}
+  .btn-zalo{background:#fff;color:var(--primary-d);border:1.6px solid var(--primary);margin-top:10px}
+
+  .trust-mini{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+  .trust-mini span{font-size:12.5px;color:var(--muted);font-weight:600;display:inline-flex;align-items:center;gap:5px}
+
+  /* paid confirmation */
+  .paid-box{display:none;text-align:center;background:#f0fdf4;border:1.5px solid #86efac;border-radius:14px;padding:20px;margin-top:6px}
+  .paid-box h3{color:#15803d;margin-bottom:6px}
+  .paid-box p{color:#166534;font-size:14.5px}
+
+  /* ===== ORDER SUMMARY ===== */
+  .order-line{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .order-line:last-of-type{border-bottom:none}
+  .order-line .name{font-weight:700;color:var(--ink);font-size:15.5px;text-align:left}
+  .order-line .price{font-weight:800;white-space:nowrap}
+  .strike{color:#94a3b8;text-decoration:line-through;font-weight:600;font-size:14px}
+  .total{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:14px;border-top:2px solid var(--line)}
+  .total .lbl{font-weight:700;font-size:15px}
+  .total .amt{font-weight:800;font-size:26px;color:var(--primary-d)}
+  .save{display:inline-block;background:#dcfce7;color:#15803d;font-weight:800;font-size:13px;padding:5px 11px;border-radius:999px;margin-top:10px}
+
+  /* lists */
+  ul.gets{list-style:none;display:grid;gap:10px;margin-top:4px}
+  ul.gets li{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--ink)}
+  ul.gets li:before{content:"✓";color:var(--ok);font-weight:800;flex:none}
+  ul.gets li b{color:var(--ink)}
+
+  .guarantee{display:flex;gap:14px;align-items:flex-start;background:#eef2ff;border:1px solid #e0e7ff;border-radius:14px;padding:18px;margin-top:4px}
+  .guarantee .ic{font-size:28px;flex:none;line-height:1}
+  .guarantee h3{font-size:16px;margin-bottom:4px}
+  .guarantee p{font-size:14px}
+
+  /* urgency */
+  .urgency{display:flex;gap:12px;align-items:center;background:#fffbeb;border:1.5px solid #fcd34d;border-radius:14px;padding:16px 18px;margin-top:4px}
+  .urgency .ic{font-size:24px;flex:none}
+  .urgency p{color:#451a03;font-size:14.5px}
+  .urgency b{color:#231300}
+
+  /* objections */
+  .obj{display:grid;gap:10px}
+  .obj-item{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:13px 15px;text-align:left}
+  .obj-item .q{font-weight:700;font-size:14.5px;color:var(--ink);margin-bottom:3px}
+  .obj-item .a{font-size:14px;color:var(--muted)}
+
+  /* FAQ */
+  details{background:#fff;border:1px solid var(--line);border-radius:12px;margin:0 auto 10px;overflow:hidden;text-align:left}
+  details summary{cursor:pointer;font-weight:700;padding:15px 18px;list-style:none;display:flex;justify-content:space-between;gap:12px;font-size:15px}
+  details summary::-webkit-details-marker{display:none}
+  details summary:after{content:"+";font-size:22px;color:var(--primary);font-weight:400;transition:transform .2s}
+  details[open] summary:after{transform:rotate(45deg)}
+  details .ans{padding:0 18px 16px;font-size:14.5px;color:var(--muted)}
+
+  .sect-h{margin:14px 0 14px}
+
+  footer{color:#94a3b8;text-align:center;padding:30px 18px;font-size:13.5px}
+  footer b{color:#475569}
+
+  @media(max-width:820px){
+    body{font-size:16px}
+    .checkout{flex-direction:column;gap:0;padding-top:18px}
+    .col-pay{position:static;max-width:none;width:100%}
+    .col-info{width:100%}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== THANH XÁC NHẬN QUYẾT ĐỊNH ===== -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="steps">
+      <span class="done">✓ Đã đăng ký</span>
+      <span class="sep">→</span>
+      <b>Thanh toán giữ chỗ</b>
+      <span class="sep">→</span>
+      <span>Vào lớp</span>
+    </div>
+    <h1 id="hello">Còn một bước nữa là xong!</h1>
+    <p>Quét mã QR bên dưới để hoàn tất giữ chỗ <b id="pName2">khóa Second Brain</b>. Chuyển khoản xong, chỗ của bạn được xác nhận và mình sẽ liên hệ qua Zalo để xếp lịch học.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="checkout">
+
+    <!-- ============ CỘT THANH TOÁN (mobile: lên trên cùng) ============ -->
+    <aside class="col-pay">
+      <div class="panel panel-pay">
+        <div class="qr-wrap">
+          <span class="eyebrow">Quét để thanh toán</span>
+          <h2 style="margin-bottom:4px">Chuyển khoản bằng mã QR</h2>
+          <p class="qr-hint">Mở app ngân hàng → bấm <b>Quét QR</b> → kiểm tra đúng tên <b>LE THANH SON</b> rồi xác nhận.</p>
+
+          <img id="qrImg" class="qr-img" src="qr-hdbank.png" alt="Mã QR chuyển khoản HD Bank - Lê Thanh Sơn" />
+
+          <div class="bank">
+            <div class="bank-row">
+              <span class="k">Ngân hàng</span>
+              <span class="v" id="vBank">HD Bank</span>
+            </div>
+            <div class="bank-row">
+              <span class="k">Số tài khoản</span>
+              <span class="v" id="vAcc">072704070003907</span>
+              <button class="copy" data-copy="vAcc">Sao chép</button>
+            </div>
+            <div class="bank-row">
+              <span class="k">Chủ tài khoản</span>
+              <span class="v" id="vHolder">LE THANH SON</span>
+            </div>
+            <div class="bank-row amount">
+              <span class="k">Số tiền</span>
+              <span class="v" id="vAmount">[GIÁ] đ</span>
+              <button class="copy" data-copy="vAmountRaw">Sao chép</button>
+            </div>
+            <div class="bank-row note">
+              <span class="k">Nội dung CK</span>
+              <span class="v" id="vNote">[NỘI DUNG CK]</span>
+              <button class="copy" data-copy="vNote">Sao chép</button>
+            </div>
+          </div>
+
+          <p class="qr-hint" style="margin-top:14px">⚠️ Vui lòng giữ <b>đúng nội dung chuyển khoản</b> để chỗ của bạn được xác nhận nhanh.</p>
+
+          <button class="btn btn-paid" id="paidBtn">Tôi đã chuyển khoản ✓</button>
+
+          <div class="paid-box" id="paidBox">
+            <h3>Đã ghi nhận, cảm ơn bạn!</h3>
+            <p></p>
+            <a id="zaloBtn" href="https://zalo.me/0343928094" target="_blank" rel="noopener" class="btn btn-zalo">Nhắn Zalo gửi ảnh chuyển khoản</a>
+          </div>
+
+          <div class="trust-mini">
+            <span>🔒 Chuyển khoản trực tiếp, an toàn</span>
+            <span>✓ Không phí ẩn</span>
+            <span>✓ Xác nhận nhanh</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============ CỘT THÔNG TIN ĐƠN ============ -->
+    <main class="col-info">
+
+      <!-- Tóm tắt đơn hàng -->
+      <div class="panel">
+        <span class="eyebrow">Đơn hàng của bạn</span>
+        <div class="order-line">
+          <span class="name" id="pName">Khóa Second Brain – Xây dựng Bộ Não Thứ 2</span>
+          <span class="price" id="pOldWrap"><span class="strike" id="pOld"></span></span>
+        </div>
+        <div class="total">
+          <span class="lbl">Tổng thanh toán</span>
+          <span class="amt" id="vTotal">[GIÁ] đ</span>
+        </div>
+        <div class="center" id="saveWrap" style="display:none"><span class="save" id="saveTxt"></span></div>
+      </div>
+
+      <!-- Bạn nhận ngay -->
+      <div class="panel">
+        <span class="eyebrow">Bạn nhận được</span>
+        <ul class="gets">
+          <li><b>Trọn bộ 12 bài học theo lộ trình 2 giai đoạn</b> — từ xây nền móng đến vận hành bộ não thứ 2 cùng AI.</li>
+          <li><b>Dựng xong bộ não thứ 2 của riêng bạn</b> — nơi AI đọc, sắp xếp và tìm lại thông tin cho bạn.</li>
+          <li><b>5 quà tặng kèm</b> khi đăng ký hôm nay.</li>
+          <li><b>Buổi live hỗ trợ + nhóm Zalo + tài liệu hướng dẫn</b> để bạn làm lại và duy trì hệ thống lâu dài.</li>
+        </ul>
+      </div>
+
+      <!-- Khan hiếm thật (10 suất/đợt) -->
+      <div class="panel">
+        <div class="urgency">
+          <span class="ic">⏳</span>
+          <p><b>Ưu đãi 71% — chỉ 868.000đ thay vì 2.990.000đ — áp dụng hôm nay.</b> Hoàn tất chuyển khoản để chốt mức giá ưu đãi và nhận đủ 5 quà tặng.</p>
+        </div>
+      </div>
+
+      <!-- Yên tâm (trung thực, không hứa hoàn tiền) -->
+      <div class="panel">
+        <div class="guarantee">
+          <span class="ic">🛡️</span>
+          <div>
+            <h3>Học cầm tay, có hỗ trợ</h3>
+            <p>Buổi học hướng dẫn từng bước, làm tới đâu chắc tới đó. Sau buổi vẫn có nhóm Zalo để bạn hỏi khi vướng. Chuyển khoản trực tiếp vào tài khoản chính chủ <b>LE THANH SON</b>, không qua trung gian.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Xử lý phân vân -->
+      <div class="panel">
+        <h3 class="sect-h">Còn băn khoăn gì không?</h3>
+        <div class="obj">
+          <div class="obj-item"><div class="q">"Chuyển khoản rồi mà chưa thấy xác nhận?"</div><div class="a">Bạn cứ giữ ảnh chuyển khoản; mình đối soát và liên hệ Zalo xác nhận. Cần gấp thì nhắn Zalo 0343928094.</div></div>
+          <div class="obj-item"><div class="q">"Mình mới bắt đầu, có theo kịp không?"</div><div class="a">Có. Buổi học cầm tay từng bước, không cần biết lập trình, làm tới đâu chắc tới đó.</div></div>
+          <div class="obj-item"><div class="q">"Học online hay phải tới lớp?"</div><div class="a">Học online qua Zoom, ngồi ở đâu cũng tham gia được, chỉ cần máy tính có mạng.</div></div>
+        </div>
+      </div>
+
+      <!-- CẢM NHẬN: bật lại khi có cảm nhận THẬT (R8 - không bịa)
+      <div class="panel">
+        <h3 class="sect-h">Người học nói gì</h3>
+        <div class="tst">
+          <div class="tst-item"><div class="stars">★★★★★</div><p>"[CẢM NHẬN THẬT 1]"</p><div class="who">— [TÊN], [NGHỀ]</div></div>
+          <div class="tst-item"><div class="stars">★★★★★</div><p>"[CẢM NHẬN THẬT 2]"</p><div class="who">— [TÊN], [NGHỀ]</div></div>
+        </div>
+      </div>
+      -->
+
+    </main>
+  </div>
+
+  <!-- FAQ thanh toán -->
+  <section style="padding:14px 0 6px">
+    <h2 class="center" style="margin-bottom:18px">Hỏi nhanh trước khi thanh toán</h2>
+    <div style="max-width:720px;margin:0 auto">
+      <details><summary>Thanh toán bằng QR thế nào?</summary><div class="ans">Mở app ngân hàng trên điện thoại → bấm "Quét QR" → đưa camera vào mã ở trên → kiểm tra đúng tên LE THANH SON rồi xác nhận.</div></details>
+      <details><summary>Chuyển khoản xong bao lâu thì được xác nhận?</summary><div class="ans">Mình đối soát và liên hệ Zalo xác nhận, thường trong vài giờ làm việc. Sau khi chuyển, bấm nút "Tôi đã chuyển khoản" và giữ lại ảnh giao dịch.</div></details>
+      <details><summary>Quét QR không được thì làm sao?</summary><div class="ans">Bạn chuyển khoản tay theo đúng <b>Số tài khoản</b>, <b>Số tiền</b> và <b>Nội dung CK</b> ghi ở trên (bấm "Sao chép" cho nhanh).</div></details>
+      <details><summary>Sau khi thanh toán mình bắt đầu ở đâu?</summary><div class="ans">Mình liên hệ qua Zalo/điện thoại bạn đã đăng ký để gửi lịch học và tài liệu. Bạn không phải nhập lại thông tin.</div></details>
+      <details><summary>Thanh toán có an toàn không?</summary><div class="ans">Có. Đây là chuyển khoản trực tiếp vào tài khoản ngân hàng chính chủ HD Bank - LE THANH SON, không qua trung gian, không phí ẩn.</div></details>
+      <details><summary>Học trên điện thoại được không?</summary><div class="ans">Buổi học thực hành nên bạn cần máy tính (Windows hoặc macOS) có mạng. Điện thoại dùng để vào nhóm Zalo và nhận thông báo.</div></details>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p><b>Second Brain – Xây dựng Bộ Não Thứ 2</b> · Lê Thanh Sơn</p>
+  <p style="margin-top:5px">Cần hỗ trợ thanh toán? Nhắn Zalo 0343928094.</p>
+</footer>
+
+<script>
+  // ============================================================
+  //  CẤU HÌNH — anh Sơn chỉ cần sửa trong khối này.
+  // ============================================================
+  var PAY = {
+    bankBin : "970437",            // HD Bank
+    bankName: "HD Bank",
+    account : "072704070003907",
+    holder  : "LE THANH SON",
+    amount  : "868000"             // giá ưu đãi (chỉ số)
+  };
+  var PRODUCT       = "Khóa Second Brain – Xây dựng Bộ Não Thứ 2";
+  var PRICE_OLD     = "2990000";   // giá gốc (gạch ngang)
+  var XAC_NHAN_TIME = "trong vài giờ làm việc";
+  var ZALO_HOTRO    = "0343928094";
+  // ============================================================
+
+  // ---- 1) Kéo lên đầu trang khi khách vừa được chuyển sang ----
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
+  function isPlaceholder(v){ return !v || String(v).indexOf('[') === 0; }
+  function vnd(n){ return Number(n).toLocaleString('vi-VN'); }
+  function setText(id, v){ var e = document.getElementById(id); if(e) e.textContent = v; }
+
+  // ---- 2) Lấy thông tin khách từ trang đăng ký (nếu có) ----
+  var order = {};
+  try { order = JSON.parse(sessionStorage.getItem('sb_order') || '{}'); } catch(e){}
+  var phone = (order.sdt || '').replace(/\D/g, '');
+
+  if (order.hoten) {
+    var ten = order.hoten.trim().split(/\s+/).pop();
+    setText('hello', 'Cảm ơn ' + ten + ', còn một bước nữa là xong!');
+  }
+
+  // ---- 3) Tên sản phẩm + nội dung CK = SĐT khách ----
+  setText('pName', PRODUCT); setText('pName2', PRODUCT);
+  var noiDung = phone ? ('SB ' + phone) : '[NỘI DUNG CK]';
+  setText('vNote', noiDung);
+
+  // ---- 4) Ngân hàng + giá ----
+  setText('vBank', PAY.bankName); setText('vAcc', PAY.account); setText('vHolder', PAY.holder);
+  var amountNum = (PAY.amount || '').replace(/\D/g, '');
+  if (amountNum) {
+    setText('vAmount', vnd(amountNum) + ' đ');
+    setText('vTotal', vnd(amountNum) + ' đ');
+  }
+  // giá gốc gạch ngang + badge tiết kiệm
+  var oldNum = (PRICE_OLD || '').replace(/\D/g, '');
+  if (oldNum) {
+    setText('pOld', vnd(oldNum) + 'đ');
+    if (amountNum && Number(oldNum) > Number(amountNum)) {
+      var diff = Number(oldNum) - Number(amountNum);
+      var pct = Math.round(diff / Number(oldNum) * 100);
+      setText('saveTxt', 'Tiết kiệm ' + vnd(diff) + 'đ (~' + pct + '%) · Chỉ hôm nay');
+      var sw = document.getElementById('saveWrap'); if (sw) sw.style.display = 'block';
+    }
+  }
+  // ô ẩn chứa số tiền thuần cho nút "sao chép số tiền"
+  var rawAmt = document.createElement('span');
+  rawAmt.id = 'vAmountRaw'; rawAmt.style.display = 'none';
+  rawAmt.textContent = amountNum || '';
+  document.body.appendChild(rawAmt);
+
+  // QR động VietQR (gắn nội dung = SĐT + số tiền nếu có). Lỗi -> tự rơi về ảnh tĩnh qr-hdbank.png
+  if (!isPlaceholder(PAY.bankBin) && !isPlaceholder(PAY.account)) {
+    var url = 'https://img.vietqr.io/image/' + PAY.bankBin + '-' + PAY.account + '-compact2.png'
+            + '?accountName=' + encodeURIComponent(PAY.holder);
+    if (amountNum) url += '&amount=' + amountNum;
+    if (phone)     url += '&addInfo=' + encodeURIComponent(noiDung);
+    var qr = document.getElementById('qrImg');
+    qr.setAttribute('onerror', "this.onerror=null;this.src='qr-hdbank.png';");
+    qr.src = url;
+  }
+
+  // ---- 5) Nút sao chép ----
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var el = document.getElementById(btn.getAttribute('data-copy'));
+      var txt = (el ? el.textContent : '').trim();
+      if (!txt) return;
+      navigator.clipboard.writeText(txt).then(function(){
+        var old = btn.textContent;
+        btn.textContent = 'Đã chép ✓'; btn.classList.add('ok');
+        setTimeout(function(){ btn.textContent = old; btn.classList.remove('ok'); }, 1500);
+      });
+    });
+  });
+
+  // ---- 6) Nút "Tôi đã chuyển khoản" ----
+  document.getElementById('zaloBtn').href = 'https://zalo.me/' + ZALO_HOTRO;
+  document.getElementById('paidBox').querySelector('p').innerHTML =
+    'Mình sẽ kiểm tra và liên hệ Zalo xác nhận ' + XAC_NHAN_TIME + '. Bạn nhớ <b>giữ lại ảnh chuyển khoản</b> nhé.';
+  document.getElementById('paidBtn').addEventListener('click', function(){
+    this.style.display = 'none';
+    var box = document.getElementById('paidBox');
+    box.style.display = 'block';
+    box.scrollIntoView({behavior:'smooth', block:'center'});
+    if (typeof gtag === 'function') {
+      gtag('event', 'da_chuyen_khoan', { event_category: 'checkout', event_label: 'bam_da_thanh_toan' });
+    }
+  });
+</script>
+</body>
+</html>
