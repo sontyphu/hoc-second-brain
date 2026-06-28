@@ -161,6 +161,11 @@
   #dangky h2{color:#fff}
   #dangky .center p{color:#c7d2fe}
   .formcard{background:#fff;color:var(--ink);border-radius:22px;padding:30px;max-width:var(--content);margin:26px auto 0;box-shadow:var(--shadow-lg);text-align:left}
+  .checkout-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1040px;margin:26px auto 0;align-items:start;text-align:left}
+  .checkout-grid .vstack{max-width:none;margin:0}
+  .checkout-grid .formcard{max-width:none;margin:0}
+  .checkout-left{display:flex;flex-direction:column}
+  @media(max-width:860px){.checkout-grid{grid-template-columns:1fr}}
   .field{margin-bottom:16px}
   .field label{display:block;font-weight:700;font-size:14.5px;margin-bottom:7px}
   .field label .req{color:#dc2626}
@@ -718,24 +723,6 @@
       </div>
     </div>
 
-    <!-- VALUE STACK -->
-    <div class="vstack">
-      <div class="row"><b>Khóa chính - 27 bài (5 chương)</b><span class="val">1.490.000đ</span></div>
-      <div class="row"><b>🎁 Bộ Não Thứ 2 dựng sẵn</b><span class="val">600.000đ</span></div>
-      <div class="row"><b>🎁 Cẩm nang cài đặt cầm tay (máy tính & điện thoại)</b><span class="val">400.000đ</span></div>
-      <div class="row"><b>🎁 Thư viện 30 trang mẫu dùng liền</b><span class="val">350.000đ</span></div>
-      <div class="row"><b>🎁 Buổi Zoom Bí Kíp: 10 cách khai thác bộ não</b><span class="val">500.000đ</span></div>
-      <div class="row"><b>🎁 Cộng đồng trọn đời + Q&A nhóm hàng tháng</b><span class="val">500.000đ</span></div>
-      <div class="row tot"><b>Tổng giá trị thực tế</b><span class="val">3.840.000đ</span></div>
-    </div>
-
-    <!-- THẺ GIÁ -->
-    <div style="max-width:var(--content);margin:18px auto 0;background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff;border-radius:22px;padding:30px 28px;text-align:center;box-shadow:var(--shadow-lg)">
-      <p style="color:#c7d2fe;font-size:15px;margin:0 0 6px">Ưu đãi hôm nay, bạn chỉ trả</p>
-      <p style="color:#4ade80;font-weight:800;font-size:clamp(40px,8vw,54px);margin:0 0 6px;line-height:1.05">868.000đ</p>
-      <p style="color:#fde68a;font-size:14px;font-weight:600;margin:0 0 18px">Tiết kiệm hơn 71% so với 2.990.000đ · chỉ trong hôm nay</p>
-      <a href="#dangky" class="btn btn-primary btn-block">Đăng ký ngay và nhận đủ 5 quà tặng</a>
-    </div>
   </div>
 </section>
 
@@ -783,8 +770,27 @@
       })();
     </script>
 
-    <div class="formcard">
-      <form id="regForm" novalidate>
+    <!-- THẺ GIÁ (lên trên cùng, ngang cả 2 cột) -->
+    <div class="pricecard" style="max-width:1040px;margin:26px auto 0;background:linear-gradient(180deg,#0f172a,#1e1b4b);color:#fff;border-radius:22px;padding:28px;text-align:center;box-shadow:var(--shadow-lg)">
+      <p style="color:#c7d2fe;font-size:15px;margin:0 0 6px">Ưu đãi hôm nay, bạn chỉ trả</p>
+      <p style="color:#4ade80;font-weight:800;font-size:clamp(40px,8vw,54px);margin:0 0 6px;line-height:1.05">868.000đ</p>
+      <p style="color:#fde68a;font-size:14px;font-weight:600;margin:0">Tiết kiệm hơn 71% so với 2.990.000đ · chỉ trong hôm nay</p>
+    </div>
+    <div class="checkout-grid">
+      <div class="checkout-left">
+        <!-- VALUE STACK -->
+        <div class="vstack">
+          <div class="row"><b>Khóa chính - 27 bài (5 chương)</b><span class="val">1.490.000đ</span></div>
+          <div class="row"><b>🎁 Bộ Não Thứ 2 dựng sẵn</b><span class="val">600.000đ</span></div>
+          <div class="row"><b>🎁 Cẩm nang cài đặt cầm tay (máy tính & điện thoại)</b><span class="val">400.000đ</span></div>
+          <div class="row"><b>🎁 Thư viện 30 trang mẫu dùng liền</b><span class="val">350.000đ</span></div>
+          <div class="row"><b>🎁 Buổi Zoom Bí Kíp: 10 cách khai thác bộ não</b><span class="val">500.000đ</span></div>
+          <div class="row"><b>🎁 Cộng đồng trọn đời + Q&A nhóm hàng tháng</b><span class="val">500.000đ</span></div>
+          <div class="row tot"><b>Tổng giá trị thực tế</b><span class="val">3.840.000đ</span></div>
+        </div>
+      </div>
+      <div class="formcard">
+        <form id="regForm" novalidate>
         <div class="err" id="formErr">Vui lòng điền đủ Họ tên, Số điện thoại và Email.</div>
 
         <div class="field">
@@ -813,6 +819,7 @@
         <img class="qr" src="qr-zalo.jpg" alt="Mã QR vào nhóm Zalo khóa Second Brain" />
         <a href="https://zalo.me/g/w2blrg0glkh8lw1kmixk" target="_blank" rel="noopener" class="btn btn-primary">Vào nhóm Zalo của lớp</a>
         <p class="formnote">Không quét được? Bấm nút trên. Tôi cũng sẽ liên hệ Zalo xác nhận chỗ và xếp lịch.</p>
+      </div>
       </div>
     </div>
     <div class="guar" style="margin-top:18px;color:var(--ink)">
