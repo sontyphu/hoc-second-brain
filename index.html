@@ -32,6 +32,7 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('set', 'autoConfig', false, '1324953789789972'); // tắt tự dò form/nút để pixel không can thiệp form
   fbq('init', '1324953789789972');
   fbq('track', 'PageView');
 </script>
@@ -884,17 +885,20 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Đang chuyển…';
 
-    // Đo: 1 lượt ĐĂNG KÝ THÀNH CÔNG
-    if (typeof gtag === 'function') {
-      gtag('event', 'dang_ky', { event_category: 'lop_wiki_ai', event_label: 'form_dang_ky_thanh_cong' });
-    }
-    if (typeof window.clarity === 'function') {
-      window.clarity('event', 'dang_ky_thanh_cong');
-    }
-    // Facebook Pixel: khách điền form xong = Lead (chưa thanh toán)
-    if (typeof fbq === 'function') {
-      fbq('track', 'Lead', { content_name: 'Second Brain - Bo nao thu 2' });
-    }
+    // Đo lường (bọc lưới an toàn: lỗi đo KHÔNG được chặn việc chuyển trang thanh toán)
+    try {
+      // Đo: 1 lượt ĐĂNG KÝ THÀNH CÔNG
+      if (typeof gtag === 'function') {
+        gtag('event', 'dang_ky', { event_category: 'lop_wiki_ai', event_label: 'form_dang_ky_thanh_cong' });
+      }
+      if (typeof window.clarity === 'function') {
+        window.clarity('event', 'dang_ky_thanh_cong');
+      }
+      // Facebook Pixel: khách điền form xong = Lead (chưa thanh toán)
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', { content_name: 'Second Brain - Bo nao thu 2' });
+      }
+    } catch(e){}
     // Lưu thông tin để trang thanh toán cá nhân hoá + tạo nội dung CK theo SĐT
     try {
       sessionStorage.setItem('sb_order', JSON.stringify({
