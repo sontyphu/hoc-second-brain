@@ -13,6 +13,23 @@
   gtag('config', 'G-TE748QLVE3');
 </script>
 
+<!-- ===== ĐO LƯỜNG: Facebook Pixel (ID: 1324953789789972) ===== -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1324953789789972');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1324953789789972&ev=PageView&noscript=1"/></noscript>
+<!-- End Facebook Pixel -->
+
 <title>Hoàn tất thanh toán | Second Brain</title>
 <meta name="robots" content="noindex" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -406,6 +423,10 @@
     box.scrollIntoView({behavior:'smooth', block:'center'});
     if (typeof gtag === 'function') {
       gtag('event', 'da_chuyen_khoan', { event_category: 'checkout', event_label: 'bam_da_thanh_toan' });
+    }
+    // Facebook Pixel: khách bấm "Tôi đã chuyển khoản" = Purchase
+    if (typeof fbq === 'function') {
+      fbq('track', 'Purchase', { value: 868000, currency: 'VND', content_name: 'Second Brain - Bo nao thu 2' });
     }
   });
 </script>

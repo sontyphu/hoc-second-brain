@@ -21,6 +21,24 @@
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   })(window, document, "clarity", "script", "x7rxip1e98");
 </script>
+
+<!-- ===== ĐO LƯỜNG: Facebook Pixel (ID: 1324953789789972) ===== -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1324953789789972');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1324953789789972&ev=PageView&noscript=1"/></noscript>
+<!-- End Facebook Pixel -->
+
 <title>Second Brain - Xây dựng Bộ Não Thứ 2 | Lê Thanh Sơn</title>
 <meta name="description" content="Khóa học online Second Brain: tự tay xây bộ não thứ 2 - nơi AI nhớ và sắp xếp mọi thứ thay bạn. Trọn bộ 12 bài theo lộ trình, cùng Lê Thanh Sơn. Ưu đãi hôm nay chỉ 868.000đ (giá gốc 2.990.000đ)." />
 <meta property="og:title" content="Second Brain - Xây dựng Bộ Não Thứ 2" />
@@ -872,6 +890,10 @@
     }
     if (typeof window.clarity === 'function') {
       window.clarity('event', 'dang_ky_thanh_cong');
+    }
+    // Facebook Pixel: khách điền form xong = Lead (chưa thanh toán)
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', { content_name: 'Second Brain - Bo nao thu 2' });
     }
     // Lưu thông tin để trang thanh toán cá nhân hoá + tạo nội dung CK theo SĐT
     try {
