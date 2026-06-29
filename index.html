@@ -806,8 +806,8 @@
           <input type="email" name="email" required placeholder="email@cua-ban.com" />
         </div>
 
-        <!-- honeypot chống spam -->
-        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <!-- honeypot chống spam (tên ô đặt trung tính để trình duyệt KHÔNG tự điền nhầm) -->
+        <input class="hp" type="text" name="hp_zxq" tabindex="-1" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-hidden="true" />
 
         <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Đăng ký giữ chỗ ngay</button>
         <p class="formnote">Thông tin chỉ dùng để liên hệ về lớp học. Không spam, không chia sẻ cho bên thứ ba.</p>
@@ -908,8 +908,10 @@
     e.preventDefault();
     errBox.style.display = 'none';
 
-    // honeypot: bot điền -> bỏ qua im lặng
-    if (form.website.value.trim() !== '') { return; }
+    // honeypot: ô ẩn bị điền (bot HOẶC trình duyệt tự điền nhầm) -> coi là spam.
+    // KHÔNG return im lặng nữa: chỉ bỏ gửi lead, nhưng VẪN cho khách qua trang thanh toán
+    // để không bao giờ kẹt khách thật bị trình duyệt tự điền ô ẩn.
+    var honeypotFilled = !!(form.hp_zxq && form.hp_zxq.value.trim() !== '');
 
     if (!form.checkValidity()){
       errBox.style.display = 'block';
@@ -930,17 +932,20 @@
     submitBtn.textContent = 'Đang chuyển…';
 
     // Đo lường (bọc lưới an toàn: lỗi đo KHÔNG được chặn việc chuyển trang thanh toán)
+    // Bỏ qua nếu nghi spam (ô ẩn bị điền) để không thổi phồng số đăng ký.
     try {
-      // Đo: 1 lượt ĐĂNG KÝ THÀNH CÔNG
-      if (typeof gtag === 'function') {
-        gtag('event', 'dang_ky', { event_category: 'lop_wiki_ai', event_label: 'form_dang_ky_thanh_cong' });
-      }
-      if (typeof window.clarity === 'function') {
-        window.clarity('event', 'dang_ky_thanh_cong');
-      }
-      // Facebook Pixel: khách điền form xong = Lead (chưa thanh toán)
-      if (typeof fbq === 'function') {
-        fbq('track', 'Lead', { content_name: 'Second Brain - Bo nao thu 2' });
+      if (!honeypotFilled) {
+        // Đo: 1 lượt ĐĂNG KÝ THÀNH CÔNG
+        if (typeof gtag === 'function') {
+          gtag('event', 'dang_ky', { event_category: 'lop_wiki_ai', event_label: 'form_dang_ky_thanh_cong' });
+        }
+        if (typeof window.clarity === 'function') {
+          window.clarity('event', 'dang_ky_thanh_cong');
+        }
+        // Facebook Pixel: khách điền form xong = Lead (chưa thanh toán)
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', { content_name: 'Second Brain - Bo nao thu 2' });
+        }
       }
     } catch(e){}
     // Lưu thông tin để trang thanh toán cá nhân hoá + tạo nội dung CK theo SĐT
@@ -951,8 +956,9 @@
     } catch(e){}
 
     // Gửi lead về Make CHẠY NỀN (keepalive: vẫn gửi được khi đã chuyển trang) - KHÔNG chờ phản hồi
+    // Bỏ qua nếu nghi spam (ô ẩn bị điền) để không đẩy lead rác về Make.
     try {
-      if (WEBHOOK_URL && WEBHOOK_URL.indexOf('__MAKE') !== 0){
+      if (!honeypotFilled && WEBHOOK_URL && WEBHOOK_URL.indexOf('__MAKE') !== 0){
         fetch(WEBHOOK_URL, {
           method:'POST', mode:'no-cors', keepalive:true,
           headers:{'Content-Type':'application/x-www-form-urlencoded'},
