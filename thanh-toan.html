@@ -399,17 +399,38 @@
     qr.src = url;
   }
 
-  // ---- 5) Nút sao chép ----
+  // ---- 5) Nút sao chép (có cách dự phòng cho trình duyệt trong app Zalo/Facebook
+  //         hay chặn clipboard hiện đại -> dùng execCommand cũ để vẫn sao chép được) ----
+  function flashCopied(btn){
+    if (btn.classList.contains('ok')) return;          // đang hiện "Đã chép" thì bỏ qua
+    var old = btn.textContent;
+    btn.textContent = 'Đã chép ✓'; btn.classList.add('ok');
+    setTimeout(function(){ btn.textContent = old; btn.classList.remove('ok'); }, 1500);
+  }
+  function legacyCopy(txt){
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = txt; ta.setAttribute('readonly','');
+      ta.style.position = 'absolute'; ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select(); ta.setSelectionRange(0, txt.length);
+      var ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      return ok;
+    } catch(e){ return false; }
+  }
   document.querySelectorAll('.copy').forEach(function(btn){
     btn.addEventListener('click', function(){
       var el = document.getElementById(btn.getAttribute('data-copy'));
       var txt = (el ? el.textContent : '').trim();
       if (!txt) return;
-      navigator.clipboard.writeText(txt).then(function(){
-        var old = btn.textContent;
-        btn.textContent = 'Đã chép ✓'; btn.classList.add('ok');
-        setTimeout(function(){ btn.textContent = old; btn.classList.remove('ok'); }, 1500);
-      });
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt)
+          .then(function(){ flashCopied(btn); })
+          .catch(function(){ if (legacyCopy(txt)) flashCopied(btn); });
+      } else if (legacyCopy(txt)) {
+        flashCopied(btn);
+      }
     });
   });
 
