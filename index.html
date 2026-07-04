@@ -277,6 +277,13 @@
   .tcard .stars{color:#f59e0b;font-size:14px;margin-bottom:6px}
   .tcard p{color:var(--ink);font-size:14.5px;font-style:italic}
   .tcard .who{margin-top:10px;font-size:13px;color:var(--muted);font-weight:600}
+  .vgrid{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin:26px auto 8px;max-width:var(--content)}
+  .vcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+  .vcard video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#000}
+  .vcard figcaption{padding:10px 14px;text-align:center}
+  .vcard figcaption b{display:block;font-size:14px;color:var(--ink);font-weight:700}
+  .vcard figcaption span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+  @media(max-width:760px){.vgrid{grid-template-columns:1fr}}
   .guar{display:flex;gap:16px;align-items:flex-start;max-width:var(--content);margin:0 auto;background:#eef2ff;border:1.5px solid #c7d2fe;border-radius:18px;padding:22px 24px;text-align:left}
   .guar .ic{font-size:40px;flex:none;line-height:1}
   .guar h3{font-size:19px;margin-bottom:6px}
@@ -634,6 +641,14 @@
   <div class="wrap">
     <h2>Học viên học AI cùng Lê Thanh Sơn nói gì</h2>
     <p class="lead-p">Cảm nhận thật từ các học viên đã học ứng dụng AI cùng thầy Sơn.</p>
+    <div class="vgrid">
+      <figure class="vcard"><video controls preload="metadata" playsinline poster="https://res.cloudinary.com/dedgfzm9g/video/upload/so_2/feedback-second-brain/anh-thoai.jpg" src="https://res.cloudinary.com/dedgfzm9g/video/upload/feedback-second-brain/anh-thoai.mp4"></video><figcaption><b>Thoại Lê New</b><span>Tổ chức sự kiện</span></figcaption></figure>
+      <figure class="vcard"><video controls preload="metadata" playsinline poster="https://res.cloudinary.com/dedgfzm9g/video/upload/so_2/feedback-second-brain/anh-toan.jpg" src="https://res.cloudinary.com/dedgfzm9g/video/upload/feedback-second-brain/anh-toan.mp4"></video><figcaption><b>Phạm Công Toàn</b><span>Cơ Điện Tử</span></figcaption></figure>
+      <figure class="vcard"><video controls preload="metadata" playsinline poster="https://res.cloudinary.com/dedgfzm9g/video/upload/so_2/feedback-second-brain/anh-trung-kien.jpg" src="https://res.cloudinary.com/dedgfzm9g/video/upload/feedback-second-brain/anh-trung-kien.mp4"></video><figcaption><b>Đinh Trung Kiên</b><span>Sức Khỏe</span></figcaption></figure>
+      <figure class="vcard"><video controls preload="metadata" playsinline poster="https://res.cloudinary.com/dedgfzm9g/video/upload/so_2/feedback-second-brain/anh-bao-thanh.jpg" src="https://res.cloudinary.com/dedgfzm9g/video/upload/feedback-second-brain/anh-bao-thanh.mp4"></video><figcaption><b>Bảo Thanh</b><span>Vận động viên, Master NLP</span></figcaption></figure>
+      <figure class="vcard"><video controls preload="metadata" playsinline poster="https://res.cloudinary.com/dedgfzm9g/video/upload/so_2/feedback-second-brain/anh-le-xuan-hoi.jpg" src="https://res.cloudinary.com/dedgfzm9g/video/upload/feedback-second-brain/anh-le-xuan-hoi.mp4"></video><figcaption><b>Lê Xuân Hội</b><span>Sản xuất Máy Lọc nước</span></figcaption></figure>
+      <figure class="vcard"><video controls preload="metadata" playsinline poster="https://res.cloudinary.com/dedgfzm9g/video/upload/so_2/feedback-second-brain/chi-thinh-do.jpg" src="https://res.cloudinary.com/dedgfzm9g/video/upload/feedback-second-brain/chi-thinh-do.mp4"></video><figcaption><b>Thịnh Đỗ</b><span>Kinh doanh tự do</span></figcaption></figure>
+    </div>
     <div class="tcards" id="ttsList"></div>
   </div>
 </section>
