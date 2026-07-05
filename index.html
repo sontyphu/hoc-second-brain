@@ -277,6 +277,8 @@
   .tcard .stars{color:#f59e0b;font-size:14px;margin-bottom:6px}
   .tcard p{color:var(--ink);font-size:14.5px;font-style:italic}
   .tcard .who{margin-top:10px;font-size:13px;color:var(--muted);font-weight:600}
+  .tcard .who.hasimg{display:flex;align-items:center;gap:10px}
+  .tcard .wavatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;border:2px solid var(--line)}
   .vgrid{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin:26px auto 8px;max-width:var(--content)}
   .vcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
   .vcard video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#000}
@@ -647,7 +649,7 @@
       <figure class="vcard"><video controls preload="metadata" playsinline poster="https://res.cloudinary.com/dedgfzm9g/video/upload/so_2/feedback-second-brain/anh-trung-kien.jpg" src="https://res.cloudinary.com/dedgfzm9g/video/upload/feedback-second-brain/anh-trung-kien.mp4"></video><figcaption><b>Đinh Trung Kiên</b><span>Sức Khỏe</span></figcaption></figure>
       <figure class="vcard"><video controls preload="metadata" playsinline poster="https://res.cloudinary.com/dedgfzm9g/video/upload/so_2/feedback-second-brain/anh-bao-thanh.jpg" src="https://res.cloudinary.com/dedgfzm9g/video/upload/feedback-second-brain/anh-bao-thanh.mp4"></video><figcaption><b>Bảo Thanh</b><span>Vận động viên, Master NLP</span></figcaption></figure>
       <figure class="vcard"><video controls preload="metadata" playsinline poster="https://res.cloudinary.com/dedgfzm9g/video/upload/so_2/feedback-second-brain/anh-le-xuan-hoi.jpg" src="https://res.cloudinary.com/dedgfzm9g/video/upload/feedback-second-brain/anh-le-xuan-hoi.mp4"></video><figcaption><b>Lê Xuân Hội</b><span>Sản xuất Máy Lọc nước</span></figcaption></figure>
-      <figure class="vcard"><video controls preload="metadata" playsinline poster="https://res.cloudinary.com/dedgfzm9g/video/upload/so_2/feedback-second-brain/chi-thinh-do.jpg" src="https://res.cloudinary.com/dedgfzm9g/video/upload/feedback-second-brain/chi-thinh-do.mp4"></video><figcaption><b>Thịnh Đỗ</b><span>Kinh doanh tự do</span></figcaption></figure>
+      <figure class="vcard"><video controls preload="metadata" playsinline poster="https://res.cloudinary.com/dedgfzm9g/video/upload/so_2/feedback-second-brain/anh-binh.jpg" src="https://res.cloudinary.com/dedgfzm9g/video/upload/feedback-second-brain/anh-binh.mp4"></video><figcaption><b>Anh Bình</b><span>Học viên Second Brain</span></figcaption></figure>
     </div>
     <div class="tcards" id="ttsList"></div>
   </div>
@@ -655,8 +657,9 @@
 <script>
   // Anh Sơn điền cảm nhận THẬT vào mảng này (không bịa). Để trống -> tự ẩn cả khu.
   var TESTIMONIALS = [
-    { ten:"BS Nguyễn Văn Thắng", nghe:"Bác sĩ Nha khoa", noi:"Em ứng dụng vào chuyên môn thấy tốt hơn nhiều. Mới xem tới buổi 2 mà áp dụng vào đã thấy làm khỏe hơn nhiều ạ!", sao:5 },
-    { ten:"Chị Trần Thị Phương", nghe:"Học viên ứng dụng AI", noi:"Kiến thức thực chiến rất hữu ích, học là áp dụng được ngay vào case thực tế. Học xong 3 buổi, level dùng AI của em tăng hẳn, nhất là phần quản lý dự án.", sao:5 },
+    { ten:"Bùi Văn Hưng", nghe:"Bất Động Sản", anh:"https://res.cloudinary.com/dedgfzm9g/image/upload/c_thumb,g_face,z_0.7,w_240,h_240/feedback-second-brain/anh-hung-avatar.jpg", noi:"Qua thầy hướng dẫn, các bước rất dễ dàng, mình áp dụng làm được luôn, tiến bộ rất rõ rệt. Không chỉ cho công việc mà còn áp dụng được cho đa lĩnh vực. Mình đánh giá khoảng 200% so với ChatGPT cũ hay Gemini, thậm chí có thể hơn.", sao:5 },
+    { ten:"BS Nguyễn Văn Thắng", nghe:"Bác sĩ Nha khoa", anh:"https://res.cloudinary.com/dedgfzm9g/image/upload/c_thumb,g_face,z_0.7,w_240,h_240/feedback-second-brain/anh-thang-avatar.jpg", noi:"Em ứng dụng vào chuyên môn thấy tốt hơn nhiều. Mới xem tới buổi 2 mà áp dụng vào đã thấy làm khỏe hơn nhiều ạ!", sao:5 },
+    { ten:"Chị Trần Thị Phương", nghe:"Học viên ứng dụng AI", anh:"https://res.cloudinary.com/dedgfzm9g/image/upload/c_thumb,g_face,z_0.7,w_240,h_240/feedback-second-brain/chi-phuong-avatar.jpg", noi:"Kiến thức thực chiến rất hữu ích, học là áp dụng được ngay vào case thực tế. Học xong 3 buổi, level dùng AI của em tăng hẳn, nhất là phần quản lý dự án.", sao:5 },
     { ten:"Anh Vincent", nghe:"Học viên khóa AI", noi:"Thầy dạy rất dễ hiểu, nhiệt tình, cách truyền đạt hay, tâm huyết không giấu diếm, chân thành. Xin cảm ơn thầy!", sao:5 },
   ];
   (function(){
@@ -664,7 +667,10 @@
     if(!TESTIMONIALS.length){ if(sec) sec.style.display='none'; return; }
     list.innerHTML = TESTIMONIALS.map(function(t){
       var n=t.sao||5, stars='★★★★★'.slice(0,n);
-      return '<div class="tcard"><div class="stars">'+stars+'</div><p>"'+t.noi+'"</p><div class="who">- '+t.ten+(t.nghe?(', '+t.nghe):'')+'</div></div>';
+      var who = t.anh
+        ? '<div class="who hasimg"><img class="wavatar" src="'+t.anh+'" alt="'+t.ten+'"><span>'+t.ten+(t.nghe?(', '+t.nghe):'')+'</span></div>'
+        : '<div class="who">- '+t.ten+(t.nghe?(', '+t.nghe):'')+'</div>';
+      return '<div class="tcard"><div class="stars">'+stars+'</div><p>"'+t.noi+'"</p>'+who+'</div>';
     }).join('');
   })();
 </script>
