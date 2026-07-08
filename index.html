@@ -769,9 +769,9 @@
         <li>Bảo đảm hoàn tiền 100% trong 7 ngày</li>
       </ul>
       <div class="commits">
-        <span>↩️ Hoàn tiền 7 ngày</span>
-        <span>✅ Chất lượng cầm tay</span>
-        <span>🔒 Bảo mật thông tin</span>
+        <span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a6 6 0 0 1 0 12h-2"/></svg>Hoàn tiền 7 ngày</span>
+        <span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Chất lượng cầm tay</span>
+        <span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Bảo mật thông tin</span>
       </div>
     </div>
     <script>
@@ -1035,9 +1035,21 @@
 
   // Đo: bấm nút "Đăng ký giữ chỗ" (đo Ý ĐỊNH trước form -> thấy chỗ rớt giữa "bấm" và "điền xong")
   document.querySelectorAll('a[href="#dangky"]').forEach(function(a){
-    a.addEventListener('click', function(){
+    a.addEventListener('click', function(e){
       if (typeof gtag === 'function') {
         gtag('event', 'bam_dang_ky', { event_category: 'lop_wiki_ai', event_label: 'cta_cuon_toi_form' });
+      }
+      // Cuộn CHẮC tới form: tự tính lại vị trí (chống cuộn hụt khi ảnh phía trên chưa tải xong).
+      var t = document.getElementById('dangky');
+      if (t) {
+        e.preventDefault();
+        var go = function(){ t.scrollIntoView({ behavior:'smooth', block:'start' }); };
+        go();
+        setTimeout(go, 350);
+        setTimeout(function(){
+          var f = document.querySelector('#regForm input[name="hoten"]');
+          if (f) { try { f.focus({ preventScroll:true }); } catch(_) { f.focus(); } }
+        }, 750);
       }
     });
   });
