@@ -949,7 +949,9 @@
       .then(function(g){
         if (g && g.success !== false) {
           sbGeo.ip = g.ip || '';
-          sbGeo.vi_tri = g.city || '';
+          // Lấy cấp TỈNH/THÀNH PHỐ (region = "Hanoi"). KHÔNG lấy city (city = huyện/thị trấn như "Van Dinh").
+          // Không fallback về city để tránh ghi nhầm cấp huyện; region rỗng thì để trống.
+          sbGeo.vi_tri = g.region || '';
         }
       }).catch(function(){});
   } catch(e){}
