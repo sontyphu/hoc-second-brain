@@ -916,6 +916,45 @@
   var WEBHOOK_URL = "https://hook.eu2.make.com/ingb63slmy0uvus4ark9leqn23pnic8m";
   // ======================
 
+  // ====== TỰ ĐỘNG THU THẬP THÔNG TIN LEAD (chạy ngầm - khách KHÔNG phải nhập) ======
+  // Loại thiết bị: suy từ User-Agent của trình duyệt.
+  function sbDeviceType(){
+    var ua = navigator.userAgent || '';
+    if (/iPad|Tablet|PlayBook|Silk|Android(?!.*Mobile)/i.test(ua)) return 'Máy tính bảng';
+    if (/Mobi|Android|iPhone|iPod|IEMobile|BlackBerry|Opera Mini/i.test(ua)) return 'Điện thoại';
+    return 'Máy tính';
+  }
+  // Hệ điều hành: suy từ User-Agent.
+  function sbOS(){
+    var ua = navigator.userAgent || '';
+    if (/Windows NT/i.test(ua)) return 'Windows';
+    if (/iPhone|iPad|iPod/i.test(ua)) return 'iOS';
+    if (/Android/i.test(ua)) return 'Android';
+    if (/Mac OS X|Macintosh/i.test(ua)) return 'macOS';
+    if (/Linux/i.test(ua)) return 'Linux';
+    return 'Khác';
+  }
+  // Khách mới hay quay lại: xác định NGAY khi tải trang (đọc dấu vết đã lưu ở trình duyệt).
+  var sbVisitor = '';
+  try {
+    sbVisitor = localStorage.getItem('sb_visited') ? 'Khách quay lại' : 'Khách mới';
+    localStorage.setItem('sb_visited', '1');
+  } catch(e){ sbVisitor = ''; }
+  // IP + vị trí: gọi dịch vụ tra IP miễn phí ngay khi tải trang, lưu sẵn để lúc gửi có luôn.
+  // Lỗi/không lấy được -> để trống, KHÔNG chặn việc đăng ký.
+  var sbGeo = { ip: '', vi_tri: '' };
+  try {
+    fetch('https://ipwho.is/', { cache: 'no-store' })
+      .then(function(r){ return r.json(); })
+      .then(function(g){
+        if (g && g.success !== false) {
+          sbGeo.ip = g.ip || '';
+          sbGeo.vi_tri = g.city || '';
+        }
+      }).catch(function(){});
+  } catch(e){}
+  // ================================================================================
+
   var form = document.getElementById('regForm');
   var errBox = document.getElementById('formErr');
   var successBox = document.getElementById('successBox');
@@ -936,13 +975,19 @@
       return;
     }
 
+    // 11 trường gửi RIÊNG (mỗi trường 1 tham số) - thứ tự khớp danh sách map ở Make.
     var data = {
+      thoi_gian: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', hour12: false }),
       hoten: form.hoten.value.trim(),
       sdt: form.sdt.value.trim(),
       email: form.email.value.trim(),
-      lop: "Second Brain - Bo nao thu 2",
       nguon: location.href,
-      thoi_gian: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', hour12: false })
+      referrer: document.referrer || 'Trực tiếp / không rõ',
+      thiet_bi: sbDeviceType(),
+      he_dieu_hanh: sbOS(),
+      ip: sbGeo.ip,
+      vi_tri: sbGeo.vi_tri,
+      loai: sbVisitor
     };
 
     submitBtn.disabled = true;
@@ -979,7 +1024,7 @@
         fetch(WEBHOOK_URL, {
           method:'POST', mode:'no-cors', keepalive:true,
           headers:{'Content-Type':'application/x-www-form-urlencoded'},
-          body: 'value=' + encodeURIComponent(JSON.stringify(data))
+          body: new URLSearchParams(data).toString()
         });
       }
     } catch(e){}
