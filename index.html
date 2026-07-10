@@ -962,6 +962,21 @@
   var successBox = document.getElementById('successBox');
   var submitBtn = document.getElementById('submitBtn');
 
+  // Đo: khách bắt đầu điền form - TỰ BẮN sự kiện mo_form (form_start của Google tự đoán,
+  // hay sót khi trình duyệt điện thoại tự điền). Nghe cả focusin lẫn input để bắt được autofill.
+  var moFormFired = false;
+  function sbMoForm(){
+    if (moFormFired) return;
+    moFormFired = true;
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', 'mo_form', { event_category: 'lop_wiki_ai', event_label: 'bat_dau_dien_form' });
+      }
+    } catch(e){}
+  }
+  form.addEventListener('focusin', sbMoForm);
+  form.addEventListener('input', sbMoForm);
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     errBox.style.display = 'none';
