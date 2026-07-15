@@ -26,6 +26,27 @@
   fbq('set', 'autoConfig', false, '1324953789789972'); // tắt tự dò form/nút để pixel không can thiệp form
   fbq('init', '1324953789789972');
   fbq('track', 'PageView');
+
+  // ---- So khớp nâng cao thủ công ---- (giống index.html, xem giải thích đầy đủ ở đó)
+  // Nạp thông tin khách đã chuẩn hoá vào pixel; fbevents.js tự băm SHA-256 trước khi gửi.
+  var SB_PIXEL_ID = '1324953789789972';
+  function sbMatching(hoten, sdt, email){
+    var m = {};
+    var e = (email || '').trim().toLowerCase();
+    if (e) m.em = e;
+    var p = (sdt || '').replace(/\D/g, '');       // Meta cần SĐT dạng quốc tế, chỉ chữ số
+    if (p.indexOf('84') === 0) { /* đã đúng dạng */ }
+    else if (p.indexOf('0') === 0) { p = '84' + p.slice(1); }
+    else if (p) { p = '84' + p; }
+    if (p) m.ph = p;
+    var ten = (hoten || '').trim().replace(/\s+/g, ' ').toLowerCase();
+    if (ten) {
+      var phan = ten.split(' ');
+      m.fn = phan[phan.length - 1];               // tên gọi đứng cuối theo lối Việt
+      if (phan.length > 1) m.ln = phan[0];        // họ đứng đầu
+    }
+    return m;
+  }
 </script>
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1324953789789972&ev=PageView&noscript=1"/></noscript>
@@ -256,7 +277,7 @@
       <div class="panel">
         <span class="eyebrow">Bạn nhận được</span>
         <ul class="gets">
-          <li><b>Trọn bộ 12 bài học theo lộ trình 2 giai đoạn</b> — từ xây nền móng đến vận hành bộ não thứ 2 cùng AI.</li>
+          <li><b>Trọn bộ 27 bài học (5 chương)</b> — từ xây nền móng đến vận hành bộ não thứ 2 cùng AI.</li>
           <li><b>Dựng xong bộ não thứ 2 của riêng bạn</b> — nơi AI đọc, sắp xếp và tìm lại thông tin cho bạn.</li>
           <li><b>5 quà tặng kèm</b> khi đăng ký hôm nay.</li>
           <li><b>Buổi live hỗ trợ + nhóm Zalo + tài liệu hướng dẫn</b> để bạn làm lại và duy trì hệ thống lâu dài.</li>
@@ -354,10 +375,29 @@
   try { order = JSON.parse(sessionStorage.getItem('sb_order') || '{}'); } catch(e){}
   var phone = (order.sdt || '').replace(/\D/g, '');
 
+  // MÃ ĐƠN dùng chung cho mọi đường báo về Meta (nút bấm ở đây, Sepay khi tiền về, Sheet khi tick tay).
+  // Cùng mã -> Meta gộp thành 1 đơn thay vì đếm 3 lần. Lấy theo SĐT vì cả 3 đường đều biết SĐT:
+  // trang này lấy từ form, Sepay đọc từ nội dung chuyển khoản "SB <sdt>".
+  var SB_MA_DON = phone ? ('SB-' + phone) : '';
+
   if (order.hoten) {
     var ten = order.hoten.trim().split(/\s+/).pop();
     setText('hello', 'Cảm ơn ' + ten + ', còn một bước nữa là xong!');
   }
+
+  // ---- 2b) Đo: khách đã sang bước thanh toán (thấy mã QR) ----
+  // Khách tới đây là đã qua form, đang nhìn mã QR -> đây là sự kiện CÓ THẬT, bắn tự động được.
+  // KHÔNG bắn Purchase ở đây: nhìn QR chưa phải đã chuyển tiền, bắn sẽ thành số bịa.
+  // Nạp thông tin khách vào pixel luôn để lượt Purchase phía dưới cũng có dữ liệu so khớp.
+  try {
+    if (typeof fbq === 'function') {
+      fbq('init', SB_PIXEL_ID, sbMatching(order.hoten, order.sdt, order.email));
+      fbq('track', 'InitiateCheckout', { value: Number(PAY.amount), currency: 'VND', content_name: PRODUCT });
+    }
+    if (typeof gtag === 'function') {
+      gtag('event', 'bat_dau_thanh_toan', { event_category: 'checkout', event_label: 'thay_ma_qr' });
+    }
+  } catch(e){}
 
   // ---- 3) Tên sản phẩm + nội dung CK = SĐT khách ----
   setText('pName', PRODUCT); setText('pName2', PRODUCT);
@@ -446,9 +486,15 @@
     if (typeof gtag === 'function') {
       gtag('event', 'da_chuyen_khoan', { event_category: 'checkout', event_label: 'bam_da_thanh_toan' });
     }
-    // Facebook Pixel: khách bấm "Tôi đã chuyển khoản" = Purchase
+    // Facebook Pixel: khách bấm "Tôi đã chuyển khoản" = Purchase (đơn TẠM - khách tự khai).
+    // Thông tin so khớp đã nạp vào pixel lúc vào trang (mục 2b) nên lượt này được quy gán.
+    // Giá đọc từ khối cấu hình PAY để đổi giá là số báo về Meta đổi theo.
+    // eventID = mã đơn: khi Sepay báo tiền về thật cũng gửi Meta cùng mã này -> Meta gộp làm 1,
+    // không đếm 2 lần. Khách chưa đăng ký qua form (không có SĐT) thì bỏ mã, Meta tính riêng.
     if (typeof fbq === 'function') {
-      fbq('track', 'Purchase', { value: 868000, currency: 'VND', content_name: 'Second Brain - Bo nao thu 2' });
+      fbq('track', 'Purchase',
+        { value: Number(PAY.amount), currency: 'VND', content_name: PRODUCT },
+        SB_MA_DON ? { eventID: SB_MA_DON } : undefined);
     }
   });
 </script>
