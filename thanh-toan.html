@@ -81,10 +81,16 @@
 
   /* ===== TOP BAR / DECISION CONFIRMATION ===== */
   .topbar{background:linear-gradient(135deg,#312e81 0%,#4f46e5 60%,#6d28d9 100%);color:#fff;text-align:center;padding:22px 18px}
-  .steps{display:flex;gap:8px;justify-content:center;align-items:center;font-size:13px;font-weight:600;color:#c7d2fe;margin-bottom:12px;flex-wrap:wrap}
-  .steps b{color:#fff}
-  .steps .done{color:#a7f3d0}
-  .steps .sep{opacity:.5}
+  /* Thanh tiến trình 3 bước: Đăng ký | Thanh toán | Vào lớp */
+  .progress{display:flex;align-items:flex-start;justify-content:center;max-width:340px;margin:0 auto 14px}
+  .pstep{display:flex;flex-direction:column;align-items:center;gap:6px;flex:none;width:74px}
+  .pstep .dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:rgba(255,255,255,.18);color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+  .pstep .lbl{font-size:12px;font-weight:600;color:#c7d2fe;text-align:center;line-height:1.2}
+  .pstep.done .dot{background:#a7f3d0;color:#065f46;border-color:#a7f3d0}
+  .pstep.active .dot{background:#fff;color:var(--primary-d);border-color:#fff}
+  .pstep.done .lbl,.pstep.active .lbl{color:#fff}
+  .pline{flex:1 1 auto;height:2.5px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:13px}
+  .pline.done{background:#a7f3d0}
   .topbar h1{font-size:clamp(22px,4.2vw,32px);color:#fff;margin:0 auto 6px;max-width:680px}
   .topbar p{color:#e0e7ff;max-width:580px;margin:0 auto;font-size:clamp(15px,2.2vw,17px)}
 
@@ -94,7 +100,7 @@
   .col-info{flex:1 1 460px;min-width:0}
 
   .panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin-bottom:18px}
-  .panel-pay{border:2px solid var(--primary);box-shadow:var(--shadow-lg)}
+  .panel-pay{border:2px solid var(--primary);box-shadow:var(--shadow-lg);padding:15px}
 
   .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);background:#eef2ff;padding:5px 11px;border-radius:999px;margin-bottom:12px}
 
@@ -102,14 +108,18 @@
   .qr-wrap{text-align:center}
   .qr-img{width:min(280px,82%);height:auto;border:1px solid var(--line);border-radius:14px;padding:10px;background:#fff;margin:6px auto 4px;display:block}
   .qr-hint{font-size:13.5px;color:var(--muted);margin-bottom:16px}
-  .bank{display:grid;gap:9px;text-align:left;margin-top:6px}
-  .bank-row{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--soft);border:1px solid var(--line);border-radius:11px;padding:11px 13px}
-  .bank-row .k{font-size:13px;color:var(--muted);font-weight:600}
-  .bank-row .v{font-size:16px;font-weight:800;color:var(--ink);text-align:right;word-break:break-word}
-  .bank-row.amount .v{color:var(--accent-d);font-size:19px}
-  .bank-row.note{background:#fffbeb;border-color:#fcd34d}
+  /* Toàn bộ thông tin chuyển khoản gói trong MỘT khung chung, các hàng ngăn bằng đường kẻ mảnh. */
+  .bank{text-align:left;margin-top:8px;border:1px solid var(--line);border-radius:12px;background:var(--soft);overflow:hidden}
+  .bank-row{display:flex;flex-wrap:nowrap;justify-content:space-between;align-items:center;gap:6px;padding:11px 12px;border-bottom:1px solid var(--line)}
+  .bank-row:last-child{border-bottom:none}
+  .bank-row .k{flex:none;font-size:11.5px;color:var(--muted);font-weight:600}
+  /* Mọi giá trị CÙNG một cỡ, không bẻ dòng (kể cả tên công ty gói trong 1 dòng). */
+  .bank-row .v{font-size:12.5px;font-weight:800;color:var(--ink);flex:1 1 auto;min-width:0;text-align:right;white-space:nowrap;letter-spacing:0}
+  .bank-row.amount .v{color:var(--accent-d)}
+  .bank-row.note{background:#fffbeb}
   .bank-row.note .v{color:#92400e}
-  .copy{flex:none;border:none;background:#eef2ff;color:var(--primary-d);font-family:inherit;font-weight:700;font-size:12.5px;padding:7px 11px;border-radius:9px;cursor:pointer;transition:background .15s}
+  .copy{flex:none;border:none;background:#eef2ff;color:var(--primary-d);width:30px;height:30px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .15s}
+  .copy svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
   .copy:hover{background:#e0e7ff}
   .copy.ok{background:#dcfce7;color:#15803d}
 
@@ -118,8 +128,8 @@
   .btn-paid:hover{transform:translateY(-2px)}
   .btn-zalo{background:#fff;color:var(--primary-d);border:1.6px solid var(--primary);margin-top:10px}
 
-  .trust-mini{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
-  .trust-mini span{font-size:12.5px;color:var(--muted);font-weight:600;display:inline-flex;align-items:center;gap:5px}
+  .after-pay{font-size:12.5px;color:var(--muted);font-weight:600;text-align:center;margin-top:14px;white-space:nowrap}
+  .after-pay b{color:var(--ink)}
 
   /* paid confirmation */
   .paid-box{display:none;text-align:center;background:#f0fdf4;border:1.5px solid #86efac;border-radius:14px;padding:20px;margin-top:6px}
@@ -148,18 +158,6 @@
   .guarantee h3{font-size:16px;margin-bottom:4px}
   .guarantee p{font-size:14px}
 
-  /* urgency */
-  .urgency{display:flex;gap:12px;align-items:center;background:#fffbeb;border:1.5px solid #fcd34d;border-radius:14px;padding:16px 18px;margin-top:4px}
-  .urgency .ic{font-size:24px;flex:none}
-  .urgency p{color:#451a03;font-size:14.5px}
-  .urgency b{color:#231300}
-
-  /* objections */
-  .obj{display:grid;gap:10px}
-  .obj-item{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:13px 15px;text-align:left}
-  .obj-item .q{font-weight:700;font-size:14.5px;color:var(--ink);margin-bottom:3px}
-  .obj-item .a{font-size:14px;color:var(--muted)}
-
   /* FAQ */
   details{background:#fff;border:1px solid var(--line);border-radius:12px;margin:0 auto 10px;overflow:hidden;text-align:left}
   details summary{cursor:pointer;font-weight:700;padding:15px 18px;list-style:none;display:flex;justify-content:space-between;gap:12px;font-size:15px}
@@ -186,15 +184,15 @@
 <!-- ===== THANH XÁC NHẬN QUYẾT ĐỊNH ===== -->
 <header class="topbar">
   <div class="wrap">
-    <div class="steps">
-      <span class="done">✓ Đã đăng ký</span>
-      <span class="sep">→</span>
-      <b>Thanh toán giữ chỗ</b>
-      <span class="sep">→</span>
-      <span>Vào lớp</span>
+    <div class="progress">
+      <div class="pstep done"><span class="dot">✓</span><span class="lbl">Đăng ký</span></div>
+      <div class="pline done"></div>
+      <div class="pstep active"><span class="dot">2</span><span class="lbl">Thanh toán</span></div>
+      <div class="pline"></div>
+      <div class="pstep"><span class="dot">3</span><span class="lbl">Vào lớp</span></div>
     </div>
     <h1 id="hello">Còn một bước nữa là xong!</h1>
-    <p>Quét mã QR bên dưới để hoàn tất giữ chỗ <b id="pName2">khóa Second Brain</b>. Chuyển khoản xong, chỗ của bạn được xác nhận và mình sẽ liên hệ qua Zalo để xếp lịch học.</p>
+    <p>Quét mã QR để thanh toán. Xong xuôi, mình liên hệ Zalo để kích hoạt khóa học cho bạn.</p>
   </div>
 </header>
 
@@ -205,39 +203,38 @@
     <aside class="col-pay">
       <div class="panel panel-pay">
         <div class="qr-wrap">
-          <span class="eyebrow">Quét để thanh toán</span>
           <h2 style="margin-bottom:4px">Chuyển khoản bằng mã QR</h2>
-          <p class="qr-hint">Mở app ngân hàng → bấm <b>Quét QR</b> → kiểm tra đúng tên <b>CONG TY TNHH WINNET PRO</b> (công ty của Lê Thanh Sơn) rồi xác nhận.</p>
+          <p class="qr-hint">Kiểm tra đúng tên <b>CONG TY TNHH WINNET PRO</b> rồi xác nhận.</p>
 
-          <img id="qrImg" class="qr-img" src="qr-mbbank.jpg" alt="Mã QR chuyển khoản MB Bank - Công ty TNHH Winnet Pro" />
+          <img id="qrImg" class="qr-img" src="qr-mbbank.jpg" alt="Mã QR chuyển khoản MB Bank, Công ty TNHH Winnet Pro" />
 
           <div class="bank">
             <div class="bank-row">
               <span class="k">Ngân hàng</span>
               <span class="v" id="vBank">MB Bank</span>
             </div>
-            <div class="bank-row">
+            <div class="bank-row num">
               <span class="k">Số tài khoản</span>
               <span class="v" id="vAcc">7750538888</span>
-              <button class="copy" data-copy="vAcc">Sao chép</button>
+              <button class="copy" data-copy="vAcc" aria-label="Sao chép số tài khoản"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
             </div>
             <div class="bank-row">
               <span class="k">Chủ tài khoản</span>
               <span class="v" id="vHolder">CONG TY TNHH WINNET PRO</span>
             </div>
-            <div class="bank-row amount">
+            <div class="bank-row num amount">
               <span class="k">Số tiền</span>
               <span class="v" id="vAmount">[GIÁ] đ</span>
-              <button class="copy" data-copy="vAmountRaw">Sao chép</button>
+              <button class="copy" data-copy="vAmountRaw" aria-label="Sao chép số tiền"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
             </div>
-            <div class="bank-row note">
+            <div class="bank-row num note">
               <span class="k">Nội dung CK</span>
               <span class="v" id="vNote">[NỘI DUNG CK]</span>
-              <button class="copy" data-copy="vNote">Sao chép</button>
+              <button class="copy" data-copy="vNote" aria-label="Sao chép nội dung chuyển khoản"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
             </div>
           </div>
 
-          <p class="qr-hint" style="margin-top:14px">⚠️ Vui lòng giữ <b>đúng nội dung chuyển khoản</b> để chỗ của bạn được xác nhận nhanh.</p>
+          <p class="qr-hint" style="margin-top:14px">Vui lòng ghi <b>đúng nội dung chuyển khoản</b></p>
 
           <button class="btn btn-paid" id="paidBtn">Tôi đã chuyển khoản ✓</button>
 
@@ -247,11 +244,7 @@
             <a id="zaloBtn" href="https://zalo.me/0343928094" target="_blank" rel="noopener" class="btn btn-zalo">Nhắn Zalo gửi ảnh chuyển khoản</a>
           </div>
 
-          <div class="trust-mini">
-            <span>🔒 Chuyển khoản trực tiếp, an toàn</span>
-            <span>✓ Không phí ẩn</span>
-            <span>✓ Xác nhận nhanh</span>
-          </div>
+          <p class="after-pay">Ấn <b>“Tôi đã chuyển khoản”</b> để vào nhóm học Zalo</p>
         </div>
       </div>
     </aside>
@@ -263,7 +256,7 @@
       <div class="panel">
         <span class="eyebrow">Đơn hàng của bạn</span>
         <div class="order-line">
-          <span class="name" id="pName">Khóa Second Brain – Xây dựng Bộ Não Thứ 2</span>
+          <span class="name" id="pName">Khóa Second Brain: Xây dựng Bộ Não Thứ 2</span>
           <span class="price" id="pOldWrap"><span class="strike" id="pOld"></span></span>
         </div>
         <div class="total">
@@ -277,39 +270,18 @@
       <div class="panel">
         <span class="eyebrow">Bạn nhận được</span>
         <ul class="gets">
-          <li><b>Trọn bộ 27 bài học (5 chương)</b> — từ xây nền móng đến vận hành bộ não thứ 2 cùng AI.</li>
-          <li><b>Dựng xong bộ não thứ 2 của riêng bạn</b> — nơi AI đọc, sắp xếp và tìm lại thông tin cho bạn.</li>
-          <li><b>5 quà tặng kèm</b> khi đăng ký hôm nay.</li>
-          <li><b>Buổi live hỗ trợ + nhóm Zalo + tài liệu hướng dẫn</b> để bạn làm lại và duy trì hệ thống lâu dài.</li>
+          <li><b>Trọn bộ 27 bài học (5 chương)</b></li>
+          <li><b>Dựng xong bộ não thứ 2 của riêng bạn</b></li>
+          <li><b>5 quà tặng kèm</b></li>
+          <li><b>Buổi live hỗ trợ + nhóm Zalo + tài liệu hướng dẫn</b></li>
         </ul>
-      </div>
 
-      <!-- Khan hiếm thật (10 suất/đợt) -->
-      <div class="panel">
-        <div class="urgency">
-          <span class="ic">⏳</span>
-          <p><b>Ưu đãi 71% — chỉ 868.000đ thay vì 2.990.000đ — áp dụng hôm nay.</b> Hoàn tất chuyển khoản để chốt mức giá ưu đãi và nhận đủ 5 quà tặng.</p>
-        </div>
-      </div>
-
-      <!-- Yên tâm (trung thực, không hứa hoàn tiền) -->
-      <div class="panel">
-        <div class="guarantee">
+        <div class="guarantee" style="margin-top:16px">
           <span class="ic">🛡️</span>
           <div>
             <h3>Học cầm tay, có hỗ trợ</h3>
-            <p>Buổi học hướng dẫn từng bước, làm tới đâu chắc tới đó. Sau buổi vẫn có nhóm Zalo để bạn hỏi khi vướng. Chuyển khoản trực tiếp vào tài khoản công ty <b>CONG TY TNHH WINNET PRO</b> - công ty của Lê Thanh Sơn, không qua trung gian.</p>
+            <p>Buổi học cầm tay từng bước, xong vẫn có nhóm Zalo hỗ trợ khi bạn vướng.</p>
           </div>
-        </div>
-      </div>
-
-      <!-- Xử lý phân vân -->
-      <div class="panel">
-        <h3 class="sect-h">Còn băn khoăn gì không?</h3>
-        <div class="obj">
-          <div class="obj-item"><div class="q">"Chuyển khoản rồi mà chưa thấy xác nhận?"</div><div class="a">Bạn cứ giữ ảnh chuyển khoản; mình đối soát và liên hệ Zalo xác nhận. Cần gấp thì nhắn Zalo 0343928094.</div></div>
-          <div class="obj-item"><div class="q">"Mình mới bắt đầu, có theo kịp không?"</div><div class="a">Có. Buổi học cầm tay từng bước, không cần biết lập trình, làm tới đâu chắc tới đó.</div></div>
-          <div class="obj-item"><div class="q">"Học online hay phải tới lớp?"</div><div class="a">Học online qua Zoom, ngồi ở đâu cũng tham gia được, chỉ cần máy tính có mạng.</div></div>
         </div>
       </div>
 
@@ -317,8 +289,8 @@
       <div class="panel">
         <h3 class="sect-h">Người học nói gì</h3>
         <div class="tst">
-          <div class="tst-item"><div class="stars">★★★★★</div><p>"[CẢM NHẬN THẬT 1]"</p><div class="who">— [TÊN], [NGHỀ]</div></div>
-          <div class="tst-item"><div class="stars">★★★★★</div><p>"[CẢM NHẬN THẬT 2]"</p><div class="who">— [TÊN], [NGHỀ]</div></div>
+          <div class="tst-item"><div class="stars">★★★★★</div><p>"[CẢM NHẬN THẬT 1]"</p><div class="who">[TÊN], [NGHỀ]</div></div>
+          <div class="tst-item"><div class="stars">★★★★★</div><p>"[CẢM NHẬN THẬT 2]"</p><div class="who">[TÊN], [NGHỀ]</div></div>
         </div>
       </div>
       -->
@@ -328,20 +300,17 @@
 
   <!-- FAQ thanh toán -->
   <section style="padding:14px 0 6px">
-    <h2 class="center" style="margin-bottom:18px">Hỏi nhanh trước khi thanh toán</h2>
+    <h2 class="center" style="margin-bottom:18px">Giải đáp thắc mắc</h2>
     <div style="max-width:720px;margin:0 auto">
-      <details><summary>Thanh toán bằng QR thế nào?</summary><div class="ans">Mở app ngân hàng trên điện thoại → bấm "Quét QR" → đưa camera vào mã ở trên → kiểm tra đúng tên CONG TY TNHH WINNET PRO (công ty của Lê Thanh Sơn) rồi xác nhận.</div></details>
-      <details><summary>Chuyển khoản xong bao lâu thì được xác nhận?</summary><div class="ans">Mình đối soát và liên hệ Zalo xác nhận, thường trong vài giờ làm việc. Sau khi chuyển, bấm nút "Tôi đã chuyển khoản" và giữ lại ảnh giao dịch.</div></details>
+      <details><summary>Chuyển khoản xong bao lâu thì được xác nhận?</summary><div class="ans">Bạn cứ giữ lại ảnh chuyển khoản. Mình đối soát và liên hệ Zalo xác nhận, thường trong vài giờ làm việc. Cần gấp thì nhắn Zalo 0343928094.</div></details>
       <details><summary>Quét QR không được thì làm sao?</summary><div class="ans">Bạn chuyển khoản tay theo đúng <b>Số tài khoản</b>, <b>Số tiền</b> và <b>Nội dung CK</b> ghi ở trên (bấm "Sao chép" cho nhanh).</div></details>
       <details><summary>Sau khi thanh toán mình bắt đầu ở đâu?</summary><div class="ans">Mình liên hệ qua Zalo/điện thoại bạn đã đăng ký để gửi lịch học và tài liệu. Bạn không phải nhập lại thông tin.</div></details>
-      <details><summary>Thanh toán có an toàn không?</summary><div class="ans">Có. Đây là chuyển khoản trực tiếp vào tài khoản MB Bank chính chủ của CONG TY TNHH WINNET PRO - công ty của Lê Thanh Sơn, không qua trung gian, không phí ẩn.</div></details>
-      <details><summary>Học trên điện thoại được không?</summary><div class="ans">Buổi học thực hành nên bạn cần máy tính (Windows hoặc macOS) có mạng. Điện thoại dùng để vào nhóm Zalo và nhận thông báo.</div></details>
     </div>
   </section>
 </div>
 
 <footer>
-  <p><b>Second Brain – Xây dựng Bộ Não Thứ 2</b> · Lê Thanh Sơn</p>
+  <p><b>Second Brain: Xây dựng Bộ Não Thứ 2</b> · Lê Thanh Sơn</p>
   <p style="margin-top:5px">Cần hỗ trợ thanh toán? Nhắn Zalo 0343928094.</p>
 </footer>
 
@@ -356,7 +325,7 @@
     holder  : "CONG TY TNHH WINNET PRO",
     amount  : "868000"             // giá ưu đãi (chỉ số)
   };
-  var PRODUCT       = "Khóa Second Brain – Xây dựng Bộ Não Thứ 2";
+  var PRODUCT       = "Khóa Second Brain: Xây dựng Bộ Não Thứ 2";
   var PRICE_OLD     = "2990000";   // giá gốc (gạch ngang)
   var XAC_NHAN_TIME = "trong vài giờ làm việc";
   var ZALO_HOTRO    = "0343928094";
@@ -418,7 +387,7 @@
     if (amountNum && Number(oldNum) > Number(amountNum)) {
       var diff = Number(oldNum) - Number(amountNum);
       var pct = Math.round(diff / Number(oldNum) * 100);
-      setText('saveTxt', 'Tiết kiệm ' + vnd(diff) + 'đ (~' + pct + '%) · Chỉ hôm nay');
+      setText('saveTxt', 'Tiết kiệm ' + vnd(diff) + 'đ (~' + pct + '%)');
       var sw = document.getElementById('saveWrap'); if (sw) sw.style.display = 'block';
     }
   }
@@ -441,11 +410,12 @@
 
   // ---- 5) Nút sao chép (có cách dự phòng cho trình duyệt trong app Zalo/Facebook
   //         hay chặn clipboard hiện đại -> dùng execCommand cũ để vẫn sao chép được) ----
+  var CHECK_SVG = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>';
   function flashCopied(btn){
-    if (btn.classList.contains('ok')) return;          // đang hiện "Đã chép" thì bỏ qua
-    var old = btn.textContent;
-    btn.textContent = 'Đã chép ✓'; btn.classList.add('ok');
-    setTimeout(function(){ btn.textContent = old; btn.classList.remove('ok'); }, 1500);
+    if (btn.classList.contains('ok')) return;          // đang hiện dấu tích thì bỏ qua
+    var old = btn.innerHTML;
+    btn.innerHTML = CHECK_SVG; btn.classList.add('ok');
+    setTimeout(function(){ btn.innerHTML = old; btn.classList.remove('ok'); }, 1500);
   }
   function legacyCopy(txt){
     try {
